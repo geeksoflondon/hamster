@@ -1,0 +1,12 @@
+language: ruby
+
+branches:
+  only:
+    - master
+
+rvm:
+  - 1.9.3
+
+notifications:
+  email:
+    - crew@geeksoflondon.com
