@@ -9,6 +9,11 @@ before_script:
 env:
   - DB=postgres
 
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+    
 notifications:
   email:
     - crew@geeksoflondon.com
