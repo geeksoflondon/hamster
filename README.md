@@ -6,7 +6,7 @@ Hamstering attendee data for Geeks of London events.
 
 ## Changelog
 
-* 0.0.2 - Added Travis CI
+* 0.0.2 - Added Travis CI setup
 * 0.0.1 - Basic Rails setup
 
 ## License
