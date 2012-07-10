@@ -8,16 +8,15 @@ class CreateAttendees < ActiveRecord::Migration
       t.string :twitter
       t.integer :tshirt
       t.text :diet
-      t.integer :type
+      t.integer :kind
       t.boolean :public
-      t.string :barcode
       t.text :notes
 
       t.timestamps
     end
 
     add_index :attendees, :name
-    add_index :attendees, :barcode
+    add_index :attendees, :kind
 
     create_table :emails do |t|
       t.string :address

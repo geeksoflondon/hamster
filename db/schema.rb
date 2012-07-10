@@ -21,15 +21,14 @@ ActiveRecord::Schema.define(:version => 20120710174559) do
     t.string   "twitter"
     t.integer  "tshirt"
     t.text     "diet"
-    t.integer  "type"
+    t.integer  "kind"
     t.boolean  "public"
-    t.string   "barcode"
     t.text     "notes"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "attendees", ["barcode"], :name => "index_attendees_on_barcode"
+  add_index "attendees", ["kind"], :name => "index_attendees_on_kind"
   add_index "attendees", ["name"], :name => "index_attendees_on_name"
 
   create_table "emails", :force => true do |t|
