@@ -6,6 +6,9 @@ rvm:
 before_script:
   - psql -c 'create database hamster_test;' -U postgres
 
+env:
+  - DB=postgres
+
 notifications:
   email:
     - crew@geeksoflondon.com
