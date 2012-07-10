@@ -1,0 +1,4 @@
+postgres:
+  adapter: postgresql
+  database: hamster_test
+  username: postgres
