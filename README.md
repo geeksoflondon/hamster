@@ -1,0 +1,4 @@
+hamster
+=======
+
+Hamstering attendee data
