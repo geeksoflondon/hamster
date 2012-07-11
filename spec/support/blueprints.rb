@@ -4,8 +4,7 @@ def prepare_object_factory
   Object.factory.when_creating_a Attendee,
     clean_up: true,
     set: {
-      first_name: "John",
-      public: true
+      first_name: "John"
     },
     generate: {
       last_name: -> { 4.random_letters }

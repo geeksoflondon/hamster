@@ -9,7 +9,7 @@ class CreateAttendees < ActiveRecord::Migration
       t.integer :tshirt
       t.text :diet
       t.integer :kind
-      t.boolean :public
+      t.boolean :public, default: true
       t.text :notes
 
       t.timestamps

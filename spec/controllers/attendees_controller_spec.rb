@@ -1,147 +1,178 @@
 require 'spec_helper'
 
 describe AttendeesController do
-  pending "Add spec"
 
-  # # This should return the minimal set of attributes required to create a valid
-  #  # Attendee. As you add validations to Attendee, be sure to
-  #  # update the return value of this method accordingly.
-  #  def valid_attributes
-  #    {}
-  #  end
-  #
-  #  # This should return the minimal set of values that should be in the session
-  #  # in order to pass any filters (e.g. authentication) defined in
-  #  # AttendeesController. Be sure to keep this updated too.
-  #  def valid_session
-  #    {}
-  #  end
-  #
-  #  describe "GET index" do
-  #    it "assigns all attendees as @attendees" do
-  #      attendee = Attendee.create! valid_attributes
-  #      get :index, {}, valid_session
-  #      assigns(:attendees).should eq([attendee])
-  #    end
-  #  end
-  #
-  #  describe "GET show" do
-  #    it "assigns the requested attendee as @attendee" do
-  #      attendee = Attendee.create! valid_attributes
-  #      get :show, {:id => attendee.to_param}, valid_session
-  #      assigns(:attendee).should eq(attendee)
-  #    end
-  #  end
-  #
-  #  describe "GET new" do
-  #    it "assigns a new attendee as @attendee" do
-  #      get :new, {}, valid_session
-  #      assigns(:attendee).should be_a_new(Attendee)
-  #    end
-  #  end
-  #
-  #  describe "GET edit" do
-  #    it "assigns the requested attendee as @attendee" do
-  #      attendee = Attendee.create! valid_attributes
-  #      get :edit, {:id => attendee.to_param}, valid_session
-  #      assigns(:attendee).should eq(attendee)
-  #    end
-  #  end
-  #
-  #  describe "POST create" do
-  #    describe "with valid params" do
-  #      it "creates a new Attendee" do
-  #        expect {
-  #          post :create, {:attendee => valid_attributes}, valid_session
-  #        }.to change(Attendee, :count).by(1)
-  #      end
-  #
-  #      it "assigns a newly created attendee as @attendee" do
-  #        post :create, {:attendee => valid_attributes}, valid_session
-  #        assigns(:attendee).should be_a(Attendee)
-  #        assigns(:attendee).should be_persisted
-  #      end
-  #
-  #      it "redirects to the created attendee" do
-  #        post :create, {:attendee => valid_attributes}, valid_session
-  #        response.should redirect_to(Attendee.last)
-  #      end
-  #    end
-  #
-  #    describe "with invalid params" do
-  #      it "assigns a newly created but unsaved attendee as @attendee" do
-  #        # Trigger the behavior that occurs when invalid params are submitted
-  #        Attendee.any_instance.stub(:save).and_return(false)
-  #        post :create, {:attendee => {}}, valid_session
-  #        assigns(:attendee).should be_a_new(Attendee)
-  #      end
-  #
-  #      it "re-renders the 'new' template" do
-  #        # Trigger the behavior that occurs when invalid params are submitted
-  #        Attendee.any_instance.stub(:save).and_return(false)
-  #        post :create, {:attendee => {}}, valid_session
-  #        response.should render_template("new")
-  #      end
-  #    end
-  #  end
-  #
-  #  describe "PUT update" do
-  #    describe "with valid params" do
-  #      it "updates the requested attendee" do
-  #        attendee = Attendee.create! valid_attributes
-  #        # Assuming there are no other attendees in the database, this
-  #        # specifies that the Attendee created on the previous line
-  #        # receives the :update_attributes message with whatever params are
-  #        # submitted in the request.
-  #        Attendee.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-  #        put :update, {:id => attendee.to_param, :attendee => {'these' => 'params'}}, valid_session
-  #      end
-  #
-  #      it "assigns the requested attendee as @attendee" do
-  #        attendee = Attendee.create! valid_attributes
-  #        put :update, {:id => attendee.to_param, :attendee => valid_attributes}, valid_session
-  #        assigns(:attendee).should eq(attendee)
-  #      end
-  #
-  #      it "redirects to the attendee" do
-  #        attendee = Attendee.create! valid_attributes
-  #        put :update, {:id => attendee.to_param, :attendee => valid_attributes}, valid_session
-  #        response.should redirect_to(attendee)
-  #      end
-  #    end
-  #
-  #    describe "with invalid params" do
-  #      it "assigns the attendee as @attendee" do
-  #        attendee = Attendee.create! valid_attributes
-  #        # Trigger the behavior that occurs when invalid params are submitted
-  #        Attendee.any_instance.stub(:save).and_return(false)
-  #        put :update, {:id => attendee.to_param, :attendee => {}}, valid_session
-  #        assigns(:attendee).should eq(attendee)
-  #      end
-  #
-  #      it "re-renders the 'edit' template" do
-  #        attendee = Attendee.create! valid_attributes
-  #        # Trigger the behavior that occurs when invalid params are submitted
-  #        Attendee.any_instance.stub(:save).and_return(false)
-  #        put :update, {:id => attendee.to_param, :attendee => {}}, valid_session
-  #        response.should render_template("edit")
-  #      end
-  #    end
-  #  end
-  #
-  #  describe "DELETE destroy" do
-  #    it "destroys the requested attendee" do
-  #      attendee = Attendee.create! valid_attributes
-  #      expect {
-  #        delete :destroy, {:id => attendee.to_param}, valid_session
-  #      }.to change(Attendee, :count).by(-1)
-  #    end
-  #
-  #    it "redirects to the attendees list" do
-  #      attendee = Attendee.create! valid_attributes
-  #      delete :destroy, {:id => attendee.to_param}, valid_session
-  #      response.should redirect_to(attendees_url)
-  #    end
-  #  end
+  describe "GET index" do
+    it { should_authenticate :get, :index, 200 }
 
+    context "when logged in" do
+      before :each do
+        @attendees = Array.new(3) { a_saved Attendee }
+      end
+
+      it "should return all attendees" do
+        authenticate
+        get :index
+        result = JSON.parse(response.body)
+        result.should have(3).attendees
+        result.each do |attendee|
+          attendee.should be_a(Hash)
+        end
+      end
+
+      it "should take a limit" do
+        authenticate
+        get :index, limit: 1
+        result = JSON.parse(response.body)
+        result.should have(1).attendee
+      end
+
+      it "should take a offset" do
+        authenticate
+        get :index, offset: 1
+        result = JSON.parse(response.body)
+        result.should have(2).attendees
+      end
+
+      it "should use other params as filters" do
+        authenticate
+        get :index, last_name: @attendees.first.last_name
+        result = JSON.parse(response.body)
+        result.should have(1).attendee
+        result.first["last_name"].should be == @attendees.first.last_name
+      end
+    end
+  end
+
+  describe "GET show" do
+    before :each do
+      @attendee = a_saved Attendee
+    end
+
+    it { should_authenticate :get, :show, 200, id: @attendee.id }
+
+    context "when logged in" do
+      it "should return the attendee" do
+        authenticate
+        get :show, id: @attendee.id
+        result = JSON.parse(response.body)
+        result["id"].should be == @attendee.id
+      end
+    end
+  end
+
+  describe "POST create" do
+    it { should_authenticate :post, :create, 422 }
+
+    describe "with valid params" do
+      before :each do
+        @valid_attributes = { first_name: "John" }
+      end
+
+      it "creates a new Attendee" do
+        expect {
+          authenticate
+          post :create, attendee: @valid_attributes
+        }.to change(Attendee, :count).by(1)
+      end
+
+      it "should render the newly created attendee" do
+        authenticate
+        post :create, attendee: @valid_attributes
+        result = JSON.parse(response.body)
+        result["id"].should be == Attendee.last.id
+      end
+    end
+
+    describe "with invalid params" do
+      it "should return the errors" do
+        authenticate
+        post :create, attendee: {}
+        result = JSON.parse(response.body)
+        result.should be_a(Hash)
+      end
+
+      it "should return a error status" do
+        authenticate
+        post :create, attendee: {}
+        response.status.should be(422)
+      end
+    end
+  end
+
+  describe "PUT update" do
+    before :each do
+      @attendee = a_saved Attendee
+    end
+
+    it { should_authenticate :put, :update, 204, id: @attendee.id }
+
+    describe "with valid params" do
+      before :each do
+        @params = {first_name: "Moby"}
+      end
+
+      it "updates the requested attendee" do
+        authenticate
+        put :update, id: @attendee.id, attendee: @params
+        @attendee.reload.first_name.should be == "Moby"
+      end
+
+      it "should render nothing" do
+        authenticate
+        put :update, id: @attendee.id, attendee: @params
+        response.body.should be_blank
+      end
+    end
+
+    describe "with invalid params" do
+      before :each do
+        @params = {first_name: nil, last_name: nil}
+      end
+
+      it "should return the errors" do
+        authenticate
+        put :update, id: @attendee.id, attendee: @params
+        result = JSON.parse(response.body)
+        result.should be_a(Hash)
+      end
+
+      it "should return a error status" do
+        authenticate
+        post :update, id: @attendee.id, attendee: @params
+        response.status.should be(422)
+      end
+    end
+  end
+
+
+  describe "DELETE destroy" do
+    before :each do
+      @attendee = a_saved Attendee
+    end
+
+    it { should_authenticate :delete, :destroy, 204, id: @attendee.id }
+
+    it "destroys the requested attendee" do
+      expect {
+        authenticate
+        delete :destroy, id: @attendee.id
+      }.to change(Attendee, :count).by(-1)
+    end
+  end
+
+  protected
+
+  def should_authenticate verb, action, success_code, params = {}
+    self.send(verb, action, params)
+    response.status.should be(401)
+
+    authenticate
+    self.send(verb, action, params)
+    response.status.should be(success_code)
+  end
+
+  def authenticate
+    request.env["HTTP_AUTHORIZATION"] = ActionController::HttpAuthentication::Basic.encode_credentials(Hamster::Config.get(:user), Hamster::Config.get(:password))
+  end
 end
