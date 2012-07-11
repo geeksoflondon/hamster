@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+  http_basic_authenticate_with :name => Hamster::Config.get(:user), :password => Hamster::Config.get(:password)
 
   def index
     limit = params[:limit]
@@ -12,33 +13,33 @@ class ApiController < ApplicationController
   end
 
   def show
-    @klass = klass.find(params[:id])
-    render json: @klass
+    result = klass.find(params[:id])
+    render json: result
   end
 
   def create
-    @klass = klass.new(params[:klass])
+    result = klass.new(params[param_name])
 
-    if @klass.save
-      render json: @klass, status: :created, location: @klass
+    if result.save
+      render json: result, status: :created
     else
-      render json: @klass.errors, status: :unprocessable_entity
+      render json: result.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    @klass = klass.find(params[:id])
+    result = klass.find(params[:id])
 
-    if @klass.update_attributes(params[:klass])
+    if result.update_attributes(params[param_name])
       head :no_content
     else
-      render json: @klass.errors, status: :unprocessable_entity
+      render json: result.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @klass = klass.find(params[:id])
-    @klass.destroy
+    result = klass.find(params[:id])
+    result.destroy
 
     head :no_content
   end
@@ -51,6 +52,10 @@ class ApiController < ApplicationController
 
   def klass
     self.class.name.gsub("Controller", "").singularize.constantize
+  end
+
+  def param_name
+    self.class.name.gsub("Controller", "").singularize.downcase
   end
 
 end

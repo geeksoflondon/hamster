@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120710174559) do
     t.integer  "tshirt"
     t.text     "diet"
     t.integer  "kind"
-    t.boolean  "public"
+    t.boolean  "public",       :default => true
     t.text     "notes"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "attendees", ["kind"], :name => "index_attendees_on_kind"
