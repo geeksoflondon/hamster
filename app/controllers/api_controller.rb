@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   http_basic_authenticate_with :name => Hamster::Config.get(:user), :password => Hamster::Config.get(:password)
+  skip_before_filter :verify_authenticity_token
 
   def index
     limit = params[:limit]
