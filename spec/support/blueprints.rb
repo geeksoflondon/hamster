@@ -16,6 +16,13 @@ def prepare_object_factory
       address: -> { "john@#{5.random.letters}.com" },
       attendee: -> { a_saved Attendee }
     }
+
+  Object.factory.when_creating_a Ticket,
+    clean_up: true,
+    generate: {
+      event_id: -> { 1.random_number },
+      attendee: -> { a_saved Attendee }
+    }
 end
 
 RSpec.configure do |config|

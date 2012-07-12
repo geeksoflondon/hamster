@@ -2,6 +2,7 @@ class Attendee < ActiveRecord::Base
   attr_accessible :diet, :first_name, :last_name, :phone_number, :public, :tshirt, :twitter
 
   has_many :emails
+  has_many :tickets
 
   validates :name, presence: true, allow_blank: false
   validates :tshirt, allow_nil: true, inclusion: { in: Attendee::Tshirt::SIZES }
