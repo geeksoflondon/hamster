@@ -34,19 +34,14 @@ describe Attendee do
       attendee.twitter.should be_nil
     end
 
-    it "should add missing @ signs" do
+    it "should remove @ signs" do
       attendee = a_saved Attendee, twitter: "cbetta"
-      attendee.twitter.should be == "@cbetta"
+      attendee.twitter.should be == "cbetta"
     end
 
-    it "should clean double @ signs" do
+    it "should remove double @ signs" do
       attendee = a_saved Attendee, twitter: "@@cbetta"
-      attendee.twitter.should be == "@cbetta"
-    end
-
-    it "should leave single @ signs" do
-      attendee = a_saved Attendee, twitter: "@cbetta"
-      attendee.twitter.should be == "@cbetta"
+      attendee.twitter.should be == "cbetta"
     end
   end
 
