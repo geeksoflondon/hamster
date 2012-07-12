@@ -9,5 +9,12 @@ describe Email do
       email.address.should be == "john@doe.com"
       email.attendee.should be_a(Attendee)
     end
+
+    it "should be unique on the address and attendee combination" do
+      attendee = a_saved Attendee
+      address = "me@foobar.com"
+      -> { a_saved Email, attendee: attendee, address: address }.should_not raise_error
+      -> { a_saved Email, attendee: attendee, address: address }.should raise_error
+    end
   end
 end
