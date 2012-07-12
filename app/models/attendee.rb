@@ -25,7 +25,7 @@ class Attendee < ActiveRecord::Base
   end
 
   def cleanup_twitter
-    self.twitter = twitter ? "@#{twitter}".gsub(/@+/, "@") : nil
+    self.twitter = twitter ? twitter.gsub("@", "") : nil
     true
   end
 end
