@@ -1,0 +1,2 @@
+class TicketsController < ApiController
+end
