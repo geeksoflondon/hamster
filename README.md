@@ -6,6 +6,7 @@ Hamstering attendee data for Geeks of London events.
 
 ## Changelog
 
+* 0.0.4 - Added Emails API
 * 0.0.3 - Added Attendees and API with authentication
 * 0.0.2 - Added Travis CI setup
 * 0.0.1 - Basic Rails setup
