@@ -14,4 +14,14 @@ describe Ticket do
       -> { a_saved Ticket, attendee: attendee, event_id: 1 }.should raise_error
     end
   end
+
+  describe "#interactions" do
+    it "should have many interactions" do
+      ticket = a_saved Ticket
+      ticket.interactions.create! key: "foo", value: "bar"
+      ticket.interactions.should have(1).interaction
+      ticket.interactions.create! key: "foo", value: "bar2"
+      ticket.interactions.should have(2).interactions
+    end
+  end
 end
