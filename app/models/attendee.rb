@@ -3,6 +3,7 @@ class Attendee < ActiveRecord::Base
 
   has_many :emails
   has_many :tickets
+  has_many :interactions, as: :interactable
 
   validates :name, presence: true, allow_blank: false
   validates :tshirt, allow_nil: true, inclusion: { in: Attendee::Tshirt::SIZES }
