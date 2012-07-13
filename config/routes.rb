@@ -1,7 +1,9 @@
 Hamster::Application.routes.draw do
-  resources :attendees, except: [:new, :edit] do
-    collection do
-      get :count
+  [:attendees, :emails, :tickets].each do |model|
+    resources model, except: [:new, :edit] do
+      collection do
+        get :count
+      end
     end
   end
 end
