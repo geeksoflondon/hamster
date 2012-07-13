@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712230615) do
+ActiveRecord::Schema.define(:version => 20120713224817) do
 
   create_table "attendees", :force => true do |t|
     t.string   "first_name"
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(:version => 20120712230615) do
 
   add_index "emails", ["address"], :name => "index_emails_on_address"
   add_index "emails", ["attendee_id"], :name => "index_emails_on_attendee_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "eventbrite_xid"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "venue_name"
+    t.string   "venue_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "events", ["eventbrite_xid"], :name => "index_events_on_eventbrite_xid"
 
   create_table "tickets", :force => true do |t|
     t.integer  "attendee_id"
