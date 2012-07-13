@@ -23,6 +23,16 @@ def prepare_object_factory
       event_id: -> { 1.random_number },
       attendee: -> { a_saved Attendee }
     }
+
+  Object.factory.when_creating_a Interaction,
+    clean_up: true,
+    set: {
+      key: "foo",
+      value: "bar"
+    },
+    generate: {
+      interactable: -> { a_saved Attendee }
+    }
 end
 
 RSpec.configure do |config|
