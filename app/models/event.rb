@@ -10,7 +10,6 @@ class Event < ActiveRecord::Base
   validates :end_date, presence: true
 
   before_validation :sanitize_name
-  before_validation :valid_start_date?, :valid_end_date?
   before_validation :start_before_end?, :end_after_start?
 
   protected
@@ -18,14 +17,6 @@ class Event < ActiveRecord::Base
   def sanitize_name
     self.name = "#{name.to_s.strip}"
     true
-  end
-
-  def valid_start_date?
-    self.start_date.is_a? ActiveSupport::TimeWithZone
-  end
-
-  def valid_end_date?
-    self.end_date.is_a? ActiveSupport::TimeWithZone
   end
 
   def start_before_end?
