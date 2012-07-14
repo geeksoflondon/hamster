@@ -6,4 +6,5 @@ class Ticket < ActiveRecord::Base
 
   belongs_to :attendee
   has_many :interactions, as: :interactable
+  has_one :event
 end

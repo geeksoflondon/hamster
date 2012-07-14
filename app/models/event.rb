@@ -14,6 +14,8 @@ class Event < ActiveRecord::Base
 
   before_validation :sanitize_name
 
+  has_many :tickets
+
   protected
 
   def sanitize_name
