@@ -1,12 +1,15 @@
 class Event < ActiveRecord::Base
+
+  @url_regex = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix
+
   attr_accessible :name, :url, :start_date, :end_date, :eventbrite_xid
 
   validates :name, presence: true
+  validates :url, allow_nil: true, allow_blank: true, format: { with: @url_regex }
   validates :start_date, presence: true
   validates :end_date, presence: true
 
   before_validation :sanitize_name
-  before_validation :valid_url?
   before_validation :valid_start_date?, :valid_end_date?
   before_validation :start_before_end?, :end_after_start?
 
@@ -15,11 +18,6 @@ class Event < ActiveRecord::Base
   def sanitize_name
     self.name = "#{name.to_s.strip}"
     true
-  end
-
-  def valid_url?
-    valid = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix.match(self.url)
-    raise(ArgumentError, "A URL must be correctly formatted for example http://bbc.co.uk/") unless valid || self.url.nil?
   end
 
   def valid_start_date?
