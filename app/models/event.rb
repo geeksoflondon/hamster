@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   before_validation :sanitize_name
 
   has_many :tickets
+  has_many :interactions, as: :interactable
 
   protected
 
