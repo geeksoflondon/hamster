@@ -42,18 +42,18 @@ ActiveRecord::Schema.define(:version => 20120713224817) do
   add_index "emails", ["attendee_id"], :name => "index_emails_on_attendee_id"
 
   create_table "events", :force => true do |t|
+    t.integer  "venue_id"
     t.string   "eventbrite_xid"
     t.string   "name"
     t.string   "url"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "venue_name"
-    t.string   "venue_url"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
   add_index "events", ["eventbrite_xid"], :name => "index_events_on_eventbrite_xid"
+  add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
 
   create_table "tickets", :force => true do |t|
     t.integer  "attendee_id"
