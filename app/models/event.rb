@@ -9,22 +9,16 @@ class Event < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
 
+  validates_date :start_date, :before => :end_date
+  validates_date :end_date, :after => :start_date
+
   before_validation :sanitize_name
-  before_validation :start_before_end?, :end_after_start?
 
   protected
 
   def sanitize_name
     self.name = "#{name.to_s.strip}"
     true
-  end
-
-  def start_before_end?
-    raise(ArgumentError, "Start must be before end") unless self.end_date > self.start_date
-  end
-
-  def end_after_start?
-    raise(ArgumentError, "End must be after start") unless self.start_date < self.end_date
   end
 
 end
