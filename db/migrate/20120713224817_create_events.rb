@@ -6,9 +6,6 @@ class CreateEvents < ActiveRecord::Migration
       t.string :url
       t.datetime :start_date
       t.datetime :end_date
-      t.string :venue_name
-      t.string :venue_url
-
       t.timestamps
     end
 
