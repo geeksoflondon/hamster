@@ -32,6 +32,16 @@ def prepare_object_factory
       start_date: "01/01/1900",
       end_date: "02/01/1900"
     }
+
+  Object.factory.when_creating_a Interaction,
+    clean_up: true,
+    set: {
+      key: "foo",
+      value: "bar"
+    },
+    generate: {
+      interactable: -> { a_saved Attendee }
+    }
 end
 
 RSpec.configure do |config|
