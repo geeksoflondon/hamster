@@ -4,8 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :eventbrite_xid
       t.string :name
       t.string :url
-      t.datetime :start
-      t.datetime :end
+      t.datetime :start_date
+      t.datetime :end_date
       t.string :venue_name
       t.string :venue_url
 
