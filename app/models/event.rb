@@ -5,14 +5,14 @@ class Event < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  before_validation :set_name
+  before_validation :sanitize_name
   before_validation :valid_url?
   before_validation :valid_start_date?, :valid_end_date?
   before_validation :start_before_end?, :end_after_start?
 
   protected
 
-  def set_name
+  def sanitize_name
     self.name = "#{name.to_s.strip}"
     true
   end
