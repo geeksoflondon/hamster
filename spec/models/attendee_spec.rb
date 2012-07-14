@@ -101,4 +101,14 @@ describe Attendee do
       attendee.emails.should have(2).emails
     end
   end
+
+  describe "#interactions" do
+    it "should have many interactions" do
+      attendee = a_saved Attendee
+      attendee.interactions.create! key: "foo", value: "bar"
+      attendee.interactions.should have(1).interaction
+      attendee.interactions.create! key: "foo", value: "bar2"
+      attendee.interactions.should have(2).interactions
+    end
+  end
 end
