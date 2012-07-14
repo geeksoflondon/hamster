@@ -23,5 +23,12 @@ describe AttendeesController do
       delete("/attendees/1").should route_to("attendees#destroy", :id => "1")
     end
 
+    it "should nest tickets" do
+      get("/attendees/1/tickets").should route_to("tickets#index", :attendee_id => "1")
+    end
+
+    it "should nest emails" do
+      get("/attendees/1/emails").should route_to("emails#index", :attendee_id => "1")
+    end
   end
 end
