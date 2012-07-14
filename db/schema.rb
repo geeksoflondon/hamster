@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712230615) do
+ActiveRecord::Schema.define(:version => 20120713201618) do
 
   create_table "attendees", :force => true do |t|
     t.string   "first_name"
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(:version => 20120712230615) do
 
   add_index "emails", ["address"], :name => "index_emails_on_address"
   add_index "emails", ["attendee_id"], :name => "index_emails_on_attendee_id"
+
+  create_table "interactions", :force => true do |t|
+    t.integer  "interactable_id"
+    t.string   "interactable_type"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "interactions", ["interactable_id", "interactable_type", "key", "value"], :name => "complex_index"
+  add_index "interactions", ["interactable_id", "interactable_type"], :name => "index_interactions_on_interactable_id_and_interactable_type"
+  add_index "interactions", ["interactable_id"], :name => "index_interactions_on_interactable_id"
+  add_index "interactions", ["interactable_type"], :name => "index_interactions_on_interactable_type"
+  add_index "interactions", ["key", "value"], :name => "index_interactions_on_key_and_value"
+  add_index "interactions", ["key"], :name => "index_interactions_on_key"
+  add_index "interactions", ["value"], :name => "index_interactions_on_value"
 
   create_table "tickets", :force => true do |t|
     t.integer  "attendee_id"
