@@ -24,6 +24,15 @@ def prepare_object_factory
       attendee: -> { a_saved Attendee }
     }
 
+  Object.factory.when_creating_a Event,
+    clean_up: true,
+    set: {
+      name: "Ultimate Band Camp",
+      url: "http://www.ultimatecamp.co.uk/",
+      start_date: "01/01/1900",
+      end_date: "02/01/1900"
+    }
+
   Object.factory.when_creating_a Interaction,
     clean_up: true,
     set: {
