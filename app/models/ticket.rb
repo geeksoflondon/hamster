@@ -5,5 +5,6 @@ class Ticket < ActiveRecord::Base
   validates :event_id, presence: true, uniqueness: { scope: :attendee_id }
 
   belongs_to :attendee
+  belongs_to :event
   has_many :interactions, as: :interactable
 end
