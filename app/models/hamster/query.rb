@@ -2,8 +2,9 @@ module Hamster
   class Query
 
     def initialize options
+      options = options.with_indifferent_access
       self.klass = options[:klass]
-      self.params = options[:params]
+      self.params = options[:params].with_indifferent_access
       self.query = options[:klass]
 
       sanitize_params
@@ -27,7 +28,8 @@ module Hamster
     end
 
     def limit
-      self.query = query.limit(params[:limit])
+      limit = params[:limit].to_i
+      self.query = query.limit(limit) if params[:limit]
       params.delete(:limit)
     end
 
@@ -37,8 +39,8 @@ module Hamster
     end
 
     def order
-      order_by = params[:order] || "#{table_name}.created_at DESC"
-      self.query = query.order()
+      order_by = params[:order] || "created_at DESC"
+      self.query = query.order(order_by)
       params.delete(:order)
     end
 
