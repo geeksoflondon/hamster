@@ -24,12 +24,12 @@ module Interactable
 
     def fetch_ids
       params.each do |key, value|
-        self.has_params = true
         fetch_ids_for(key, value) if key.starts_with? "interactions."
       end
     end
 
     def fetch_ids_for key, value
+      self.has_params = true
       qr = query.where("key = ? AND value #{actual_comparator_for(key)} ?", actual_key_for(key), value)
       qr = qr.where("current = ?", true) if match_for_current? key
       ids = qr.pluck(:interactable_id)
