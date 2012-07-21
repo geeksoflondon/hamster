@@ -45,7 +45,6 @@ module Hamster
     def handle_interactions
       if klass.reflect_on_all_associations.map(&:name).include? :interactions
         self.query = Interactable::Query.new(params: params, klass: klass).execute
-        params.reject!{|key, value| key.starts_with?("interactions.")}
       end
     end
 
