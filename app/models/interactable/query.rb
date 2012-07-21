@@ -6,8 +6,8 @@ module Interactable
       self.params = options[:params]
 
       initialize_query
+      scope_time
       fetch_ids
-      remove_interactions_params
     end
 
     def execute
@@ -22,10 +22,24 @@ module Interactable
       self.query = Interaction.where(interactable_type: klass.to_s)
     end
 
+    def scope_time
+      params.each do |key, value|
+        if actual_key_for(key) == "created_at"
+          scope_time_by(key, value)
+        end
+      end
+      params.reject!{|key, value| actual_key_for(key) == "created_at"}
+    end
+
     def fetch_ids
       params.each do |key, value|
         fetch_ids_for(key, value) if key.starts_with? "interactions."
       end
+      params.reject!{|key, value| key.starts_with?("interactions.")}
+    end
+
+    def scope_time_by key, value
+      self.query = query.where("#{actual_key_for(key)} #{comparator_for(key)} ?", value)
     end
 
     def fetch_ids_for key, value
@@ -55,10 +69,6 @@ module Interactable
 
     def match_for_current? key
       ["=", "!="].include? comparator_for(key)
-    end
-
-    def remove_interactions_params
-      params.reject!{|key, value| key.starts_with?("interactions.")}
     end
 
     def select ids
