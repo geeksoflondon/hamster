@@ -1,5 +1,5 @@
 class Interaction < ActiveRecord::Base
-  attr_accessible :interactable_id, :interactable_type, :key, :value
+  attr_accessible :interactable, :interactable_id, :interactable_type, :key, :value
 
   belongs_to :interactable, :polymorphic => true
 
