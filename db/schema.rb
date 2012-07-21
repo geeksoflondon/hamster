@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713201618) do
+ActiveRecord::Schema.define(:version => 20120721151541) do
 
   create_table "attendees", :force => true do |t|
     t.string   "first_name"
@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(:version => 20120713201618) do
     t.string   "interactable_type"
     t.string   "key"
     t.string   "value"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "current",           :default => true
   end
 
   add_index "interactions", ["interactable_id", "interactable_type", "key", "value"], :name => "complex_index"
