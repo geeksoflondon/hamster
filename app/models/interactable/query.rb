@@ -7,11 +7,11 @@ module Interactable
 
       initialize_query
       fetch_ids
-      remove_interaction_params
+      remove_interactions_params
     end
 
     def execute
-      has_params ? klass.where("id IN (?)", matched_ids) : klass
+      selected_ids.nil? ? klass : klass.where("id IN (?)", selected_ids)
     end
 
     protected
@@ -29,29 +29,24 @@ module Interactable
     end
 
     def fetch_ids_for key, value
-      self.has_params = true
-      qr = query.where("key = ? AND value #{actual_comparator_for(key)} ?", actual_key_for(key), value)
-      qr = qr.where("current = ?", true) if match_for_current? key
-      ids = qr.pluck(:interactable_id)
-
-      if comparator_for(key) == "!~"
-        self.rejected_ids ||= []
-        self.rejected_ids  += ids
-        rejected_ids.uniq!
-      elsif selected_ids.nil?
-        self.selected_ids = ids
-      else
-        self.selected_ids = selected_ids & ids
+      case comparator_for(key)
+      when "="
+        ids = query.where("key = ? AND value = ? AND current = ?", actual_key_for(key), value, true).pluck(:interactable_id)
+        select(ids)
+      when "!="
+        ids = query.where("key = ? AND value != ? AND current = ?", actual_key_for(key), value, true).pluck(:interactable_id)
+        select(ids)
+      when "~"
+        ids = query.where("key = ? AND value = ?", actual_key_for(key), value).pluck(:interactable_id)
+        select(ids)
+      when "!~"
+        ids = klass.pluck(:id) - query.where("key = ? AND value = ?", actual_key_for(key), value).pluck(:interactable_id)
+        select(ids)
       end
     end
 
     def comparator_for key
       key.split('.').last.split(" ").last
-    end
-
-    def actual_comparator_for key
-      return "!=" if comparator_for(key) == "!="
-      "="
     end
 
     def actual_key_for key
@@ -62,12 +57,17 @@ module Interactable
       ["=", "!="].include? comparator_for(key)
     end
 
-    def remove_interaction_params
+    def remove_interactions_params
       params.reject!{|key, value| key.starts_with?("interactions.")}
     end
 
-    def matched_ids
-      (selected_ids || []) - (rejected_ids || [])
+    def select ids
+      selected_ids.nil? ? self.selected_ids = ids : self.selected_ids = ids & selected_ids
+    end
+
+    def reject ids
+      self.rejected_ids
+      self.rejected_ids -= rejected_ids
     end
   end
 end

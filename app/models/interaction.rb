@@ -9,9 +9,17 @@ class Interaction < ActiveRecord::Base
 
   after_create :expire_previous_states
 
+  def value=(v)
+    write_attribute(:value, v.to_s)
+  end
+
   protected
 
   def expire_previous_states
-    Interaction.where("id != ? AND current = ?", id, true).update_all(current: false)
+    previous_states.update_all(current: false)
+  end
+
+  def previous_states
+    Interaction.where("interactable_id = ? AND interactable_type = ? AND id != ?", interactable_id, interactable_type, id)
   end
 end
