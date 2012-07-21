@@ -45,10 +45,14 @@ class ApiController < ApplicationController
   protected
 
   def klass
-    self.class.name.gsub("Controller", "").singularize.constantize
+    class_name.constantize
   end
 
   def param_name
-    self.class.name.gsub("Controller", "").singularize.downcase
+    class_name.downcase
+  end
+
+  def class_name
+    self.class.name.gsub("Controller", "").singularize
   end
 end
