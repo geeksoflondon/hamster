@@ -14,7 +14,8 @@ For more detailed documentation see the [documentation for Herder](https://githu
 
 ## Changelog
 
-* 0.0.8 - Added Interactions API and Interactable search to their APIS
+* 0.0.9 - Added Interactions API and Interactable search to their APIS
+* 0.0.8 - Added Venues and API
 * 0.0.7 - Added Events and API
 * 0.0.6 - Added Interactions and API
 * 0.0.5 - Added Tickets and API
