@@ -17,7 +17,7 @@ end
 
 Hamster::Application.routes.draw do
   # create routes for these models
-  [:attendees, :emails, :tickets, :interactions, :events].each do |model|
+  [:attendees, :emails, :tickets, :interactions, :events, :venues].each do |model|
     create_resource_for model
   end
 end
