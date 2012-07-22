@@ -31,6 +31,9 @@ def prepare_object_factory
       url: "http://www.ultimatecamp.co.uk/",
       start_date: "01/01/1900",
       end_date: "02/01/1900"
+    },
+    generate: {
+      venue: -> { a_saved Venue }
     }
 
   Object.factory.when_creating_a Interaction,
@@ -41,6 +44,14 @@ def prepare_object_factory
     },
     generate: {
       interactable: -> { a_saved Attendee }
+    }
+
+  Object.factory.when_creating_a Venue,
+    clean_up: true,
+    generate: {
+      address: -> { "123 #{5.random_letters} street, London, UK" },
+      name: -> { "#{5.random_letters} plaza" },
+      description: -> { "Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus." }
     }
 end
 
