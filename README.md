@@ -6,6 +6,7 @@ Hamstering attendee data for Geeks of London events.
 
 ## Changelog
 
+* 0.0.8 - Added Venues and API
 * 0.0.7 - Added Events and API
 * 0.0.6 - Added Interactions and API
 * 0.0.5 - Added Tickets and API
