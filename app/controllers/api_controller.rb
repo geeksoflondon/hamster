@@ -3,14 +3,7 @@ class ApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    limit = params[:limit]
-    offset = params[:offset]
-    filter = params.except(:limit, :offset, :action, :controller, :format)
-    query = klass.limit(limit).offset(offset)
-    filter.each do |option, value|
-      query = query.where(option => value)
-    end
-    render json: query
+    render json: Hamster::Query.new(params: params, klass: klass).execute
   end
 
   def show
@@ -52,11 +45,14 @@ class ApiController < ApplicationController
   protected
 
   def klass
-    self.class.name.gsub("Controller", "").singularize.constantize
+    class_name.constantize
   end
 
   def param_name
-    self.class.name.gsub("Controller", "").singularize.downcase
+    class_name.downcase
   end
 
+  def class_name
+    self.class.name.gsub("Controller", "").singularize
+  end
 end

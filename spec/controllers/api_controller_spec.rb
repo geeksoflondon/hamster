@@ -171,8 +171,4 @@ describe AttendeesController do
     self.send(verb, action, params)
     response.status.should be(success_code)
   end
-
-  def authenticate
-    request.env["HTTP_AUTHORIZATION"] = ActionController::HttpAuthentication::Basic.encode_credentials(Hamster::Config.get(:user), Hamster::Config.get(:password))
-  end
 end
