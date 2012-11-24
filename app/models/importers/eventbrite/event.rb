@@ -3,9 +3,10 @@ module Importers
     class Event
       attr_accessor :title, :id
 
-      def initialize data
-        self.title = data["title"]
-        self.id = data["id"]
+      def initialize data = {}
+        data = data.with_indifferent_access
+        self.title = data[:title]
+        self.id = data[:id]
       end
 
       def imported?
