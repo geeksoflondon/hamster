@@ -20,7 +20,7 @@ def prepare_object_factory
   Object.factory.when_creating_a Ticket,
     clean_up: true,
     generate: {
-      event_id: -> { 1.random_number },
+      event: -> { a_saved Event },
       attendee: -> { a_saved Attendee }
     }
 
