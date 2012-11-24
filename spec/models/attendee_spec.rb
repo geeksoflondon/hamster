@@ -35,7 +35,7 @@ describe Attendee do
     end
 
     it "should remove @ signs" do
-      attendee = a_saved Attendee, twitter: "cbetta"
+      attendee = a_saved Attendee, twitter: "@cbetta"
       attendee.twitter.should be == "cbetta"
     end
 
@@ -82,21 +82,24 @@ describe Attendee do
     end
   end
 
-  describe "#public" do
+  describe "#is_public" do
     it "can not be nil" do
-      attendee = a Attendee, public: nil
+      attendee = a Attendee
+      attendee.is_public = nil
       attendee.valid?.should be_false
-      attendee.public = true
+      attendee.is_public = true
+      attendee.valid?.should be_true
+      attendee.is_public = false
+      attendee.save!
       attendee.valid?.should be_true
     end
   end
 
   describe "#emails" do
-    it "should have many emails" do
+    it "should be able to have many emails" do
       attendee = a_saved Attendee
       attendee.emails.create! address: "john@doe.com"
       attendee.emails.should have(1).email
-
       attendee.emails.create! address: "me@johndoe.com"
       attendee.emails.should have(2).emails
     end
