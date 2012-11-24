@@ -17,7 +17,7 @@ module Importers
       end
 
       def import
-        raise ArgumentError("Event has already been imported") if imported?
+        raise ArgumentError.new("Event has already been imported") if imported?
 
         ::Event.create!({
           venue: venue.find_or_import,

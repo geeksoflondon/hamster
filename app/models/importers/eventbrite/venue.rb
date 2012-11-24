@@ -6,7 +6,7 @@ module Importers
       def initialize data = {}
         data = data.with_indifferent_access
         self.name = data[:name]
-        self.address = "#{data[:address]}\n#{data[:city]} #{data[:postal_code]}\n#{data[:country]}"
+        self.address = parse_address(data)
       end
 
       def imported?
@@ -19,6 +19,17 @@ module Importers
 
       def self.unknown
         Venue.new name: "To be determined", address: nil
+      end
+
+      private
+
+      def parse_address data
+        cleaned_data = [
+          data[:address],
+          data[:city],
+          data[:postal_code],
+          data[:country]
+        ].compact.join("\n")
       end
     end
   end

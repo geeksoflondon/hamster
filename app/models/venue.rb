@@ -4,5 +4,4 @@ class Venue < ActiveRecord::Base
   has_many :events
 
   validates :name, uniqueness: true, presence: true
-  validates :address, presence: true
 end
