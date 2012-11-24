@@ -1,2 +1,0 @@
-class AttendeesController < ApiController
-end

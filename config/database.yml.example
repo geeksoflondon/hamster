@@ -1,6 +1,7 @@
 development:
     adapter: postgresql
     database: hamster
+    username:
     host: localhost
     encoding: UTF8
 
