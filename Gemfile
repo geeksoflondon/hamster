@@ -21,7 +21,9 @@ group :assets do
 end
 
 group :test do
-  gem "object-factory",         github: "brightbox/object-factory"
-  gem "rujitsu",                '0.3.3'
-  gem "fivemat",                github: "caius/fivemat"
+  gem 'object-factory',         github: 'brightbox/object-factory'
+  gem 'rujitsu',                '0.3.3'
+  gem 'fivemat',                github: 'caius/fivemat'
+  gem 'vcr'
+  gem 'fakeweb'
 end
