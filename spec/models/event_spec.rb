@@ -2,19 +2,11 @@ require 'spec_helper'
 
 describe "Event" do
   describe "#initialize" do
-    it "should require a name" do
+    it "should require a name, start date, and end date" do
+      a_saved Event
       -> { a_saved Event, name: nil }.should raise_error
-      -> { a_saved Event, name: "KickAssAwesome Camp" }.should_not raise_error
-    end
-
-    it "should require a start date" do
       -> { a_saved Event, start_date: nil }.should raise_error
-      -> { a_saved Event, start_date: "01/01/1900" }.should_not raise_error
-    end
-
-    it "should require a end date" do
       -> { a_saved Event, end_date: nil }.should raise_error
-      -> { a_saved Event, end_date: "02/01/1900" }.should_not raise_error
     end
   end
 
@@ -42,12 +34,11 @@ describe "Event" do
   describe "#start_date" do
     it "should only allow a valid date/time" do
       -> {a_saved Event, start_date: ""}.should raise_error
-      -> {a_saved Event, start_date: "01/01/1900"}.should_not raise_error
     end
 
     it "should be before #end_date" do
-      -> {a_saved Event, start_date: "02/01/1900", end_date: "01/01/1900"}.should raise_error
-      -> {a_saved Event, start_date: "01/01/1900", end_date: "02/01/1900"}.should_not raise_error
+      -> {a_saved Event, start_date: 2.days.from_now, end_date: 1.day.from_now}.should raise_error
+      -> {a_saved Event, start_date: 1.day.from_now, end_date: 2.days.from_now}.should_not raise_error
     end
 
     it "allows one day events where #start_date and #end_date are the same" do
@@ -58,12 +49,10 @@ describe "Event" do
   describe "#end_date" do
     it "should only allow a valid date/time" do
       -> {a_saved Event, end_date: ""}.should raise_error
-      -> {a_saved Event, end_date: "02/01/1900"}.should_not raise_error
     end
 
     it "should be after #start_date" do
-      -> {a_saved Event, start_date: "02/01/1900", end_date: "01/01/1900"}.should raise_error
-      -> {a_saved Event, start_date: "01/01/1900", end_date: "02/01/1900"}.should_not raise_error
+      -> {a_saved Event, start_date: 2.days.from_now, end_date: 1.day.from_now}.should raise_error
     end
   end
 

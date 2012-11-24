@@ -5,8 +5,8 @@ describe Importers::Eventbrite::Event do
     params = {
       title: "Foobar",
       id: 1234567,
-      start_date: Time.now + 1.day,
-      end_date: Time.now + 2.days
+      start_date: 1.day.from_now,
+      end_date: 2.days.from_now
     }
     @event = Importers::Eventbrite::Event.new params
   end
