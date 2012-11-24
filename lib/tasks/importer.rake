@@ -1,18 +1,25 @@
+require 'colorize'
+
 namespace :importer do
-  namespace :eventbrite do
+  namespace :event_brite do
     desc "Updates all the data for the imported events"
     task :update_added => :environment do
-      Importers::EventBrite.new.update_added_events
+      # Importers::Eventbrite.new.update_added_events
     end
 
     desc "List all events on EventBrite"
     task :list => :environment do
-      ap Importers::EventBrite.new.events
+      Importers::Eventbrite.new.events.map do |event|
+        print "#{event.id}".yellow
+        print " - #{event.title} - "
+        print event.imported? ? "imported".yellow : "new".green
+        print "\n"
+      end
     end
 
     desc "Start initial import of an event on EventBrite"
     task :add => :environment do
-      Importers::EventBrite.new.add_event
+      # Importers::Eventbrite.new.add_event
     end
   end
 end
