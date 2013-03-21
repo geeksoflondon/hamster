@@ -1,15 +1,15 @@
 development:
-    adapter: postgresql
-    database: hamster
-    host: localhost
-    encoding: UTF8
+  adapter: postgresql
+  database: hamster
+  host: localhost
+  encoding: UTF8
 
 test:
-    adapter: postgresql
-    database: hamster_test
-    username:
-    encoding: UTF8
-    min_messages: WARNING
+  adapter: postgresql
+  database: hamster_test
+  host: localhost
+  encoding: UTF8
+  min_messages: WARNING
 
 postgres:
   adapter: postgresql
