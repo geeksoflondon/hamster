@@ -1,5 +1,5 @@
 class Attendee < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :twitter, :address, :tshirt
+  attr_accessible :first_name, :last_name, :twitter, :tshirt
 
   has_many :emails
   has_many :tickets
