@@ -16,6 +16,26 @@ describe Ticket do
     end
   end
 
+  describe "#kind" do
+    it "should be auto set" do
+      ticket = a_saved Ticket
+      ticket.kind.should be == Ticket::Kind::REGULAR
+    end
+
+    it "can not be nil" do
+      ticket = a_saved Ticket
+      ticket.kind = nil
+      ticket.save!
+      ticket.kind.should be == Ticket::Kind::REGULAR
+    end
+
+    it "can only be one of the valid types" do
+      ticket = a_saved Ticket
+      ticket.kind = 101
+      ticket.valid?.should be_false
+    end
+  end
+
   describe "#interactions" do
     it "should have many interactions" do
       ticket = a_saved Ticket
