@@ -9,6 +9,6 @@ class Attendee
     SHELLFISH   = 7.freeze
     OTHER       = 8.freeze
 
-    SIZES = (1..8).freeze
+    TYPES = (1..8).freeze
   end
 end
