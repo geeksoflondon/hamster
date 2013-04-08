@@ -62,6 +62,23 @@ describe Attendee do
     end
   end
 
+  describe "#diet" do
+    it "can only be one of the valid types" do
+      attendee = a Attendee, diet: Attendee::Diet::VEGETARIAN
+      attendee.valid?.should be_true
+      attendee.save!
+      attendee.diet.should be == Attendee::Diet::VEGETARIAN
+
+      attendee = a Attendee, diet: 101
+      attendee.valid?.should be_false
+    end
+
+    it "can be nil" do
+      attendee = a Attendee, diet: nil
+      attendee.valid?.should be_true
+    end
+  end
+
   describe "#kind" do
     it "should be auto set" do
       attendee = a_saved Attendee
