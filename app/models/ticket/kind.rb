@@ -1,4 +1,4 @@
-class Attendee
+class Ticket
   class Kind
     REGULAR = 1.freeze
     CREW =    2.freeze
