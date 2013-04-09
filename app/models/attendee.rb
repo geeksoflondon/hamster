@@ -1,5 +1,6 @@
 class Attendee < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :twitter, :tshirt, :is_public
+  
+  attr_accessible :first_name, :last_name, :twitter, :address, :tshirt, :diet
 
   has_many :emails
   has_many :tickets
@@ -7,6 +8,7 @@ class Attendee < ActiveRecord::Base
 
   validates :name, presence: true, allow_blank: false
   validates :tshirt, allow_nil: true, inclusion: { in: Attendee::Tshirt::SIZES }
+  validates :diet, allow_nil: true, inclusion: { in: Attendee::Diet::TYPES }
   validates :is_public, inclusion: { in: [true, false] }
 
   before_validation :cleanup_twitter
