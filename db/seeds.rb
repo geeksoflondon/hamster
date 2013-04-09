@@ -6,9 +6,48 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-attendee1 = Attendee.create!(first_name: "John", last_name: "Doe", public: true)
-attendee2 = Attendee.create!(first_name: "Bob", last_name: "Example", public: true)
-email1 = Email.create!(address: "john@example.com", attendee: attendee1)
-email2 = Email.create!(address: "bob@example.com", attendee: attendee2)
-ticket1 = Ticket.create!(event_id: 1, attendee: attendee1)
-ticket2 = Ticket.create!(event_id: 2, attendee: attendee2)
+#Venue
+venue = Venue.create!(:name => 'London Zoo', :address => 'Regents Park', :description => 'Come see the zoo')
+
+#Past event
+event1 = Event.create!(
+  :name => 'Mad Hatters Tea Party', 
+  :url => 'http://bit.ly/teaparty',
+  :venue => venue,
+  :start_date => Time.now - 7.days,
+  :end_date => Time.now - 6.days
+)
+
+#Upcoming event
+event2 = Event.create!(
+  :name => 'Mad Hatters Tea Party', 
+  :url => 'http://bit.ly/teaparty',
+  :venue => venue,
+  :start_date => Time.now + 5.days,
+  :end_date => Time.now + 6.days
+)
+
+(1..100).each do
+  
+  #Generate a attendee
+  attendee = Attendee.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    twitter: Faker::Internet.user_name,
+    is_public: true,
+    tshirt: rand(1..8)
+  )
+  
+  #Make sure the attendee has an email address
+  attendee.emails.create(address: Faker::Internet.email)
+
+  #Setup a ticket for the previous week's event
+  ticket = Ticket.create(:attendee => attendee, :event => event1)
+  ticket.interactions.create(:key => 'confirmed', :value => [true, false].sample)
+  ticket.interactions.create(:key => 'cancelled', :value => [true, false].sample)
+  ticket.interactions.create(:key => 'arrived', :value => [true, false].sample)
+  
+  ticket = Ticket.create(:attendee => attendee, :event => event2)
+  ticket.interactions.create(:key => 'confirmed', :value => [true, false].sample)
+  ticket.interactions.create(:key => 'cancelled', :value => [true, false].sample)
+end
