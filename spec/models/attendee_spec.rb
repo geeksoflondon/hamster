@@ -79,26 +79,6 @@ describe Attendee do
     end
   end
 
-  describe "#kind" do
-    it "should be auto set" do
-      attendee = a_saved Attendee
-      attendee.kind.should be == Attendee::Kind::REGULAR
-    end
-
-    it "can not be nil" do
-      attendee = a_saved Attendee
-      attendee.kind = nil
-      attendee.save!
-      attendee.kind.should be == Attendee::Kind::REGULAR
-    end
-
-    it "can only be one of the valid types" do
-      attendee = a_saved Attendee
-      attendee.kind = 101
-      attendee.valid?.should be_false
-    end
-  end
-
   describe "#is_public" do
     it "can not be nil" do
       attendee = a Attendee
