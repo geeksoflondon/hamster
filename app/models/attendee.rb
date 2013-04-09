@@ -1,4 +1,5 @@
 class Attendee < ActiveRecord::Base
+  
   attr_accessible :first_name, :last_name, :twitter, :address, :tshirt, :diet
 
   has_many :emails
@@ -13,17 +14,11 @@ class Attendee < ActiveRecord::Base
 
   before_validation :cleanup_twitter
   before_validation :set_name
-  before_validation :set_kind
 
   private
 
   def set_name
     self.name = "#{first_name.to_s.strip} #{last_name.to_s.strip}"
-    true
-  end
-
-  def set_kind
-    self.kind ||= Attendee::Kind::REGULAR
     true
   end
 
