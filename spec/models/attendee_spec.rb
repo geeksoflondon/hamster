@@ -43,6 +43,16 @@ describe Attendee do
       attendee = a_saved Attendee, twitter: "@@cbetta"
       attendee.twitter.should be == "cbetta"
     end
+
+    it "removes invalid characters" do
+      attendee = a_saved Attendee, twitter: "  @cbe$!tt-a  "
+      expect(attendee.twitter).to eq "cbetta"
+    end
+
+    it "accepts valid characters" do
+      attendee = a_saved Attendee, twitter: "twitterer_123"
+      expect(attendee.twitter).to eq "twitterer_123"
+    end
   end
 
   describe "#tshirt" do
