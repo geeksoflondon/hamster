@@ -1,5 +1,5 @@
 class Attendee < ActiveRecord::Base
-  
+
   attr_accessible :first_name, :last_name, :twitter, :address, :tshirt, :diet
 
   has_many :emails
@@ -22,7 +22,7 @@ class Attendee < ActiveRecord::Base
   end
 
   def cleanup_twitter
-    self.twitter = twitter ? twitter.gsub("@", "") : nil
+    self.twitter = twitter ? twitter.gsub(/[^a-zA-Z0-9_]*/, "") : nil
     true
   end
 end
