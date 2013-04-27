@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  validates_date :start_date, :before => :end_date
+  validates_date :start_date, :on_or_before => :end_date
 
   before_validation :sanitize_name
 

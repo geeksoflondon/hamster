@@ -22,6 +22,9 @@ describe "Event" do
     it "should trim spaces" do
       event = a_saved Event, name: "Google IO "
       event.name.should be == "Google IO"
+
+      event = a_saved Event, name: " Google IO"
+      event.name.should be == "Google IO"
     end
   end
 
@@ -45,6 +48,10 @@ describe "Event" do
     it "should be before #end_date" do
       -> {a_saved Event, start_date: "02/01/1900", end_date: "01/01/1900"}.should raise_error
       -> {a_saved Event, start_date: "01/01/1900", end_date: "02/01/1900"}.should_not raise_error
+    end
+
+    it "allows one day events where #start_date and #end_date are the same" do
+      -> {a_saved Event, start_date: "01/01/1900", end_date: "01/01/1900"}.should_not raise_error
     end
   end
 
