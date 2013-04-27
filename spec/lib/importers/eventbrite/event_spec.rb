@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'importers/eventbrite'
 
 describe Importers::Eventbrite::Event do
   before :each do
@@ -6,7 +7,8 @@ describe Importers::Eventbrite::Event do
       title: "Foobar",
       id: 1234567,
       start_date: 1.day.from_now,
-      end_date: 2.days.from_now
+      end_date: 2.days.from_now,
+      url: "http://example.com"
     }
     @event = Importers::Eventbrite::Event.new params
   end
@@ -14,11 +16,11 @@ describe Importers::Eventbrite::Event do
   describe "#imported?" do
     it "should return true if already imported" do
       a_saved Event, eventbrite_xid: "1234567"
-      @event.should be_imported
+      @event.imported?.should be_true
     end
 
     it "should return false if not already imported" do
-      @event.should_not be_imported
+      @event.imported?.should_not be_true
     end
   end
 
@@ -29,8 +31,12 @@ describe Importers::Eventbrite::Event do
     end
 
     it "should import an unimported event" do
+      ::Event.count.should be == 0
+
       @event.import
+
       @event.should be_imported
+      ::Event.count.should be == 1
     end
   end
 end

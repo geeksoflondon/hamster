@@ -1,6 +1,8 @@
 require 'spec_helper'
+require 'importers/eventbrite'
 
 describe Importers::Eventbrite::Venue do
+
   before :each do
     params = {
       name: "Foobar Club",

@@ -2,11 +2,21 @@ require 'spec_helper'
 
 describe "Event" do
   describe "#initialize" do
-    it "should require a name, start date, and end date" do
-      a_saved Event
+    it "should require a name, start date, end date and eventbrite_xid" do
       -> { a_saved Event, name: nil }.should raise_error
       -> { a_saved Event, start_date: nil }.should raise_error
       -> { a_saved Event, end_date: nil }.should raise_error
+      -> { a_saved Event, eventbrite_xid: nil }.should raise_error
+    end
+  end
+
+  describe "#eventbrite_xid" do
+    it "should be unique" do
+      event1 = a_saved Event, eventbrite_xid: "1234567"
+      event1.should be_valid
+
+      event2 = a Event, eventbrite_xid: "1234567"
+      event2.should_not be_valid
     end
   end
 

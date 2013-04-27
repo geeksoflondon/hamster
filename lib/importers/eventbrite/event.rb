@@ -1,7 +1,7 @@
 module Importers
   class Eventbrite
     class Event
-      attr_accessor :title, :id, :start_date, :end_date, :venue
+      attr_accessor :title, :id, :start_date, :end_date, :venue, :url
 
       def initialize data = {}
         data = data.with_indifferent_access
@@ -9,6 +9,7 @@ module Importers
         self.id = data[:id]
         self.start_date = data[:start_date]
         self.end_date = data[:end_date]
+        self.url = data[:url]
         self.venue = data[:venue] ? Venue.new(data[:venue]) : Venue.unknown
       end
 
@@ -25,8 +26,10 @@ module Importers
           eventbrite_xid: id,
           start_date: start_date,
           end_date: end_date,
+          url: url
         })
       end
+
     end
   end
 end

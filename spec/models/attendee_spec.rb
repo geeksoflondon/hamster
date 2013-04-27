@@ -102,16 +102,6 @@ describe Attendee do
     end
   end
 
-  describe "#emails" do
-    it "should be able to have many emails" do
-      attendee = a_saved Attendee
-      attendee.emails.create! address: "john@doe.com"
-      attendee.emails.should have(1).email
-      attendee.emails.create! address: "me@johndoe.com"
-      attendee.emails.should have(2).emails
-    end
-  end
-
   describe "#interactions" do
     it "should have many interactions" do
       attendee = a_saved Attendee

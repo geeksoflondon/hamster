@@ -1,10 +1,12 @@
 require 'colorize'
+require "importers/eventbrite"
 
 namespace :importer do
   namespace :eventbrite do
     desc "Updates all the data for the imported events"
     task :update_events => :environment do
-      # Importers::Eventbrite.new.update_added_events
+      Importers::Eventbrite.new.update_added_events
+      puts "All events updated"
     end
 
     desc "List all events on EventBrite"
@@ -17,9 +19,10 @@ namespace :importer do
       end
     end
 
-    desc "Start initial import of an event on EventBrite"
+    desc "Start initial import of an event (including attendees and tickets) on EventBrite"
     task :import_event => :environment do
-      events = Importers::Eventbrite.new.events
+      importer = Importers::Eventbrite.new
+      events = importer.events
       events.each_with_index do |event, index|
         next if event.imported?
         print "(#{index+1})".green
@@ -39,6 +42,8 @@ namespace :importer do
       end
 
       selected_event.import
+      importer.import_attendees selected_event.id
     end
+
   end
 end
