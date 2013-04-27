@@ -1,7 +1,7 @@
 Hamster::Application.routes.draw do
 
   #Stub endpoints for onsite registration
-  match '/onsite' => 'onsite#index'
+  resources :onsitereg
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
