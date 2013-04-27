@@ -11,7 +11,7 @@ venue = Venue.create!(:name => 'London Zoo', :address => 'Regents Park', :descri
 
 #Past event
 event1 = Event.create!(
-  :name => 'Mad Hatters Tea Party', 
+  :name => 'Mad Hatters Tea Party',
   :url => 'http://bit.ly/teaparty',
   :venue => venue,
   :start_date => Time.now - 7.days,
@@ -20,7 +20,7 @@ event1 = Event.create!(
 
 #Upcoming event
 event2 = Event.create!(
-  :name => 'Mad Hatters Tea Party', 
+  :name => 'Mad Hatters Tea Party',
   :url => 'http://bit.ly/teaparty',
   :venue => venue,
   :start_date => Time.now + 5.days,
@@ -28,16 +28,16 @@ event2 = Event.create!(
 )
 
 (1..100).each do
-  
+
   #Generate a attendee
-  attendee = Attendee.create(
+  attendee = Attendee.create({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     twitter: Faker::Internet.user_name,
     is_public: true,
     tshirt: rand(1..8)
-  )
-  
+  }, :without_protection => true)
+
   #Make sure the attendee has an email address
   attendee.emails.create(address: Faker::Internet.email)
 
@@ -46,7 +46,7 @@ event2 = Event.create!(
   ticket.interactions.create(:key => 'confirmed', :value => [true, false].sample)
   ticket.interactions.create(:key => 'cancelled', :value => [true, false].sample)
   ticket.interactions.create(:key => 'arrived', :value => [true, false].sample)
-  
+
   ticket = Ticket.create(:attendee => attendee, :event => event2)
   ticket.interactions.create(:key => 'confirmed', :value => [true, false].sample)
   ticket.interactions.create(:key => 'cancelled', :value => [true, false].sample)
