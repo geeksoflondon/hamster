@@ -12,11 +12,10 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'sass-rails',             '3.2.5'
+  gem 'less-rails'
   gem 'coffee-rails',           '3.2.2'
   gem 'therubyracer',           :platforms => :ruby
   gem 'uglifier',               '1.3.0'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
 
 group :test do
