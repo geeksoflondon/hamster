@@ -1,7 +1,14 @@
 Hamster::Application.routes.draw do
 
-  #Stub endpoints for onsite registration
-  resources :onsitereg
+  scope :module => "zebra" do
+    namespace :zebra do
+      get 'index'
+      post 'login'
+      get 'logout'
+      get 'help'
+      resources :home
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
