@@ -1,13 +1,9 @@
 Hamster::Application.routes.draw do
-
-  scope :module => "zebra" do
-    namespace :zebra do
-      get 'index'
-      post 'login'
-      get 'logout'
-      get 'help'
-      resources :home
-    end
+  
+  namespace :zebra do
+    root :to => 'sessions#index'
+    resources :sessions
+    resources :home
   end
 
   # The priority is based upon order of creation:
