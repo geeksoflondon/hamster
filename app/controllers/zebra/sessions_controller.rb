@@ -43,13 +43,7 @@ class Zebra::SessionsController < ApplicationController
 
     return false if token.empty?
 
-    ticket = token.first.interactable
-
-    unless ticket.kind == Ticket::Kind::CREW
-      return false
-    else
-      return true
-    end
+    token.first.interactable.kind == Ticket::Kind::CREW    
   
   end
 
