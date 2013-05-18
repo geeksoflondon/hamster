@@ -35,6 +35,7 @@ class Zebra::SessionsController < ApplicationController
   end
 
   def check_token(token = '')
+    #TODO: Replace with wristband class once it exists
     token = Interaction.where(
         :interactable_type => 'Ticket',
         :key => 'wristband', 
