@@ -13,7 +13,7 @@ body {
   text-align: center;
 }
 
-.form-sign input[type=text]{
+.form-signin input[type=text]{
   position: absolute;
   left: -1000px;
 }
