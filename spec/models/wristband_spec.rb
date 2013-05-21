@@ -2,10 +2,20 @@ require 'spec_helper'
 
 describe Wristband do
   describe "#create" do
-    it "should require a valid ticket id" do
+    
+    before(:each) do
+      @ticket = a_saved Ticket
+      @attendee = a_saved Attendee
     end
     
+    it "should require a valid ticket" do
+      expect Wristband.create(@attendee, "123456").to raise_error
+      # Wristband.create(nil, "123456").should raise_error
+      #       Wristband.create(@ticket, "123456").should_not raise_error
+          end
+    
     it "should require the wristband id to be unused" do
+      
     end
     
     it "should create a ticket interactable with a key of wristband" do
