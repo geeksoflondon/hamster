@@ -4,7 +4,7 @@ class Wristband
   #Bind a wristband to a ticket
   def self.create(ticket, wristband_id)
     raise 'Wristband can only be attached to a ticket.' unless ticket.is_a? Ticket
-    raise 'Wristband exists already' unless self.exists?(wristband_id) === false
+    raise 'Wristband exists already' if self.exists?(wristband_id)
     ticket.interactions.create(:key => 'wristband', :value => wristband_id)
   end
 
@@ -20,11 +20,7 @@ class Wristband
   #Checks wristband is unique
   def self.exists?(wristband_id)
     wristband = Interaction.where(:key => 'wristband', :value => wristband_id).count
-    if wristband >= 1
-      true
-    else
-      false
-    end
+    wristband >= 1
   end
 
 end
