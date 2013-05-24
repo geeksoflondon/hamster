@@ -1,51 +1,43 @@
 #OnSite Registration Tool
 class Zebra::SessionsController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :new, :create]
+  before_filter :logged_in?, :except => [:index, :create]
 
   layout 'zebra'
 
   def index
-  end
-
-  def show
-    render :text => 'success'
+    redirect_to :zebra_home_index if check_cookie(cookies[:zebra_token])
   end
 
   def create
-    if check_token(params[:wristband]) === true
+    if check_cookie(params[:wristband]) === true
       cookies[:zebra_token] = params[:wristband]
       redirect_to :zebra_home_index
     else
-      redirect_to :zebra_index
+      redirect_to :zebra_root
     end
   end
 
   def destroy
     cookies.delete :zebra_token
-    redirect_to :zebra_index
+    redirect_to :zebra_root
   end
 
   private
   
   def logged_in?
-    unless check_token(cookies[:zebra_token])
+    unless check_cookie(cookies[:zebra_token])
       redirect_to :zebra_sessions
     end
   end
 
-  def check_token(token = '')
-    #TODO: Replace with wristband class once it exists
-    token = Interaction.where(
-        :interactable_type => 'Ticket',
-        :key => 'wristband', 
-        :value => token,
-        :current => true)
-
-    return false if token.empty?
-
-    token.first.interactable.kind == Ticket::Kind::CREW    
-  
+  def check_cookie(wristband_id = nil)
+    return false if wristband_id.nil?
+    begin
+      Wristband.find(wristband_id).kind == Ticket::Kind::CREW
+    rescue
+      false
+    end
   end
 
 end
