@@ -33,8 +33,8 @@ describe Wristband do
       ticket.id.should equal(@ticket.id)
     end
     
-    it "should raise an error for a missing wristband id" do
-      expect { Wristband.find("999999") }.to raise_error
+    it "should return nil for a missing wristband id" do
+      expect(Wristband.find("999999")).to be_nil
     end
   end
 end
