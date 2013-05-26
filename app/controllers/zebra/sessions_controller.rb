@@ -33,11 +33,9 @@ class Zebra::SessionsController < ApplicationController
 
   def check_cookie(wristband_id = nil)
     return false if wristband_id.nil?
-    begin
-      Wristband.find(wristband_id).kind == Ticket::Kind::CREW
-    rescue
-      false
-    end
+    wristband = Wristband.find(wristband_id)
+    return false unless wristband.present?
+    Wristband.find(wristband_id).kind == Ticket::Kind::CREW 
   end
 
 end
