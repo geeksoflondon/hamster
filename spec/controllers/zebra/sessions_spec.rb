@@ -3,9 +3,7 @@ require 'spec_helper'
 describe Zebra::SessionsController do
 
   before(:all) do
-    @ticket = a_saved Ticket
-    @ticket.kind = Ticket::Kind::CREW
-    @ticket.save
+    @ticket = a_saved Ticket, kind: Ticket::Kind::CREW
     @ticket.interactions.create(:key => 'wristband', :value => '123456')
   end
 
@@ -51,9 +49,8 @@ describe Zebra::SessionsController do
     end
     
     it "if wristband_id is not a crew ticket type" do
-      ticket = a_saved Ticket
-      ticket.save
-      ticket.interactions.create(:key => 'wristband', :value => '234567')
+      attendee_ticket = a_saved Ticket, kind: Ticket::Kind::REGULAR
+      attendee_ticket.interactions.create(:key => 'wristband', :value => '234567')
       @controller.instance_eval{ check_cookie('234567') }.should eq(false)
     end
     
