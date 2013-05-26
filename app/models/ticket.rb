@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendee, :event
+  attr_accessible :attendee, :event, :kind
 
   belongs_to :attendee
   belongs_to :event

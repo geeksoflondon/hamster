@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
 
   has_many :tickets
   has_many :interactions, as: :interactable
+  has_many :attendees, through: :tickets
   belongs_to :venue
 
   protected
