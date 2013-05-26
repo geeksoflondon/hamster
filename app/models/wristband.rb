@@ -11,9 +11,7 @@ class Wristband
   #Find a wristband and return the corresponding ticket
   def self.find(wristband_id)
     wristband = Interaction.where(:key => 'wristband', :value => wristband_id, :current => true)
-    raise 'Wristband does not exist' unless wristband.count >= 1
-    return wristband.first.interactable unless wristband.empty?
-    nil
+    wristband.empty? ? nil : wristband.first.interactable
   end
   
   private
