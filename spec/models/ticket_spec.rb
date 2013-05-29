@@ -43,6 +43,10 @@ describe Ticket do
       ticket.interactions.should have(1).interaction
       ticket.interactions.create! key: "foo", value: "bar2"
       ticket.interactions.should have(2).interactions
+  describe "#woodpecker" do
+    it "should have a woodpecker one time password" do
+      ticket = a_saved Ticket
+      ticket.woodpecker_password.should_not be_nil
     end
   end
 end
