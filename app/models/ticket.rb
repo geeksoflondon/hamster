@@ -20,6 +20,7 @@ class Ticket < ActiveRecord::Base
   
   def woodpecker_password
     self.interactions.where(:key => 'woodpecker_password')
+    self.interactions.where(:key => 'woodpecker_password').first['value']
   end
   
   private
