@@ -40,9 +40,12 @@ describe Ticket do
     it "should have many interactions" do
       ticket = a_saved Ticket
       ticket.interactions.create! key: "foo", value: "bar"
-      ticket.interactions.should have(1).interaction
+      ticket.interactions.should have(2).interaction
       ticket.interactions.create! key: "foo", value: "bar2"
-      ticket.interactions.should have(2).interactions
+      ticket.interactions.should have(3).interactions
+    end
+  end
+  
   describe "#woodpecker" do
     it "should have a woodpecker one time password" do
       ticket = a_saved Ticket
