@@ -5,6 +5,14 @@ Hamster::Application.routes.draw do
     resource :sessions
     resources :home
   end
+  
+  namespace :woodpecker do
+    root :to => 'sessions#index'
+    resource :sessions
+    get 'onetime/:woodpecker_password' => "sessions#create"
+    
+    resource :confirm
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
