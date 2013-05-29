@@ -20,6 +20,6 @@ class Interaction < ActiveRecord::Base
   end
 
   def previous_states
-    Interaction.where("interactable_id = ? AND interactable_type = ? AND id != ?", interactable_id, interactable_type, id)
+    Interaction.where("interactable_id = ? AND interactable_type = ? AND key = ? AND id != ?", interactable_id, interactable_type, key, id)
   end
 end
