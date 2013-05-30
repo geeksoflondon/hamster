@@ -20,6 +20,17 @@ describe Interaction do
       old_interaction.reload.current.should be_false
       new_interaction.current.should be_true
     end
+    
+    it "should only expire older versions of the same key" do
+      attendee = a_saved Attendee
+      first_interaction = a_saved Interaction, key: "foo", value: "duck", interactable: attendee
+      second_interaction = a_saved Interaction, key: "bar", value: "cow", interactable: attendee
+      
+      a_saved Interaction, key: "foo", value: "goose", interactable: attendee
+      
+      first_interaction.reload.current.should be_false
+      second_interaction.reload.current.should be_true
+    end
   end
 
   describe "#value=" do
