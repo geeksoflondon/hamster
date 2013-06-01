@@ -35,13 +35,13 @@ describe Woodpecker::SessionsController do
 
   describe "#create via /woodpecker/onetime/:woodpecker_token" do
     it "with a valid woodpecker password" do
-      get :woodpecker_onetime, {:woodpecker_password => @ticket.woodpecker_password}
+      get :create, :woodpecker_password => @ticket.woodpecker_password
       expect(response.cookies['woodpecker_token']).to eq(@ticket.woodpecker_password)
       expect(response).to be_redirect
     end
 
     it "without a valid woodpecker password" do
-      get :woodpecker_onetime, {:woodpecker_password => 'abcdefg'}
+      get :create, :woodpecker_password => 'abcdefg'
       expect(response.cookies['woodpecker_token']).to eq(nil)
       expect(response).to be_redirect
     end
