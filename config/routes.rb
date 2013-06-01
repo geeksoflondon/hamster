@@ -1,9 +1,17 @@
 Hamster::Application.routes.draw do
-  
+
   namespace :zebra do
     root :to => 'sessions#index'
     resource :sessions
     resources :home
+  end
+
+  namespace :woodpecker do
+    resources :sessions do
+      get 'oneclick/:woodpecker_token' => "sessions#create", :as => :oneclick
+    end
+
+    resource :confirmation
   end
 
   # The priority is based upon order of creation:
