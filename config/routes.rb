@@ -8,8 +8,9 @@ Hamster::Application.routes.draw do
   
   namespace :woodpecker do
     root :to => 'sessions#index'
-    resource :sessions
-    get 'onetime/:woodpecker_password' => "sessions#create"
+    resource :sessions do
+      match 'oneclick/:woodpecker_password' => "sessions#create", :as => :oneclick
+    end
     
     resource :confirm
   end
