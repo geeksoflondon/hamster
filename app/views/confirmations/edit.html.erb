@@ -1,0 +1,12 @@
+<%= form_tag "/confirmations/#{@confirmation.token}", method: :put do %>
+
+  <h2>Are you still attending?</h2>
+  <%= radio_button_tag :attending, "yes", @confirmation.attending? %>
+  <%= label_tag :attending_yes, "Yes, I am " %>
+
+  <%= radio_button_tag :attending, "no", !@confirmation.attending? %>
+  <%= label_tag :attending_no, "No, I am not" %>
+
+  <%= submit_tag "Submit" %>
+
+<% end %>

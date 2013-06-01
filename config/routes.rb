@@ -6,13 +6,7 @@ Hamster::Application.routes.draw do
     resources :home
   end
 
-  namespace :woodpecker do
-    resources :sessions do
-      get 'oneclick/:woodpecker_token' => "sessions#create", :as => :oneclick
-    end
-
-    resource :confirmation
-  end
+  resources :confirmations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
