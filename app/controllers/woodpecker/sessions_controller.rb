@@ -6,7 +6,6 @@ class Woodpecker::SessionsController < ApplicationController
   layout 'woodpecker'
 
   def index
-    puts check_cookie(cookies[:woodpecker_token]).inspect
     redirect_to :woodpecker_confirm if check_cookie(cookies[:woodpecker_token])
   end
 
@@ -28,7 +27,7 @@ class Woodpecker::SessionsController < ApplicationController
   
   def logged_in?
     unless check_cookie(cookies[:woodpecker_token])
-      redirect_to :woodpecker_sessions
+      redirect_to :woodpecker_root
     end
   end
 
