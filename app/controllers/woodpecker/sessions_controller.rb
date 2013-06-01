@@ -1,46 +1,62 @@
 #OnSite Registration Tool
 class Woodpecker::SessionsController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :create]
+  before_filter :ensure_logged_in, :except => [:index, :create]
 
   layout 'woodpecker'
 
+  COOKIE_KEY = :woodpecker_token
+
   def index
-    redirect_to :woodpecker_confirm if check_cookie(cookies[:woodpecker_token])
+    redirect_to :woodpecker_confirmation if logged_in?
   end
 
   def create
-    if check_cookie(params[:woodpecker_password]) === true
-      cookies[:woodpecker_token] = params[:woodpecker_password]
-      redirect_to :woodpecker_confirm
+    if valid_token?
+      login
+      redirect_to :woodpecker_confirmation
     else
-      redirect_to :woodpecker_root
+      redirect_to :woodpecker_sessions
     end
   end
 
   def destroy
-    cookies.delete :woodpecker_token
-    redirect_to :woodpecker_root
+    logout
+    redirect_to :woodpecker_sessions
   end
 
   private
-  
-  def logged_in?
-    unless check_cookie(cookies[:woodpecker_token])
-      redirect_to :woodpecker_root
+
+  def ensure_logged_in
+    unless logged_in?
+      redirect_to :woodpecker_sessions
     end
   end
 
-  def check_token(token)
-    woodpecker_token = Interaction.where(:key => 'woodpecker_password', :value => token, :current => true)
+  def logged_in?
+    verify_token(cookies[COOKIE_KEY])
+  end
+
+  def valid_token?
+    verify_token(params[COOKIE_KEY])
+  end
+
+  def get_interactable(token)
+    woodpecker_token = Interaction.where(:key => 'woodpecker_token', :value => token, :current => true)
     woodpecker_token.empty? ? nil : woodpecker_token.first.interactable
   end
 
-  def check_cookie(token = nil)
+  def verify_token(token = nil)
     return false if token.nil?
-    woodpecker_token = check_token(token)
-    return false unless woodpecker_token.present?
-    true
+    get_interactable(token).present?
+  end
+
+  def login
+    cookies[COOKIE_KEY] = params[COOKIE_KEY]
+  end
+
+  def logout
+    cookies.delete COOKIE_KEY
   end
 
 end

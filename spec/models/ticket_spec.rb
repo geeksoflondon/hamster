@@ -45,11 +45,11 @@ describe Ticket do
       ticket.interactions.should have(3).interactions
     end
   end
-  
+
   describe "#woodpecker" do
-    it "should have a woodpecker one time password" do
+    it "should have a woodpecker one time token" do
       ticket = a_saved Ticket
-      ticket.woodpecker_password.should_not be_nil
+      ticket.woodpecker_token.should_not be_nil
     end
   end
 end
