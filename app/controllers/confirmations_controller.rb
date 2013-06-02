@@ -1,5 +1,5 @@
 class ConfirmationsController < ApplicationController
-  before_filter :ensure_confirmation_loaded, only: [:edit, :update, :show]
+  before_filter :ensure_ticket_present, only: [:edit, :update, :show]
 
   layout "confirmations"
 
@@ -7,7 +7,7 @@ class ConfirmationsController < ApplicationController
   end
 
   def update
-    if Ticket::Confirmation.new(ticket).save(params)
+    if @confirmation.save(params)
       redirect_to :confirmation, id: ticket.woodpecker_token
     else
       render :edit
@@ -22,20 +22,12 @@ class ConfirmationsController < ApplicationController
 
   private
 
-  def ensure_confirmation_loaded
-    redirect_to :confirmations if confirmation.nil?
-  end
-
-  def confirmation
-    @confirmation ||= ticket.nil? ? nil : Ticket::Confirmation.new(ticket)
+  def ensure_ticket_present
+    redirect_to :confirmations if ticket.nil?
+    @confirmation = Ticket::Confirmation.new(ticket)
   end
 
   def ticket
-    @ticket ||= interaction.try(:interactable)
-
-  end
-
-  def interaction
-    @interaction ||= Interaction.where(:key => 'woodpecker_token', :value => params[:id], :current => true).first
+    @ticket ||= Ticket.get("woodpecker_token", params[:id])
   end
 end

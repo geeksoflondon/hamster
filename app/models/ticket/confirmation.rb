@@ -1,15 +1,12 @@
 class Ticket
   class Confirmation < SimpleDelegator
+    include Interactable
 
     def save params
-      return false if validate(params)
+      return false unless valid params
 
-      interactions.create(key: "confirmed", value: true)
-      if params[:attending] === 'yes'
-        interactions.create(key: "attending", value: true)
-      else
-        interactions.create(key: "attending", value: false)
-      end
+      is_confirmed!
+      has "attending", params[:attending] === 'yes'
       true
     end
 
@@ -17,14 +14,10 @@ class Ticket
       woodpecker_token
     end
 
-    def attending?
-      interactions.where(key: "attending", current: true).last.try(:value) ===  "true"
-    end
-
     private
 
-    def validate params
-      params.keys.include? :attending
+    def valid params
+      params.keys.include? "attending"
     end
   end
 end
