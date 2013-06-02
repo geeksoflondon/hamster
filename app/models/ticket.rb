@@ -12,22 +12,19 @@ class Ticket < ActiveRecord::Base
   validates :kind, presence: true, inclusion: { in: Ticket::Kind::TYPES }
 
   before_validation :set_kind
+  after_create :generate_retain_token
 
-  after_create :generate_woodpecker_token
+  RETAIN_TOKEN = "retain_token".freeze
 
   def set_kind
     self.kind ||= Ticket::Kind::REGULAR
     true
   end
 
-  def woodpecker_token
-    get "woodpecker_token"
-  end
-
   private
 
-  def generate_woodpecker_token
-    has "woodpecker_token", SecureRandom.urlsafe_base64
+  def generate_retain_token
+    has RETAIN_TOKEN, SecureRandom.urlsafe_base64
   end
 
 end

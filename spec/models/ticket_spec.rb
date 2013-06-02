@@ -14,6 +14,11 @@ describe Ticket do
       -> { a_saved Ticket, attendee: attendee, event: event }.should_not raise_error
       -> { a_saved Ticket, attendee: attendee, event: event }.should raise_error
     end
+
+    it "should have a retain token generated" do
+      ticket = a_saved Ticket
+      ticket.get(Ticket::RETAIN_TOKEN).should_not be_nil
+    end
   end
 
   describe "#kind" do
@@ -43,13 +48,6 @@ describe Ticket do
       ticket.interactions.should have(2).interaction
       ticket.interactions.create! key: "foo", value: "bar2"
       ticket.interactions.should have(3).interactions
-    end
-  end
-
-  describe "#woodpecker" do
-    it "should have a woodpecker one time token" do
-      ticket = a_saved Ticket
-      ticket.woodpecker_token.should_not be_nil
     end
   end
 end

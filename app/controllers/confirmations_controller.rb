@@ -7,8 +7,8 @@ class ConfirmationsController < ApplicationController
   end
 
   def update
-    if @confirmation.save(params)
-      redirect_to :confirmation, id: ticket.woodpecker_token
+    if @ticket.save(params)
+      redirect_to :confirmation, id: @ticket.token
     else
       render :edit
     end
@@ -24,10 +24,10 @@ class ConfirmationsController < ApplicationController
 
   def ensure_ticket_present
     redirect_to :confirmations if ticket.nil?
-    @confirmation = Ticket::Confirmation.new(ticket)
+    @ticket = Ticket::Confirmation.new(ticket)
   end
 
   def ticket
-    @ticket ||= Ticket.get("woodpecker_token", params[:id])
+    @_ticket ||= Ticket.get(Ticket::RETAIN_TOKEN, params[:id])
   end
 end

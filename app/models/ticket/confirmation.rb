@@ -11,7 +11,7 @@ class Ticket
     end
 
     def token
-      woodpecker_token
+      get Ticket::RETAIN_TOKEN
     end
 
     private
