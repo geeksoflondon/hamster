@@ -13,7 +13,7 @@ class Wristband
 
   #Find a wristband and return the corresponding ticket
   def self.find wristband_id
-    interactable "wristband", wristband_id
+    Ticket.get "wristband", wristband_id
   end
 
   private
