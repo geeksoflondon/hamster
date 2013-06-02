@@ -1,4 +1,6 @@
 class Ticket < ActiveRecord::Base
+  include Interactable
+
   attr_accessible :attendee, :event, :kind
 
   belongs_to :attendee
@@ -19,15 +21,13 @@ class Ticket < ActiveRecord::Base
   end
 
   def woodpecker_token
-    self.interactions.where(:key => 'woodpecker_token').first['value']
+    get "woodpecker_token"
   end
 
   private
 
   def generate_woodpecker_token
-    o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
-    token = Digest::SHA1.hexdigest("#{self.id}#{(0...50).map{ o[rand(o.length)] }.join}#{Time.now()}")
-    self.interactions.create :key => 'woodpecker_token', :value => token
+    has "woodpecker_token", SecureRandom.urlsafe_base64
   end
 
 end
