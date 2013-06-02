@@ -41,14 +41,9 @@ class Woodpecker::SessionsController < ApplicationController
     verify_token(params[COOKIE_KEY])
   end
 
-  def get_interactable(token)
-    woodpecker_token = Interaction.where(:key => 'woodpecker_token', :value => token, :current => true)
-    woodpecker_token.empty? ? nil : woodpecker_token.first.interactable
-  end
-
   def verify_token(token = nil)
     return false if token.nil?
-    get_interactable(token).present?
+    Ticket.get("woodpecker_token", token).present?
   end
 
   def login
