@@ -1,12 +1,54 @@
 <%= form_tag "/confirmations/#{@confirmation.token}", method: :put do %>
+  <!--Welcome-->
+  <section id="welcome">
+    <h2>Hello <%= @attendee.first_name %> <%= @attendee.last_name %></h2>
+    <p>Are you coming to <%= @event.name %> at <%= @event.venue.name %> <%= @event.english_date %>  ?</p>
+    <input id="is_attending" type="button" class="primary" value="I am attending!!">
+    <input id="not_attending" type="button" class="secondary"  value="Cancel my ticket!">
+  </section>
 
-  <h2>Are you still attending?</h2>
-  <%= radio_button_tag :attending, "yes", @confirmation.is_attending? %>
-  <%= label_tag :attending_yes, "Yes, I am " %>
+  <!--Are you sure you want to cancel?-->  
+  <section id="cancel">
+    <h2>John, you sure you want to cancel?</h2>
+    <%= submit_tag "Yes cancel my ticket", class: "primary" %>
+    <input id="still_attending" type="button" class="secondary" value="No I am Still Coming">
+  </section>
+  
+  <!---Your Badge-->
+  <section id="badge">
+    <h2>Check whats on you badge</h2>
+    <fieldset>
+      <%= label_tag 'first_name' %>
+      <%= text_field_tag 'first_name', @attendee.first_name %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag 'last_name' %>
+      <%= text_field_tag 'last_name', @attendee.last_name %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag 'twitter' %>
+      <%= text_field_tag 'twitter', @attendee.twitter %>
+    </fieldset>
+   <input id="confirm_badge" type="button" class="primary" value="Next...">
+  </section>
 
-  <%= radio_button_tag :attending, "no", !@confirmation.is_attending? %>
-  <%= label_tag :attending_no, "No, I am not" %>
+  <!--When are you attending-->
+  <section id="days">
+    <h2>When are you attending?</h2>
+    <fieldset>
+      <%= label_tag 'saturday' %>
+      <%= select_tag 'saturday', options_from_collection_for_select({true: 'Yes', false: 'No'}, :first, :last, 1) %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag 'overnight' %>
+      <%= select_tag 'overnight', options_from_collection_for_select({true: 'Yes', false: 'No'}, :first, :last, 1) %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag 'overnight' %>
+      <%= select_tag 'overnight', options_from_collection_for_select({true: 'Yes', false: 'No'}, :first, :last, 1) %>
+    </fieldset>
+    <%= submit_tag "Save my details", class: "primary" %>
+  </section>
 
-  <%= submit_tag "Submit" %>
-
+  <%= hidden_field_tag :attending,  @confirmation.is_attending? %>
 <% end %>
