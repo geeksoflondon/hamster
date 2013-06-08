@@ -11,6 +11,7 @@ capybara-*.html
 /public/system/*
 /coverage/
 /spec/tmp/*
+/spec/fixtures/vcr_cassettes/Importers_Eventbrite/*
 **.orig
 rerun.txt
 pickle-email-*.html

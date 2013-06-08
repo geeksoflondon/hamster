@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe Ticket do
   describe "#initialize" do
-    it "should require an attendee and an event" do
+    it "should require attendee, event, kind, eventbrite_xid" do
       -> { a_saved Ticket, attendee: nil }.should raise_error
       -> { a_saved Ticket, event: nil }.should raise_error
+      -> { a_saved Ticket, eventbrite_xid: nil }.should raise_error
       -> { a_saved Ticket }.should_not raise_error
     end
 
@@ -13,6 +14,14 @@ describe Ticket do
       event = a_saved Event
       -> { a_saved Ticket, attendee: attendee, event: event }.should_not raise_error
       -> { a_saved Ticket, attendee: attendee, event: event }.should raise_error
+    end
+
+    it "should have a unique eventbrite_xid" do
+      ticket1 = a_saved Ticket, eventbrite_xid: "123456"
+      ticket1.should be_valid
+
+      ticket2 = a Ticket, eventbrite_xid: "123456"
+      ticket2.should_not be_valid
     end
   end
 
@@ -32,7 +41,7 @@ describe Ticket do
     it "can only be one of the valid types" do
       ticket = a_saved Ticket
       ticket.kind = 101
-      ticket.valid?.should be_false
+      ticket.should_not be_valid
     end
   end
 

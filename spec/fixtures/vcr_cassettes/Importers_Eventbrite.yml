@@ -1,0 +1,1046 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.eventbrite.com/json/user_list_events?app_key=1234&user_key=1234
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx
+      date:
+      - Sat, 08 Jun 2013 15:28:02 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      vary:
+      - Accept-Encoding
+      x-service:
+      - djc
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache, must-revalidate, no-cache="Set-Cookie", private
+      p3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      set-cookie:
+      - mgrefby=; Domain=.eventbrite.com; expires=Sun, 08-Jun-2014 15:28:02 GMT; Max-Age=31536000;
+        Path=/
+      - eblang=lo%3Den_US%26la%3Den-us; Domain=.eventbrite.com; expires=Sun, 08-Jun-2014
+        15:28:02 GMT; Path=/
+      - G=v%3D1%26i%3Dd83de635-7f7d-44f7-8f59-d08da0dab75c%26a%3D301%26s%3DAPDvTK6DxSrDGvzLR19RvcU5LFUfiAjWtA;
+        Domain=.eventbrite.com; expires=Sun, 08-Jun-2014 15:28:02 GMT; Path=/
+      - SS=AE3DLHTR0TsoS9gHINVJlbmKldMOLQ4RlQ; Domain=.eventbrite.com; httponly; Path=/;
+        secure
+      - SP=AGQgbbnY0M1unzBwFPlJPqrW22Em83Qmb3Ff1tYq30oAhRj9cxsga12YgQPpC6291IG6tOq-BTZbBrZMzRP9a-I0TOMB6bRDMkkZZSrKkdwIRj21jhnQmb4P_s8wAaIgjW7HQaEG55UdkBzqM9g67tTSGfZ2pQBAG2OSEkyadrqgL8WrCVNDiaTl8ea5La7ZMZ-Vslgd2t6gChoDEmn6g27eM3WFsPFRQrIRpmYphPm9YqsxLOg8bKs;
+        Domain=.eventbrite.com; httponly; Path=/
+      - mgref=typeins; Domain=.eventbrite.com; expires=Sun, 08-Jun-2014 15:28:02 GMT;
+        Max-Age=31536000; Path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"events": [{"event": {"box_header_text_color": "FFFFFF", "link_color":
+        "8D0000", "box_background_color": "F2EEE6", "timezone": "Europe/London", "box_border_color":
+        "C0BDB6", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/260134068.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/134961161", "description":
+        "", "long_description": "", "id": 134961161, "name": "Barcamp London"}, "background_color":
+        "FFFFFF", "id": 260134068, "category": "", "box_header_background_color":
+        "C0BDB6", "capacity": 230, "num_attendee_rows": 169.0, "title": "Barcamp London
+        6", "start_date": "2009-03-28 09:00:00", "status": "Completed", "description":
+        "<P><A HREF=\"http://staging.barcamplondon.org/about/\">BarCamp London 6</A>
+        is a free-to-attend weekend <A HREF=\"http://staging.barcamplondon.org/about/\">unconference</A>
+        for designers, developers and geeks of all types. See <A HREF=\"http://barcamplondon.org\"
+        TARGET=\"_blank\">barcamplondon.org</A> for full\r\ndetails.</P>\r\n<P>BarCamp
+        London 6 is a free-to-attend weekend unconference for\r\ndesigners, developers
+        and geeks of all types.</P>\r\n<P>\r\nNote: <STRONG>THIS IS THE TICKET SIGNUP
+        PAGE</STRONG>. You must sign up on this page when the tickets are available.
+        </P>\r\n<P>Being signed\r\nup on here will <STRONG>GUARANTEE</STRONG> you
+        entry to the event.</P>\r\n<P>\u00a0</P>", "end_date": "2009-03-29 17:00:00",
+        "tags": "", "timezone_offset": "GMT+0000", "text_color": "8D0000", "title_text_color":
+        "", "password": "", "tickets": [{"ticket": {"description": "For GirlGeeks
+        etc", "end_date": "2009-03-23 09:00:00", "min": 1, "max": 10, "price": "0.00",
+        "quantity_sold": 10, "visible": "false", "start_date": "2009-01-21 12:00:00",
+        "currency": "GBP", "quantity_available": 10, "type": 0, "id": 8411795, "name":
+        "Girl Geek Dinner"}}, {"ticket": {"description": "If money was given this
+        is the pass to give in return", "end_date": "2009-03-23 09:00:00", "min":
+        0, "max": 2, "price": "0.00", "quantity_sold": 3, "visible": "false", "start_date":
+        "2009-02-15 14:05:00", "currency": "GBP", "quantity_available": 10, "type":
+        0, "id": 8411246, "name": "Sponsor Pass"}}, {"ticket": {"description": "For
+        Organizers, Helpers etc", "end_date": "2009-03-23 09:00:00", "min": 1, "max":
+        5, "price": "0.00", "quantity_sold": 17, "visible": "false", "start_date":
+        "2009-01-21 05:00:00", "currency": "GBP", "quantity_available": 17, "type":
+        0, "id": 8411182, "name": "Staff Pass"}}, {"ticket": {"description": "First
+        time at Barcamp? This if for you!", "end_date": "2009-02-16 15:20:00", "min":
+        1, "max": 1, "price": "0.00", "quantity_sold": 14, "visible": "false", "start_date":
+        "2009-02-16 15:00:00", "currency": "GBP", "quantity_available": 15, "type":
+        0, "id": 8411207, "name": "First Timer (FEB1)"}}, {"ticket": {"description":
+        "Already been a werewolf? This for you!", "end_date": "2009-02-16 15:20:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 38, "visible": "false",
+        "start_date": "2009-02-16 15:00:00", "currency": "GBP", "quantity_available":
+        40, "type": 0, "id": 8411208, "name": "Everyone (FEB1)"}}, {"ticket": {"description":
+        "Dont own a Google Tent? This is for you", "end_date": "2009-02-25 19:10:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 15, "visible": "false",
+        "start_date": "2009-02-25 19:00:00", "currency": "GBP", "quantity_available":
+        16, "type": 0, "id": 8411210, "name": "First Timer (FEB2)"}}, {"ticket": {"description":
+        "Own a Google Tent? This is for you!", "end_date": "2009-02-25 19:10:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 34, "visible": "false",
+        "start_date": "2009-02-25 19:00:00", "currency": "GBP", "quantity_available":
+        40, "type": 0, "id": 8411211, "name": "Everyone (FEB2)"}}, {"ticket": {"description":
+        "Its you!", "end_date": "2009-03-18 18:10:00", "min": 1, "max": 1, "price":
+        "10,004.95", "quantity_sold": 23, "visible": "false", "start_date": "2009-03-15
+        00:00:00", "currency": "GBP", "quantity_available": 30, "type": 0, "id": 8411779,
+        "name": "Lottery Winners"}}, {"ticket": {"description": "Guardian Staffers",
+        "end_date": "2009-03-28 06:00:00", "min": 0, "max": 20, "price": "0.00", "quantity_sold":
+        11, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 8430660, "name": "Guardian Staff"}}, {"ticket": {"description": "",
+        "end_date": "2009-03-28 06:00:00", "min": 0, "max": 0, "price": "0.00", "quantity_sold":
+        4, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 8443866, "name": "Complimentary Tickets"}}], "created": "2009-01-21
+        02:52:21", "url": "http://barcamplondon6.eventbrite.com", "box_text_color":
+        "362E2C", "privacy": "Private", "venue": {"city": "London", "name": "The Guardian",
+        "country": "United Kingdom", "region": "", "longitude": -0.12623599999999999,
+        "postal_code": "", "address_2": "", "address": "Kings Place", "latitude":
+        51.500152, "country_code": "GB", "id": 139500, "Lat-Long": "51.500152 / -0.126236"},
+        "modified": "2012-06-07 14:28:51", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/260134068.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/430895821.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/134961161", "description":
+        "", "long_description": "", "id": 134961161, "name": "Barcamp London"}, "background_color":
+        "FFFFFF", "id": 430895821, "category": "conferences,fairs", "box_header_background_color":
+        "EFEFEF", "capacity": 260, "num_attendee_rows": 244.0, "title": "Barcamp London
+        7", "start_date": "2009-10-24 10:00:00", "status": "Completed", "description":
+        "<P><STRONG><FONT SIZE=\"4\">About Barcamp London</FONT></STRONG></P>\r\n<P>BarCamp
+        London 7 is a free-to-attend weekend unconference for\r\ndesigners, developers
+        and geeks of all types. Keep an eye on\u00a0<A HREF=\"http://www.barcamplondon.org\">http://www.barcamplondon.org/</A>
+        and <A HREF=\"http://www.twitter.com/barcamplondon\">http://twitter.com/barcamplondon</A>
+        to find out how and when to get a ticket.</P>\r\n<P>\u00a0</P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">What is this place?</FONT></STRONG></P>\r\n<P>\r\n<STRONG>THIS
+        IS THE TICKET SIGNUP PAGE</STRONG>. You must sign up on this page when the
+        tickets are available. </P>\r\n<P>Being signed\r\nup on here will <STRONG>GUARANTEE</STRONG>
+        you entry to the event.</P>\r\n<P>\u00a0</P>\r\n<P><STRONG><FONT SIZE=\"4\">I
+        won a lottery or hide&seek ticket, but I missed the signup!</FONT></STRONG></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\">Please email <A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A>
+        with your name and we will see if we can fix you up! <BR><BR></FONT></FONT></P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">I work for IBM, how do I get a IBM Staff ticket?</FONT></STRONG></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\">As our hosts, IBM have a limited number of tickets
+        available exclusively to IBM staff. Details are available from <A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A><BR></FONT></FONT></P>\r\n<P>\u00a0</P>\r\n<P><FONT
+        SIZE=\"4\"><STRONG>I cant come or I have a question!!</STRONG></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\">Please email <A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A>
+        and we will reallocate your ticket.\u00a0 </FONT><BR></FONT></P>\r\n<P>\u00a0</P>\r\n<P><FONT
+        SIZE=\"4\"><STRONG>Are there any rules about my ticket?</STRONG></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\">Just a few rules are attached to your ticket,
+        but nothing scary!</FONT></FONT></P>\r\n<P STYLE=\"padding-left: 30px;\"><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><STRONG>Data Protection:</STRONG> We may have
+        to share the information we collect in this form with various 3rd parties
+        to allow us to organise BarcampLondon. For example tell the caterers about
+        any specific dietary requirements. <BR><BR><STRONG>Secure Site:</STRONG> Barcamp
+        London will be operating a secure site policy and as such you will be required
+        to provide identification when collecting your badge.<BR><BR><STRONG>Right
+        to Refuse Entry:</STRONG> Barcamp London also retains the right to refuse
+        you entry for any reason, so please don''t turn up drunk, or covered in sewage
+        as we will quickly show you the door.</FONT></FONT></P>", "end_date": "2009-10-25
+        17:00:00", "tags": "barcamp", "timezone_offset": "GMT+0100", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "",
+        "end_date": "2009-10-07 18:00:00", "min": 1, "max": 1, "price": "100,005.50",
+        "quantity_sold": 10, "visible": "false", "start_date": "2009-09-19 01:00:00",
+        "currency": "GBP", "quantity_available": 11, "type": 0, "id": 8698015, "name":
+        "Hide and Seek"}}, {"ticket": {"description": "", "end_date": "2009-10-24
+        07:00:00", "min": 0, "max": 0, "price": "0.00", "quantity_sold": 21, "visible":
+        "false", "currency": "GBP", "quantity_available": 28, "type": 0, "id": 8698016,
+        "name": "BCLPA "}}, {"ticket": {"description": "", "end_date": "2009-10-24
+        07:00:00", "min": 1, "max": 1, "price": "100,005.50", "quantity_sold": 20,
+        "visible": "false", "currency": "GBP", "quantity_available": 30, "type": 0,
+        "id": 8698017, "name": "Sponsor "}}, {"ticket": {"description": "", "end_date":
+        "2009-10-08 18:00:00", "min": 1, "max": 1, "price": "100,005.50", "quantity_sold":
+        69, "visible": "false", "start_date": "2009-10-03 00:00:00", "currency": "GBP",
+        "quantity_available": 70, "type": 0, "id": 8698019, "name": "Lottery Winners"}},
+        {"ticket": {"description": "", "end_date": "2009-10-24 07:00:00", "min": 1,
+        "max": 1, "price": "0.00", "quantity_sold": 100, "visible": "false", "start_date":
+        "2009-10-09 18:00:00", "currency": "GBP", "quantity_available": 100, "type":
+        0, "id": 8698026, "name": "Standard Ticket"}}, {"ticket": {"description":
+        "", "end_date": "2009-10-16 12:00:00", "min": 1, "max": 1, "price": "100,005.50",
+        "quantity_sold": 8, "visible": "false", "currency": "GBP", "quantity_available":
+        10, "type": 0, "id": 8698037, "name": "IBM Staff"}}, {"ticket": {"description":
+        "", "end_date": "2009-10-24 07:00:00", "min": 0, "max": 0, "price": "0.00",
+        "quantity_sold": 9, "visible": "false", "currency": "GBP", "quantity_available":
+        10, "type": 0, "id": 8698051, "name": "Volunteer"}}, {"ticket": {"description":
+        "", "end_date": "2009-10-24 07:00:00", "min": 0, "max": 0, "price": "0.00",
+        "quantity_sold": 7, "visible": "false", "currency": "GBP", "quantity_available":
+        10, "type": 0, "id": 8726623, "name": "Special"}}], "created": "2009-09-09
+        12:54:20", "url": "http://barcamplondon7.eventbrite.com", "box_text_color":
+        "000000", "privacy": "Public", "venue": {"city": "London", "name": "IBM Southbank",
+        "country": "United Kingdom", "region": "London", "longitude": -0.099048999999999998,
+        "postal_code": "SE1 9PZ", "address_2": "", "address": "", "latitude": 51.507739000000001,
+        "country_code": "GB", "id": 248881, "Lat-Long": "51.507739 / -0.099049"},
+        "modified": "2012-06-07 15:46:13", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/430895821.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "FFFFFF", "link_color":
+        "8D0000", "box_background_color": "F2EEE6", "timezone": "Europe/London", "box_border_color":
+        "C0BDB6", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/711698710.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/502066032", "description":
+        "", "long_description": "", "id": 502066032, "name": ""}, "background_color":
+        "FFFFFF", "id": 711698710, "category": "other,sales", "box_header_background_color":
+        "C0BDB6", "capacity": 0, "num_attendee_rows": 86.0, "title": "HackCamp", "start_date":
+        "2010-06-12 10:00:00", "status": "Completed", "description": "<P>\u00a0</P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">About HackCamp @ Google<BR></FONT></STRONG></P>\r\n<P>HackCamp
+        is a free-to-attend weekend hackday for designers, developers and geeks of
+        all types run by the organiser of <A HREF=\"http://www.barcamplondon.org/\">BarcampLondon</A>.
+        Keep an eye on\u00a0<A HREF=\"http://www.hackcamp.org.uk/\">http://www.hackcamp.org.uk</A>
+        and\u00a0<A HREF=\"http://www.twitter.com/hackcamp\">http://twitter.com/hackcamp</A>
+        to find out how and when to get a ticket.</P>\r\n<P>\u00a0</P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">What is this place?</FONT></STRONG></P>\r\n<P><STRONG>THIS IS THE
+        TICKET SIGNUP PAGE</STRONG>. You must sign up on this page when the tickets
+        are available.</P>\r\n<P>Being signed up on here will\u00a0<STRONG>GUARANTEE</STRONG>\u00a0you
+        entry to the event.</P>\r\n<P>\u00a0</P>\r\n<P><FONT SIZE=\"4\"><STRONG>I
+        cant come or I have a question!!</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">Please email\u00a0<A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A>\u00a0and
+        we will reallocate your ticket.\u00a0\u00a0</FONT></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><BR></FONT></FONT></P>\r\n<P><FONT SIZE=\"4\"><STRONG>Are
+        there any rules about my ticket?</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">Just a few rules are attached to your ticket, but nothing scary!</FONT></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><STRONG>Data Protection:</STRONG>\u00a0We may
+        have to share the information we collect in this form with various 3rd parties
+        to allow us to organise HackCamp. For example tell the caterers about any
+        specific dietary requirements.\u00a0<BR><BR><STRONG>Secure Site:</STRONG>
+        HackCamp operate a secure site policy and as such you will be required to
+        provide identification when collecting your badge. If your under 21 dont be
+        offended if we ask you for ID at the bar ;-).<BR><BR><STRONG>Right to Refuse
+        Entry:</STRONG> HackCamp and the organisers retain the right to refuse you
+        entry for any reason, so please don''t turn up drunk, covered in sewage, or
+        with a small flock of geese as we will quickly show you the door.</FONT></FONT></P>\r\n<P>\u00a0</P>",
+        "end_date": "2010-06-13 16:00:00", "tags": "hackday", "timezone_offset": "GMT+0100",
+        "text_color": "8D0000", "title_text_color": "", "tickets": [{"ticket": {"description":
+        "Available to all!", "end_date": "2010-06-03 18:00:00", "min": 1, "max": 1,
+        "price": "1,006.50", "quantity_sold": 67, "visible": "false", "start_date":
+        "2010-05-30 09:00:00", "currency": "GBP", "quantity_available": 75, "type":
+        0, "id": 9150031, "name": "BCL === HackCamp Ticket"}}, {"ticket": {"description":
+        "", "end_date": "2010-06-12 07:00:00", "min": 1, "max": 1, "price": "25,006.50",
+        "quantity_sold": 2, "visible": "false", "currency": "GBP", "quantity_available":
+        10, "type": 0, "id": 9150034, "name": "Organisers"}}, {"ticket": {"description":
+        "", "end_date": "2010-06-12 07:00:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 17, "visible": "true", "start_date": "2010-06-04 12:00:00",
+        "currency": "GBP", "quantity_available": 10, "type": 0, "id": 9164185, "name":
+        "HackCamp Attendee"}}], "created": "2010-05-27 08:48:22", "url": "http://hackcamp2010.eventbrite.com",
+        "box_text_color": "362E2C", "privacy": "Public", "venue": {"city": "London",
+        "name": "Google Inc", "country": "United Kingdom", "region": "London", "longitude":
+        -0.14619199999999999, "postal_code": "", "address_2": "", "address": "Buckingham
+        Palace Road", "latitude": 51.494926, "country_code": "GB", "id": 433741, "Lat-Long":
+        "51.494926 / -0.146192"}, "modified": "2012-06-07 17:45:50", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/711698710.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/918917507-1.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/134961161", "description":
+        "", "long_description": "", "id": 134961161, "name": "Barcamp London"}, "background_color":
+        "FFFFFF", "id": 918917507, "category": "", "box_header_background_color":
+        "EFEFEF", "capacity": 320, "num_attendee_rows": 325.0, "title": "Barcamp London
+        8", "start_date": "2010-11-13 09:30:00", "status": "Completed", "description":
+        "<P>\u00a0</P>\r\n<P><STRONG><FONT SIZE=\"4\">About Barcamp London</FONT></STRONG></P>\r\n<P>BarCamp
+        London 8 is a free-to-attend weekend unconference for designers, developers
+        and geeks of all types. Keep an eye on\u00a0<A HREF=\"http://www.barcamplondon.org\">http://www.barcamplondon.org/</A>\u00a0and\u00a0<A
+        HREF=\"http://www.twitter.com/barcamplondon\">http://twitter.com/barcamplondon</A>\u00a0to
+        find out how and when to get a ticket.</P>\r\n<P><FONT SIZE=\"4\"><STRONG><FONT
+        SIZE=\"3\"><FONT SIZE=\"0\"><BR></FONT></FONT></STRONG></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><STRONG>About the City University Tickets</STRONG></FONT></P>\r\n<P>As
+        the hosts City University have a small allocation of tickets for students
+        and staff helping organise the event. They can signup with the discount code
+        given to them by the uni and should use there @city.ac.uk email address.\u00a0</P>\r\n<P>\u00a0</P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">What is this place?</FONT></STRONG></P>\r\n<P><STRONG>THIS IS THE
+        TICKET SIGNUP PAGE</STRONG>. You must sign up on this page when the tickets
+        are available.</P>\r\n<P>Being signed up on here will\u00a0<STRONG>GUARANTEE</STRONG>\u00a0you
+        entry to the event.</P>\r\n<P>\u00a0</P>\r\n<P><FONT SIZE=\"4\"><STRONG>I
+        cant come or I have a question!!</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">Please email\u00a0<A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A>\u00a0and
+        we will reallocate your ticket or answer your questions.\u00a0\u00a0</FONT></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><BR></FONT></FONT></P>\r\n<P><FONT SIZE=\"4\"><STRONG>Are
+        there any rules about my ticket?</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">Just a few rules are attached to your ticket, but nothing scary!</FONT></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><STRONG>Data Protection:</STRONG>\u00a0We may
+        have to share the information we collect in this form with various 3rd parties
+        to allow us to organise BarcampLondon. For example tell the caterers about
+        any specific dietary requirements.\u00a0<BR><BR><STRONG>Secure Site:</STRONG>\u00a0Barcamp
+        London operate a secure site policy and as such you will be required to provide
+        identification when collecting your badge. If you look under 21 luck you,
+        but dont be offended if we ask you for ID at the bar!<BR><BR><STRONG>Right
+        to Refuse Entry:</STRONG>\u00a0Barcamp London and the organisers retain the
+        right to refuse you entry for any reason, so please don''t turn up drunk,
+        covered in sewage, or with a small flock of geese as we will quickly show
+        you the door.</FONT></FONT></P>\r\n<P>\u00a0</P>", "end_date": "2010-11-14
+        18:00:00", "tags": "", "timezone_offset": "GMT+0000", "text_color": "005580",
+        "title_text_color": "", "password": "", "tickets": [{"ticket": {"description":
+        "", "end_date": "2010-11-13 06:30:00", "min": 0, "max": 10, "price": "10,005.50",
+        "quantity_sold": 18, "visible": "false", "currency": "GBP", "quantity_available":
+        25, "type": 0, "id": 9509345, "name": "Guests of BCL"}}, {"ticket": {"description":
+        "These are for those who signed up for BarcampLondon8 June Edition ", "end_date":
+        "2010-10-12 00:00:00", "min": 1, "max": 1, "price": "10,005.50", "quantity_sold":
+        108, "visible": "false", "start_date": "2010-10-04 09:00:00", "currency":
+        "GBP", "quantity_available": 149, "type": 0, "id": 9509365, "name": "BarcampLondon8
+        Alumni"}}, {"ticket": {"description": "On sale 2pm October 13th", "end_date":
+        "2010-11-13 06:30:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold":
+        100, "visible": "false", "start_date": "2010-10-13 14:00:00", "currency":
+        "GBP", "quantity_available": 100, "type": 0, "id": 9518973, "name": "Round
+        1"}}, {"ticket": {"description": "On sale 12pm October 23rd", "end_date":
+        "2010-11-13 06:30:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold":
+        20, "visible": "false", "start_date": "2010-10-23 12:00:00", "currency": "GBP",
+        "quantity_available": 25, "type": 0, "id": 9518975, "name": "Round 2"}}, {"ticket":
+        {"description": "On sale November 1st at 10am", "end_date": "2010-11-13 06:30:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 28, "visible": "false",
+        "start_date": "2010-11-01 10:00:00", "currency": "GBP", "quantity_available":
+        30, "type": 0, "id": 9518979, "name": "Round 3"}}, {"ticket": {"description":
+        "These are for invited students from City University. ", "end_date": "2010-11-11
+        18:00:00", "min": 1, "max": 1, "price": "10,005.50", "quantity_sold": 10,
+        "visible": "true", "currency": "GBP", "quantity_available": 20, "type": 0,
+        "id": 9535725, "name": "City University Student"}}, {"ticket": {"description":
+        "These are for invited staff from City University. ", "end_date": "2010-11-11
+        18:30:00", "min": 1, "max": 1, "price": "10,005.50", "quantity_sold": 1, "visible":
+        "true", "currency": "GBP", "quantity_available": 10, "type": 0, "id": 9535731,
+        "name": "City University Staff"}}, {"ticket": {"description": "", "end_date":
+        "2010-11-13 06:30:00", "min": 1, "max": 2, "price": "10,005.50", "quantity_sold":
+        20, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 9592025, "name": "Sponsors"}}, {"ticket": {"description": "The people
+        making it happen! ", "end_date": "2010-11-13 06:30:00", "min": 1, "max": 1,
+        "price": "10,005.50", "quantity_sold": 13, "visible": "false", "currency":
+        "GBP", "quantity_available": 20, "type": 0, "id": 9592093, "name": "Crew"}},
+        {"ticket": {"description": "", "end_date": "2010-11-12 09:30:00", "min": 0,
+        "max": 0, "price": "0.00", "quantity_sold": 7, "visible": "true", "currency":
+        "GBP", "quantity_available": 1, "type": 0, "id": 9688237, "name": "Late Comers"}}],
+        "created": "2010-10-01 04:32:03", "url": "http://barcamplondon8.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Private", "venue": {"city": "", "name":
+        "", "country": "", "region": "", "longitude": -0.10308299999999999, "postal_code":
+        "EC1V 0HB", "address_2": "", "address": "City University ", "latitude": 51.522739999999999,
+        "country_code": "", "id": 583723, "Lat-Long": "51.52274 / -0.103083"}, "modified":
+        "2012-06-07 18:15:26", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/918917507-1.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/680565590-3.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 680565590, "category":
+        "social,meetings", "box_header_background_color": "EFEFEF", "capacity": 0,
+        "num_attendee_rows": 90.0, "title": "Gadget Geeks of London", "start_date":
+        "2011-01-27 19:00:00", "status": "Completed", "description": "<P>\u00a0</P>\r\n<P>The
+        first 2011 Geeks of London meetup will be all about\u00a0<STRONG>gadgets</STRONG>.
+        Bring along and show off the cool new gadgets you received over Christmas,
+        or the weird old stuff you still have lying around from decades ago!</P>\r\n<P>During
+        the evening we''ll have Melinda Seckington from\u00a0<A HREF=\"http://missgeeky.com/\">MissGeeky.com</A>\u00a0and
+        Julien Fourgeaud from <A HREF=\"http://Fourgeaud.com\">Fourgeaud.com</A>\u00a0to
+        hold short presentations about (of course) gadgets.</P>\r\n<P>\r\n<A HREF=\"http://store.ovi.com/\"></A></P>\r\n<P
+        STYLE=\"text-align: center;\"><IMG SRC=\"http://geeksoflondon.com/images/brands/ovi.png\"
+        ALT=\"\"></P>\r\n<P>Thanks to\u00a0<A HREF=\"http://store.ovi.com/\">Nokia
+        OVI Store</A>\u00a0there will be free drinks and snacks for everyone, and
+        they will be giving a prize away to a lucky someone.</P>\r\n<P><STRONG>When:</STRONG>\u00a0Thursday
+        27th of January 2011<BR><STRONG>Time:</STRONG>\u00a019:00 till late<BR><STRONG>Where:</STRONG>\u00a0The
+        Square Pig - Function room in the basement<BR><STRONG>Address:</STRONG>\u00a0<A
+        HREF=\"http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=30-32+Procter+Street,+Holborn,+London,+WC1V+6NX&sll=51.504968,-0.045488&sspn=0.010792,0.01929&ie=UTF8&hq=&hnear=Procter+St,+London+WC1V,+United+Kingdom&z=16&iwloc=A\">30-32
+        Procter Street, Holborn, London, WC1V 6NX</A></P>\r\n<P>\u00a0</P>", "end_date":
+        "2011-01-27 23:00:00", "tags": "", "timezone_offset": "GMT+0000", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "You
+        want to come along? Let us know!", "end_date": "2011-01-27 18:00:00", "min":
+        1, "max": 2, "price": "0.00", "quantity_sold": 90, "visible": "true", "currency":
+        "GBP", "quantity_available": 90, "type": 0, "id": 10057039, "name": "Attendee"}}],
+        "created": "2011-01-17 14:31:48", "url": "http://gadgetgeeksoflondon.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "London",
+        "name": "The Square Pig", "country": "United Kingdom", "region": "London",
+        "longitude": -0.119197, "postal_code": "WC1V 6NX", "address_2": "Holborn",
+        "address": "30-32 Procter Street", "latitude": 51.518259999999998, "country_code":
+        "GB", "id": 765753, "Lat-Long": "51.51826 / -0.119197"}, "modified": "2012-06-07
+        17:40:30", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/680565590-3.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/680565590-3.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 1320091429, "category":
+        "social,meetings", "box_header_background_color": "EFEFEF", "capacity": 0,
+        "num_attendee_rows": 35.0, "title": "Movie Geeks of London", "start_date":
+        "2011-02-22 19:00:00", "status": "Completed", "description": "<P>Come along
+        to the Square Pig on Tuesday the 22nd to discuss all things Oscar with other
+        movie geeks. We''ll be holding our own award ceremony on the night and attendees
+        can vote for their favourite Oscar nominations. You''ll need to signup here
+        to let us know that you''ll be coming along.</P>\r\n<P><STRONG>When</STRONG>:\u00a0Tuesday
+        22nd of February 2011<BR><STRONG>Time</STRONG>:\u00a019:00 till late<BR><STRONG>Where</STRONG>:\u00a0The
+        Square Pig - Function room in the basement<BR><STRONG>Address</STRONG>:\u00a0<A
+        HREF=\"http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=30-32+Procter+Street,+Holborn,+London,+WC1V+6NX&sll=51.504968,-0.045488&sspn=0.010792,0.01929&ie=UTF8&hq=&hnear=Procter+St,+London+WC1V,+United+Kingdom&z=16&iwloc=A\">30-32
+        Procter Street, Holborn, London, WC1V 6NX</A></P>\r\n<P>\u00a0</P>", "end_date":
+        "2011-03-26 22:00:00", "tags": "", "timezone_offset": "GMT+0000", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "You
+        want to come along? Let us know!", "end_date": "2011-02-22 18:00:00", "min":
+        1, "max": 2, "price": "0.00", "quantity_sold": 35, "visible": "true", "currency":
+        "GBP", "quantity_available": 90, "type": 0, "id": 10238989, "name": "Attendee"}}],
+        "created": "2011-02-14 08:57:31", "url": "http://geeksoflondon.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "London",
+        "name": "The Square Pig", "country": "United Kingdom", "region": "London",
+        "longitude": -0.119197, "postal_code": "WC1V 6NX", "address_2": "Holborn",
+        "address": "30-32 Procter Street", "latitude": 51.518259999999998, "country_code":
+        "GB", "id": 765753, "Lat-Long": "51.51826 / -0.119197"}, "modified": "2012-06-07
+        18:57:24", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/680565590-3.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/711698710-4.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/915541239", "description":
+        "", "long_description": "", "id": 915541239, "name": "HackCamp"}, "background_color":
+        "FFFFFF", "id": 1321766439, "category": "other,sales", "box_header_background_color":
+        "EFEFEF", "capacity": 150, "num_attendee_rows": 130.0, "title": "Linked Gov
+        Data HackCamp", "start_date": "2011-04-09 10:00:00", "status": "Completed",
+        "description": "<P>\u00a0</P>\r\n<P><STRONG><FONT SIZE=\"4\">About Linked
+        Gov Data HackCamp<BR></FONT></STRONG></P>\r\n<P>HackCamp is a free-to-attend
+        weekend hack event for designers, developers and geeks of all types run by
+        the Geeks of London. Keep an eye on\u00a0<A HREF=\"http://www.hackcamp.org.uk/\">http://www.hackcamp.org.uk</A>
+        and\u00a0<A HREF=\"http://www.twitter.com/hackcamp\">http://twitter.com/hackcamp</A>
+        to find out how and when to get a ticket.</P>\r\n<P>\u00a0</P>\r\n<P><STRONG><FONT
+        SIZE=\"4\">What is this place?</FONT></STRONG></P>\r\n<P><STRONG>THIS IS THE
+        TICKET SIGNUP PAGE</STRONG>. You must sign up on this page when the tickets
+        are available.</P>\r\n<P>Being signed up on here will\u00a0<STRONG>GUARANTEE</STRONG>\u00a0you
+        entry to the event.</P>\r\n<P>\u00a0</P>\r\n<P><FONT SIZE=\"4\"><STRONG>Why
+        the LinkedGov / LBi tickets?</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">We like everyone staff, sponsors and hosts to go through the same
+        sign up process to help keep the event safe & secure!</FONT></FONT></P>\r\n<P>\u00a0</P>\r\n<P><FONT
+        SIZE=\"4\"><STRONG>I cant come or I have a question!!</STRONG></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\">Please email\u00a0<A HREF=\"mailto:help@barcamplondon.org\">help@barcamplondon.org</A>\u00a0and
+        we will reallocate your ticket. \u00a0</FONT></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\"><BR></FONT></FONT></P>\r\n<P><FONT SIZE=\"4\"><STRONG>Are there
+        any rules about my ticket?</STRONG></FONT></P>\r\n<P><FONT SIZE=\"4\"><FONT
+        SIZE=\"2\">Just a few rules are attached to your ticket, but nothing scary!</FONT></FONT></P>\r\n<P><FONT
+        SIZE=\"4\"><FONT SIZE=\"2\"><STRONG>Data Protection:</STRONG>\u00a0We may
+        have to share the information we collect in this form with various 3rd parties
+        to allow us to organise HackCamp. For example tell the caterers about any
+        specific dietary requirements.\u00a0<BR><BR><STRONG>Secure Site:</STRONG>
+        HackCamp operate a secure site policy and as such you will be required to
+        provide identification when collecting your badge. If your under 21 dont be
+        offended if we ask you for ID at the bar ;-).<BR><BR><STRONG>Right to Refuse
+        Entry:</STRONG> HackCamp and the organisers retain the right to refuse you
+        entry for any reason, so please don''t turn up drunk, covered in sewage, or
+        with a small flock of geese as we will quickly show you the door.</FONT></FONT></P>\r\n<P>\u00a0</P>",
+        "end_date": "2011-04-10 16:00:00", "tags": "hackday", "timezone_offset": "GMT+0100",
+        "text_color": "005580", "title_text_color": "", "tickets": [{"ticket": {"description":
+        "", "end_date": "2011-03-18 10:05:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 30, "visible": "false", "start_date": "2011-03-10 10:00:00",
+        "currency": "GBP", "quantity_available": 30, "type": 0, "id": 10242569, "name":
+        "HackCamp Attendee"}}, {"ticket": {"description": "On sale  Friday 18th March
+        at 12pm", "end_date": "2011-04-08 10:00:00", "min": 1, "max": 1, "price":
+        "0.00", "quantity_sold": 49, "visible": "true", "start_date": "2011-03-18
+        12:00:00", "currency": "GBP", "quantity_available": 40, "type": 0, "id": 10282587,
+        "name": "HackCamp Attendee"}}, {"ticket": {"description": "These tickets are
+        for LinkedGov invited developers!", "end_date": "2011-04-06 10:00:00", "min":
+        1, "max": 1, "price": "10,005.50", "quantity_sold": 2, "visible": "false",
+        "start_date": "2011-03-01 01:00:00", "currency": "GBP", "quantity_available":
+        10, "type": 0, "id": 10282593, "name": "LinkedGov Developer "}}, {"ticket":
+        {"description": "These tickets are for people invited by LinkedGov to the
+        Sunday Demos!", "end_date": "2011-04-06 10:00:00", "min": 1, "max": 1, "price":
+        "10,005.50", "quantity_sold": 2, "visible": "false", "start_date": "2011-03-01
+        01:00:00", "currency": "GBP", "quantity_available": 10, "type": 0, "id": 10282595,
+        "name": "LinkedGov Demos"}}, {"ticket": {"description": "For LBi Staff who
+        are helping us to signup!", "end_date": "2011-04-06 10:00:00", "min": 1, "max":
+        1, "price": "10,005.50", "quantity_sold": 3, "visible": "false", "start_date":
+        "2011-03-01 01:00:00", "currency": "GBP", "quantity_available": 5, "type":
+        0, "id": 10282601, "name": "LBi Staff"}}, {"ticket": {"description": "Tickets
+        valid for presentations only! You can not attend HackCamp until 2pm on Sunday.  On
+        Sale 12pm!", "end_date": "2011-04-11 10:00:00", "min": 1, "max": 1, "price":
+        "0.00", "quantity_sold": 27, "visible": "true", "start_date": "2011-04-05
+        12:00:00", "currency": "GBP", "quantity_available": 20, "type": 0, "id": 10282603,
+        "name": "HackCamp Presentations Only"}}, {"ticket": {"description": "", "end_date":
+        "2011-04-09 07:00:00", "min": 1, "max": 1, "price": "10,005.50", "quantity_sold":
+        9, "visible": "false", "start_date": "2011-02-01 01:00:00", "currency": "GBP",
+        "quantity_available": 10, "type": 0, "id": 10282615, "name": "HackCamp Crew"}},
+        {"ticket": {"description": "", "end_date": "2011-04-09 07:00:00", "min": 0,
+        "max": 0, "price": "0.00", "quantity_sold": 8, "visible": "false", "currency":
+        "GBP", "quantity_available": 50, "type": 0, "id": 10410667, "name": "Guest
+        of GeeksOfLondon"}}], "created": "2011-02-14 13:57:25", "url": "http://hackcamp.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "London",
+        "name": "Lost Boys International", "country": "United Kingdom", "region":
+        "London", "longitude": -0.071828000000000003, "postal_code": " E1 6ru", "address_2":
+        " 146 Brick Lane", "address": "Atlantis Building, Truman Brewery", "latitude":
+        51.520864000000003, "country_code": "GB", "id": 831641, "Lat-Long": "51.520864
+        / -0.071828"}, "modified": "2012-06-07 18:57:36", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/711698710-4.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920013813-1.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 1920013813, "category":
+        "other,seminars", "box_header_background_color": "EFEFEF", "capacity": 0,
+        "num_attendee_rows": 90.0, "title": "Encampment", "start_date": "2011-08-20
+        09:00:00", "status": "Completed", "description": "<H3>About Encampment</H3>\r\n<P>Encampment
+        is a free-to-attend one day unconference for all types of event organisers
+        it is run by Arran Ross-Paterson, Cristiano Betta, Desigan Chinnah, Johanna
+        Kollmann, Kevin Prince, Melinda Seckington, and Robert Lee Cann with support
+        from Geeks Of London.</P>\r\n<P>Keep an eye on <A HREF=\"http://encampment.geeksoflondon.com\"
+        TARGET=\"_blank\">http://encampment.geeksoflondon.com</A> for more details
+        about the event closer to the date.</P>\r\n<P>\u00a0</P>\r\n<H3>What is this
+        place</H3>\r\n<P><STRONG>THIS IS THE TICKET SIGNUP PAGE.</STRONG> You must
+        sign up on this page when the tickets are available.</P>\r\n<P>\u00a0</P>\r\n<H3>I
+        can''t come or I have a question!!</H3>\r\n<P>Please email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will reallocate your ticket.</P>\r\n<P>\u00a0</P>\r\n<H3>Are there
+        any rules about my ticket?</H3>\r\n<P>Just a few rules are attached to your
+        ticket, but nothing scary!</P>\r\n<P><STRONG>Data Protection</STRONG> The
+        information collected here is processed by Geeks of London for the purpose
+        of running the even. Geeks of London may have to share the information with
+        various 3rd parties to allow us to organise the event. For example tell the
+        caterers about any specific dietary requirements. </P>\r\n<P><STRONG>Secure
+        Site:</STRONG> We operate a secure site policy and as such you will be required
+        to provide identification when collecting your badge. If your under 21 don''t
+        be offended if we ask you for ID at the bar ;-).</P>\r\n<P><STRONG>Right to
+        Refuse Entry:</STRONG> We the organisers retain the right to refuse you entry
+        for any reason, so please don''t turn up drunk, covered in sewage, or with
+        a small flock of geese as we will quickly show you the door.</P>", "end_date":
+        "2011-08-20 18:00:00", "tags": "", "timezone_offset": "GMT+0100", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "",
+        "end_date": "2011-07-21 00:00:00", "min": 1, "max": 1, "price": "10,355.47",
+        "quantity_sold": 47, "visible": "false", "start_date": "2011-07-14 01:00:00",
+        "currency": "GBP", "quantity_available": 50, "type": 0, "id": 11240475, "name":
+        "Invite"}}, {"ticket": {"description": "", "end_date": "2011-07-26 15:00:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 7, "visible": "false",
+        "start_date": "2011-07-26 14:00:00", "currency": "GBP", "quantity_available":
+        15, "type": 0, "id": 11240513, "name": "Attendee"}}, {"ticket": {"description":
+        "", "end_date": "2011-08-19 07:00:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 30, "visible": "true", "start_date": "2011-08-01 12:00:00",
+        "currency": "GBP", "quantity_available": 30, "type": 0, "id": 11240535, "name":
+        "Attendee"}}, {"ticket": {"description": "", "end_date": "2011-08-20 06:00:00",
+        "min": 0, "max": 0, "price": "0.00", "quantity_sold": 6, "visible": "false",
+        "currency": "GBP", "quantity_available": 10, "type": 0, "id": 11240585, "name":
+        "Crew"}}], "created": "2011-07-13 14:17:31", "url": "http://encampmentuk.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "London",
+        "name": "The Innovation Warehouse", "country": "United Kingdom", "region":
+        "London", "longitude": -0.10274999999999999, "postal_code": "EC1A 9PT", "address_2":
+        "", "address": "1 East Poultry Avenue", "latitude": 51.518903999999999, "country_code":
+        "GB", "id": 1135681, "Lat-Long": "51.518904 / -0.10275"}, "modified": "2012-06-07
+        20:01:56", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920013813-1.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920425043-1.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/1291436213", "description":
+        "", "long_description": "", "id": 1291436213, "name": "Barcamp MediaCity UK"},
+        "background_color": "FFFFFF", "id": 1920425043, "category": "other,conventions",
+        "box_header_background_color": "EFEFEF", "capacity": 320, "num_attendee_rows":
+        297.0, "title": "Barcamp MediaCity UK", "start_date": "2011-09-17 10:00:00",
+        "status": "Completed", "description": "<H3 STYLE=\"color: #000000;\"><FONT
+        SIZE=\"0\"><FONT COLOR=\"#ff0000\">\r\n</FONT>\r\n<H3 STYLE=\"text-align:
+        center;\"><FONT COLOR=\"#ff0000\">It''s a SELL OUT!! - We have now given away
+        all the attendee tickets!<BR><BR>Please email <SPAN STYLE=\"text-decoration:
+        underline;\">waiting@geeksoflondon.com</SPAN> if you would like to add yourself
+        to the waiting list including a contact phone number</FONT></H3>\r\n</FONT></H3>\r\n<H3
+        STYLE=\"color: #000000;\">About Barcamp MediaCity UK</H3>\r\n<P>Barcamp MediaCity
+        UK is a free-to-attend weekend unconference for designers, developers and
+        geeks of all types. It is run by Ian Forrestor with support from the BBC and
+        Geeks Of London.</P>\r\n<P STYLE=\"color: #000000;\">Keep an eye on <A HREF=\"http://barcampmediacity.co.uk/\">http://barcampmediacity.co.uk/</A>\u00a0to
+        find out how and when to get a ticket.</P>\r\n<H3 STYLE=\"color: #000000;\">What
+        is this place</H3>\r\n<P STYLE=\"color: #000000;\"><STRONG>THIS IS THE TICKET
+        SIGNUP PAGE.</STRONG> You must sign up on this page when the tickets are available.</P>\r\n<H3
+        STYLE=\"color: #000000;\">I can''t come or I have a question!!</H3>\r\n<P
+        STYLE=\"color: #000000;\">Please email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will reallocate your ticket.</P>\r\n<H3 STYLE=\"color: #000000;\">Are
+        there any rules about my ticket?</H3>\r\n<P STYLE=\"color: #000000;\">Just
+        a few rules are attached to your ticket, but nothing scary!</P>\r\n<P STYLE=\"color:
+        #000000;\"><STRONG>Data Protection</STRONG> The information collected here
+        is processed by Geeks of London for the purpose of running the even. Geeks
+        of London may have to share the information with various 3rd parties to allow
+        us to organise the event. For example tell the caterers about any specific
+        dietary requirements. </P>\r\n<P STYLE=\"color: #000000;\"><STRONG>Secure
+        Site:</STRONG> We operate a secure site policy and as such you will be required
+        to provide identification when collecting your badge. If your under 21 don''t
+        be offended if we ask you for ID at the bar ;-).</P>\r\n<P STYLE=\"color:
+        #000000;\"><STRONG>Right to Refuse Entry:</STRONG> We the organisers retain
+        the right to refuse you entry for any reason, so please don''t turn up drunk,
+        covered in sewage, or with a small flock of geese as we will quickly show
+        you the door.</P>", "end_date": "2011-09-18 17:00:00", "tags": "", "timezone_offset":
+        "GMT+0100", "text_color": "005580", "title_text_color": "", "tickets": [{"ticket":
+        {"description": "", "end_date": "2011-09-07 10:00:00", "min": 1, "max": 1,
+        "price": "0.00", "quantity_sold": 75, "visible": "false", "start_date": "2011-08-10
+        10:00:00", "currency": "GBP", "quantity_available": 75, "type": 0, "id": 11240785,
+        "name": "Attendee"}}, {"ticket": {"description": "", "end_date": "2011-09-07
+        10:00:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold": 99, "visible":
+        "false", "start_date": "2011-08-27 10:00:00", "currency": "GBP", "quantity_available":
+        100, "type": 0, "id": 11240787, "name": "Attendee"}}, {"ticket": {"description":
+        "", "end_date": "2011-09-10 23:55:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 78, "visible": "false", "start_date": "2011-09-01 14:00:00",
+        "currency": "GBP", "quantity_available": 85, "type": 0, "id": 11240835, "name":
+        "Attendee"}}, {"ticket": {"description": "", "end_date": "2011-09-17 07:00:00",
+        "min": 0, "max": 0, "price": "10,355.47", "quantity_sold": 8, "visible": "false",
+        "currency": "GBP", "quantity_available": 15, "type": 0, "id": 11240789, "name":
+        "Crew"}}, {"ticket": {"description": "", "end_date": "2011-09-17 07:00:00",
+        "min": 1, "max": 1, "price": "10,355.47", "quantity_sold": 31, "visible":
+        "false", "currency": "GBP", "quantity_available": 50, "type": 0, "id": 11439947,
+        "name": "BBC Staff"}}, {"ticket": {"description": "", "end_date": "2011-09-17
+        07:00:00", "min": 1, "max": 5, "price": "10,355.47", "quantity_sold": 6, "visible":
+        "false", "start_date": "2011-09-13 01:00:00", "currency": "GBP", "quantity_available":
+        20, "type": 0, "id": 11685028, "name": "Sponsors"}}], "created": "2011-07-13
+        15:43:51", "url": "http://barcampmediacity.eventbrite.com", "box_text_color":
+        "000000", "privacy": "Public", "venue": {"city": "Salford", "name": "BBC Media
+        City UK", "country": "United Kingdom", "region": "Salford", "longitude": -2.2982100000000001,
+        "postal_code": "M50 2EQ", "address_2": "", "address": "MediaCityUK", "latitude":
+        53.471969999999999, "country_code": "GB", "id": 1135937, "Lat-Long": "53.47197
+        / -2.29821"}, "modified": "2012-06-07 20:01:58", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920425043-1.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "box_border_color": "D5D5D3",
+        "timezone": "Europe/London", "organizer": {"url": "http://www.eventbrite.com/org/134961161",
+        "description": "", "long_description": "", "id": 134961161, "name": "Barcamp
+        London"}, "background_color": "FFFFFF", "id": 1920553427, "category": "other,conventions",
+        "box_header_background_color": "EFEFEF", "capacity": 300, "num_attendee_rows":
+        291.0, "title": "Barcamp London 9", "start_date": "2011-10-29 10:00:00", "status":
+        "Completed", "description": "<H3 STYLE=\"color: #000000;\">About Barcamp London
+        9</H3>\r\n<P><BR>BarCamp London 9 is a free-to-attend weekend unconference
+        for designers, developers and geeks of all types.</P>\r\n<P>Keep an eye on
+        <A HREF=\"http://www.barcamplondon.org/\">http://www.barcamplondon.org/ </A>and
+        <A HREF=\"http://twitter.com/barcamplondon\">http://twitter.com/barcamplondon</A>
+        to find out how and when to get a ticket.</P>\r\n<H3 STYLE=\"color: #000000;\">I
+        can''t come or I have a question!!</H3>\r\n<P STYLE=\"color: #000000;\"><BR>Please
+        email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will do our best to answer your questions!</P>\r\n<P STYLE=\"color:
+        #000000;\">\u00a0</P>\r\n<H3 STYLE=\"color: #000000;\">Are there any rules
+        about my ticket?</H3>\r\n<P STYLE=\"color: #000000;\">Just a few rules are
+        attached to your ticket, but nothing scary!</P>\r\n<P STYLE=\"color: #000000;\">\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Your Booking: </STRONG>The information we
+        collect for diet, t-shirt size etc are to help us cater to your requirements
+        however we make no guarantees that these requests will be honoured. \u00a0</P>\r\n<P>\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Data Protection:</STRONG> The information
+        collected here is processed by Geeks of London Limited for the purpose of
+        running the even. Geeks of London Limited may have to share the information
+        with various 3rd parties to allow us to organise the event. For example tell
+        the caterers about any specific dietary requirements.</P>\r\n<P STYLE=\"color:
+        #000000;\"><STRONG>Secure Site: </STRONG>The information collected here is
+        processed by Geeks of London Limited for the purpose of running the event.
+        Geeks of London Limited may have to share the information with various 3rd
+        parties to allow us to organise the event. For example tell the caterers about
+        any specific dietary requirements.</P>\r\n<P STYLE=\"color: #000000;\"><BR><STRONG>Right
+        to Refuse Entry:</STRONG> We the organisers retain the right to refuse you
+        entry for any reason, so please don''t turn up drunk, covered in sewage, or
+        with a small flock of geese as we will quickly show you the door.</P>", "end_date":
+        "2011-10-30 17:00:00", "tags": "", "timezone_offset": "GMT+0100", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "",
+        "end_date": "2011-09-29 13:20:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold":
+        91, "visible": "false", "start_date": "2011-09-29 13:00:00", "currency": "GBP",
+        "quantity_available": 100, "type": 0, "id": 11241003, "name": "Attendee"}},
+        {"ticket": {"description": "", "end_date": "2011-10-26 21:00:00", "min": 1,
+        "max": 1, "price": "0.00", "quantity_sold": 135, "visible": "false", "start_date":
+        "2011-10-03 20:15:00", "currency": "GBP", "quantity_available": 175, "type":
+        0, "id": 11241005, "name": "Attendee"}}, {"ticket": {"description": "", "end_date":
+        "2011-10-29 07:00:00", "min": 0, "max": 0, "price": "0.00", "quantity_sold":
+        2, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 11241009, "name": "Crew"}}, {"ticket": {"description": "", "end_date":
+        "2011-10-29 07:00:00", "min": 1, "max": 1, "price": "1,040.47", "quantity_sold":
+        18, "visible": "false", "currency": "GBP", "quantity_available": 30, "type":
+        0, "id": 11899744, "name": "Student"}}, {"ticket": {"description": "", "end_date":
+        "2011-10-29 07:00:00", "min": 0, "max": 0, "price": "1,040.47", "quantity_sold":
+        13, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 11940386, "name": "Crew"}}, {"ticket": {"description": "", "end_date":
+        "2011-10-29 07:00:00", "min": 0, "max": 0, "price": "1,040.47", "quantity_sold":
+        15, "visible": "true", "currency": "GBP", "quantity_available": 30, "type":
+        0, "id": 11940462, "name": "Sponsor"}}, {"ticket": {"description": "", "end_date":
+        "2011-10-29 07:00:00", "min": 0, "max": 0, "price": "1,040.47", "quantity_sold":
+        16, "visible": "true", "currency": "GBP", "quantity_available": 50, "type":
+        0, "id": 11953676, "name": "Late Comer"}}, {"ticket": {"description": "",
+        "end_date": "2011-10-29 07:00:00", "min": 1, "max": 1, "price": "1,040.47",
+        "quantity_sold": 1, "visible": "false", "currency": "GBP", "quantity_available":
+        2, "type": 0, "id": 11964464, "name": "Ticket Winners"}}], "created": "2011-07-13
+        16:16:22", "url": "http://barcamplondon9.eventbrite.com", "box_text_color":
+        "000000", "privacy": "Public", "venue": {"city": "", "name": "", "country":
+        "", "region": "", "longitude": -0.10308299999999999, "postal_code": "EC1V
+        0HB", "address_2": "", "address": "City University ", "latitude": 51.522739999999999,
+        "country_code": "", "id": 583723, "Lat-Long": "51.52274 / -0.103083"}, "modified":
+        "2012-08-11 04:40:50", "repeats": "no"}}, {"event": {"box_header_text_color":
+        "005580", "link_color": "EE6600", "box_background_color": "FFFFFF", "box_border_color":
+        "D5D5D3", "timezone": "Europe/London", "organizer": {"url": "http://www.eventbrite.com/org/134961161",
+        "description": "", "long_description": "", "id": 134961161, "name": "Barcamp
+        London"}, "background_color": "FFFFFF", "id": 1508737675, "category": "",
+        "box_header_background_color": "EFEFEF", "capacity": 0, "num_attendee_rows":
+        null, "title": "Food Geeks of London", "start_date": "2012-04-15 19:00:00",
+        "status": "Draft", "description": "", "end_date": "2012-04-15 19:00:00", "tags":
+        "", "timezone_offset": "GMT+0100", "text_color": "005580", "title_text_color":
+        "", "tickets": [{"ticket": {"description": "", "end_date": "2012-04-15 18:00:00",
+        "min": 0, "max": 0, "price": "11.25", "quantity_sold": 0, "visible": "true",
+        "currency": "GBP", "quantity_available": 25, "type": 0, "id": 13194297, "name":
+        "Eater"}}], "created": "2012-03-04 13:52:36", "url": "http://www.eventbrite.com/event/1508737675",
+        "box_text_color": "000000", "privacy": "Public", "modified": "2012-06-07 19:17:09",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920013813-1.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 3237147395, "category":
+        "other,seminars", "box_header_background_color": "EFEFEF", "capacity": 0,
+        "num_attendee_rows": 2.0, "title": "Encampment 2012", "start_date": "2012-04-21
+        09:00:00", "status": "Completed", "description": "<H3>About Encampment</H3>\r\n<P>Encampment
+        is a free-to-attend one day unconference for all types of event organisers
+        it is run by Geeks Of London.</P>\r\n<P>Keep an eye on <A HREF=\"http://encampment.geeksoflondon.com\"
+        TARGET=\"_blank\">http://encampment.geeksoflondon.com</A> for more details
+        about the event.</P>\r\n<P>\u00a0</P>\r\n<H3>What is this place</H3>\r\n<P><STRONG>THIS
+        IS THE TICKET SIGNUP PAGE.</STRONG> You must sign up on this page when the
+        tickets are available.</P>\r\n<P>\u00a0</P>\r\n<H3>I can''t come or I have
+        a question!!</H3>\r\n<P>Please email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will reallocate your ticket.</P>\r\n<P>\u00a0</P>\r\n<H3>Are there
+        any rules about my ticket?</H3>\r\n<P>Just a few rules are attached to your
+        ticket, but nothing scary!</P>\r\n<P><STRONG>Data Protection</STRONG> The
+        information collected here is processed by Geeks of London for the purpose
+        of running the even. Geeks of London may have to share the information with
+        various 3rd parties to allow us to organise the event. For example tell the
+        caterers about any specific dietary requirements.</P>\r\n<P><STRONG>Secure
+        Site:</STRONG> We operate a secure site policy and as such you will be required
+        to provide identification when collecting your badge. If your under 21 don''t
+        be offended if we ask you for ID at the bar ;-).</P>\r\n<P><STRONG>Right to
+        Refuse Entry:</STRONG> We the organisers retain the right to refuse you entry
+        for any reason, so please don''t turn up drunk, covered in sewage, or with
+        a small flock of geese as we will quickly show you the door.</P>", "end_date":
+        "2012-04-21 18:00:00", "tags": "", "timezone_offset": "GMT+0100", "text_color":
+        "005580", "title_text_color": "", "tickets": [{"ticket": {"description": "",
+        "end_date": "2012-04-20 18:00:00", "min": 1, "max": 2, "price": "0.00", "quantity_sold":
+        2, "visible": "true", "start_date": "2012-03-27 00:00:00", "currency": "GBP",
+        "quantity_available": 60, "type": 0, "id": 13443267, "name": "Attendee"}}],
+        "created": "2012-03-26 16:42:21", "url": "http://encampment2012.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "London",
+        "name": "The Innovation Warehouse", "country": "United Kingdom", "region":
+        "London", "longitude": -0.10274999999999999, "postal_code": "EC1A 9PT", "address_2":
+        "", "address": "1 East Poultry Avenue", "latitude": 51.518903999999999, "country_code":
+        "GB", "id": 1135681, "Lat-Long": "51.518904 / -0.10275"}, "modified": "2012-06-07
+        22:58:13", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/1920013813-1.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/3584141263-1.jpg",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 3584141263, "category":
+        "other,conventions", "box_header_background_color": "EFEFEF", "capacity":
+        275, "num_attendee_rows": 252.0, "title": "BarCamp Berkshire", "start_date":
+        "2012-07-07 10:00:00", "status": "Completed", "description": "<H3><SPAN STYLE=\"color:
+        #ff0000;\">Ticket Sales are now closed!</SPAN></H3>\r\n<P STYLE=\"font-size:
+        12px; font-weight: normal; line-height: normal;\"><BR>With less than 7 days
+        to go we have now closed the signup for BarCamp Berkshire. If you want to
+        attend please email us help@geeksoflondon.com .</P>\r\n<DIV>\u00a0</DIV>\r\n<H3
+        STYLE=\"color: #000000;\">About BarCamp Berkshire</H3>\r\n<P><BR>BarCamp Berkshire
+        is a free-to-attend weekend unconference for designers, developers and geeks
+        of all types.</P>\r\n<P>Keep an eye on <A HREF=\"http://www.barcampberkshire.com/\"
+        TARGET=\"_blank\">http://www.barcampberkshire.com/</A><A HREF=\"http://www.barcamplondon.org/\">\u00a0</A>and
+        <A HREF=\"http://twitter.com/bcberkshire\">http://twitter.com/bcberkshire</A>\u00a0to
+        find out how and when to get a ticket.</P>\r\n<P>\u00a0</P>\r\n<H3 STYLE=\"color:
+        #000000;\">I can''t come or I have a question!!</H3>\r\n<P STYLE=\"color:
+        #000000;\"><BR>Please email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will do our best to answer your questions!</P>\r\n<P STYLE=\"color:
+        #000000;\">\u00a0</P>\r\n<H3 STYLE=\"color: #000000;\">Are there any rules
+        about my ticket?</H3>\r\n<P STYLE=\"color: #000000;\">Just a few rules are
+        attached to your ticket, but nothing scary!</P>\r\n<P STYLE=\"color: #000000;\">\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Your Booking: </STRONG>The information we
+        collect for diet, t-shirt size etc are to help us cater to your requirements
+        however we make no guarantees that these requests will be honoured. \u00a0<BR>\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Data Protection:</STRONG> The information
+        collected here is processed by Geeks of London Limited for the purpose of
+        running the event. Geeks of London Limited may share this information with
+        various 3rd parties to allow us to organise the event. For example tell the
+        caterers about any specific dietary requirements.</P>\r\n<P STYLE=\"color:
+        #000000;\"><BR><STRONG>Right to Refuse Entry:</STRONG> We the organisers retain
+        the right to refuse you entry for any reason, so please don''t turn up drunk,
+        covered in sewage, or with a small flock of geese as we will quickly show
+        you the door.</P>", "end_date": "2012-07-08 16:00:00", "tags": "", "timezone_offset":
+        "GMT+0100", "text_color": "005580", "title_text_color": "", "tickets": [{"ticket":
+        {"description": "", "end_date": "2012-05-25 12:00:00", "min": 1, "max": 1,
+        "price": "0.00", "quantity_sold": 74, "visible": "false", "start_date": "2012-05-25
+        10:00:00", "currency": "GBP", "quantity_available": 75, "type": 0, "id": 13998031,
+        "name": "Attendee"}}, {"ticket": {"description": "Tickets on sale from 1pm
+        6th June", "end_date": "2012-06-13 16:00:00", "min": 1, "max": 1, "price":
+        "0.00", "quantity_sold": 95, "visible": "false", "start_date": "2012-06-08
+        13:00:00", "currency": "GBP", "quantity_available": 96, "type": 0, "id": 14008419,
+        "name": "Attendee"}}, {"ticket": {"description": "Please use discount code
+        provided on intranet. ", "end_date": "2012-06-27 12:00:00", "min": 1, "max":
+        1, "price": "1,040.47", "quantity_sold": 10, "visible": "false", "start_date":
+        "2012-06-01 13:00:00", "currency": "GBP", "quantity_available": 25, "type":
+        0, "id": 14008421, "name": "O2 Staff"}}, {"ticket": {"description": "", "end_date":
+        "2012-07-07 07:00:00", "min": 1, "max": 20, "price": "106.65", "quantity_sold":
+        15, "visible": "false", "start_date": "2012-05-01 01:00:00", "currency": "GBP",
+        "quantity_available": 20, "type": 0, "id": 14008431, "name": "Crew"}}, {"ticket":
+        {"description": "", "end_date": "2012-07-07 07:00:00", "min": 1, "max": 1,
+        "price": "1,040.47", "quantity_sold": 17, "visible": "false", "start_date":
+        "2012-06-01 12:00:00", "currency": "GBP", "quantity_available": 25, "type":
+        0, "id": 14126520, "name": "Alternate"}}, {"ticket": {"description": "", "end_date":
+        "2012-07-07 07:00:00", "min": 0, "max": 0, "price": "1,040.47", "quantity_sold":
+        1, "visible": "false", "currency": "GBP", "quantity_available": 30, "type":
+        0, "id": 14216282, "name": "Sponsors"}}, {"ticket": {"description": "", "end_date":
+        "2012-07-07 07:00:00", "min": 1, "max": 1, "price": "1,040.47", "quantity_sold":
+        12, "visible": "false", "currency": "GBP", "quantity_available": 20, "type":
+        0, "id": 14266100, "name": "TheLab"}}, {"ticket": {"description": "", "end_date":
+        "2012-06-29 17:30:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold":
+        28, "visible": "false", "start_date": "2012-06-27 12:00:00", "currency": "GBP",
+        "quantity_available": 50, "type": 0, "id": 14377368, "name": "Attendee"}}],
+        "created": "2012-05-18 09:13:22", "url": "http://bcberkshire.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "Slough",
+        "name": "O2 ", "country": "United Kingdom", "region": "Slough", "longitude":
+        -0.63183699999999998, "postal_code": "SL1 4DX", "address_2": "", "address":
+        "260 Bath Road", "latitude": 51.519179000000001, "country_code": "GB", "id":
+        2003829, "Lat-Long": "51.519179 / -0.631837"}, "modified": "2012-07-08 20:35:40",
+        "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/3584141263-1.jpg",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "404040", "link_color":
+        "0f90ba", "box_background_color": "ffffff", "timezone": "Europe/London", "box_border_color":
+        "dedede", "logo": "http://ebmedia.eventbrite.com/s3-build/images/1187230/4470149532/1/logo.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "f7f7f7", "id": 5609911396, "category":
+        "other,conventions", "box_header_background_color": "fafafa", "capacity":
+        275, "num_attendee_rows": 109.0, "title": "env[:hack]", "start_date": "2013-03-16
+        10:30:00", "status": "Completed", "description": "<H3><SPAN STYLE=\"font-size:
+        1.17em;\">About env[:hack]</SPAN></H3>\r\n<P><STRONG>env[:hack]</STRONG> is
+        a Hack Day organised by the <A HREF=\"http://www.environment-agency.gov.uk/\">Environment
+        Agency</A>. We will be bringing together around 80 software and hardware developers,
+        Environment Agency experts and interesting data. The goal is to create cool
+        demos that showcase how technology can help us all be more green and environmentally
+        responsible.</P>\r\n<H3 STYLE=\"color: #000000;\">I can''t come or I have
+        a question!!</H3>\r\n<P STYLE=\"color: #000000;\"><BR>Please email <A HREF=\"mailto:info@envhack.com\">info@envhack.com</A>\u00a0and
+        we will do our best to answer your questions!</P>\r\n<H3 STYLE=\"color: #000000;\">Are
+        there any rules about my ticket?</H3>\r\n<P STYLE=\"color: #000000;\">Just
+        a few rules are attached to your ticket, but nothing scary!</P>\r\n<P STYLE=\"color:
+        #000000;\"><STRONG>Your Booking: </STRONG>The information we collect for diet,
+        t-shirt size etc are to help us cater to your requirements however we make
+        no guarantees that these requests will be honoured. \u00a0</P>\r\n<P STYLE=\"color:
+        #000000;\"><STRONG>Data Protection:</STRONG> The information collected here
+        is processed by Geeks of London Limited for the purpose of running the event.
+        Geeks of London Limited may share this information with various 3rd parties
+        to allow us to organise the event. For example tell the caterers about any
+        specific dietary requirements.</P>\r\n<P STYLE=\"color: #000000;\"><STRONG>Right
+        to Refuse Entry:</STRONG> We the organisers retain the right to refuse you
+        entry for any reason, so please don''t turn up drunk, covered in sewage, or
+        with a small flock of geese as we will quickly show you the door.</P>", "end_date":
+        "2013-03-17 17:00:00", "tags": "", "timezone_offset": "GMT+0000", "text_color":
+        "404040", "title_text_color": "", "tickets": [{"ticket": {"description": "Want
+        to come and hack? This is your ticket!", "end_date": "2013-03-15 17:00:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 66, "visible": "true",
+        "start_date": "2013-02-24 12:00:00", "currency": "GBP", "quantity_available":
+        100, "type": 0, "id": 17322556, "name": "Hacker"}}, {"ticket": {"description":
+        "Only want to come and attend the demos on Sunday? This is your ticket!",
+        "end_date": "2013-03-15 17:00:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold":
+        24, "visible": "true", "start_date": "2013-02-24 12:00:00", "currency": "GBP",
+        "quantity_available": 100, "type": 0, "id": 17322558, "name": "Observer"}},
+        {"ticket": {"description": "Please use discount code provided. ", "end_date":
+        "2013-03-15 17:00:00", "min": 1, "max": 1, "price": "1,040.47", "quantity_sold":
+        19, "visible": "true", "start_date": "2013-02-22 12:00:00", "currency": "GBP",
+        "quantity_available": 25, "type": 0, "id": 17322560, "name": "Staff"}}], "created":
+        "2013-02-22 06:17:02", "url": "http://envhack.eventbrite.com", "box_text_color":
+        "666666", "privacy": "Public", "venue": {"city": "Bristol", "name": "Bristol
+        University, Merchant Venturers Building", "country": "United Kingdom", "region":
+        "City of Bristol", "longitude": -2.603075, "postal_code": "BS8 1UB", "address_2":
+        "", "address": "", "latitude": 51.455848000000003, "country_code": "GB", "id":
+        3104942, "Lat-Long": "51.455848 / -2.603075"}, "modified": "2013-03-17 16:31:29",
+        "logo_ssl": "https://ebmedia.eventbrite.com/s3-build/images/1187230/4470149532/1/logo.png",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/3584141263-1.jpg",
+        "organizer": {"url": "http://www.eventbrite.com/org/839315367", "description":
+        "\u00a0\r\nWelcome to Geeks of London! We organise meetups for all different
+        types of geeks, like movie geeks, comic book geeks, scifi geeks, and many
+        more.\r\nWe hold various events/meetups, for starters, we''ll be organising
+        Movie Geek meetups, Gadget Geek meetups and crazy events like scavenger hunts
+        and pub quizzes.\r\nOur team currently exists of Melinda Seckington, Kevin
+        Prince, Cristiano Betta, and Robert Lee-Cann but we are always looking for
+        people to help us organise more events.\r\nIf you have any ideas, or you want
+        to run your own Geeks of London theme event, please email us on\u00a0info@geeksoflondon.com.",
+        "long_description": "\u00a0\r\nWelcome to Geeks of London! We organise meetups
+        for all different types of geeks, like movie geeks, comic book geeks, scifi
+        geeks, and many more.\r\nWe hold various events/meetups, for starters, we''ll
+        be organising Movie Geek meetups, Gadget Geek meetups and crazy events like
+        scavenger hunts and pub quizzes.\r\nOur team currently exists of Melinda Seckington,
+        Kevin Prince, Cristiano Betta, Robert Lee-Cann, Morena Fiore, and Tom Scott,
+        but we are always looking for people to help us organise more events.\r\nIf
+        you have any ideas, or you want to run your own Geeks of London theme event,
+        please email us on\u00a0info@geeksoflondon.com.", "id": 839315367, "name":
+        "GeeksOfLondon"}, "background_color": "FFFFFF", "id": 6107871809, "category":
+        "other,conventions", "box_header_background_color": "EFEFEF", "capacity":
+        275, "num_attendee_rows": 264.0, "title": "BarCamp Berkshire 2", "start_date":
+        "2013-06-15 10:00:00", "status": "Live", "description": "<H3><SPAN STYLE=\"font-size:
+        16px; line-height: 1.2em;\">About BarCamp Berkshire 2</SPAN></H3>\r\n<P><BR>BarCamp
+        Berkshire is a free-to-attend weekend unconference for designers, developers
+        and geeks of all types.</P>\r\n<P>Keep an eye on <A HREF=\"http://www.barcampberkshire.com/\"
+        TARGET=\"_blank\">http://www.barcampberkshire.com/</A><A HREF=\"http://www.barcamplondon.org/\">\u00a0</A>and
+        <A HREF=\"http://twitter.com/bcberkshire\">http://twitter.com/bcberkshire</A>\u00a0to
+        find out how and when to get a ticket.<BR><SPAN STYLE=\"font-size: 12px;\">\u00a0</SPAN></P>\r\n<H3
+        STYLE=\"color: #000000;\">I can''t come or I have a question!!</H3>\r\n<P
+        STYLE=\"color: #000000;\"><BR>Please email <A HREF=\"mailto:help@geeksoflondon.com\">help@geeksoflondon.com</A>
+        and we will do our best to answer your questions!<BR>\u00a0</P>\r\n<H3 STYLE=\"color:
+        #000000;\">Are there any rules about my ticket?</H3>\r\n<P STYLE=\"color:
+        #000000;\">Just a few rules are attached to your ticket, but nothing scary!<BR>\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Your Booking: </STRONG>The information we
+        collect for diet, t-shirt size etc are to help us cater to your requirements
+        however we make no guarantees that these requests will be honoured. \u00a0<BR>\u00a0</P>\r\n<P
+        STYLE=\"color: #000000;\"><STRONG>Data Protection:</STRONG> The information
+        collected here is processed by Geeks of London Limited and Telefonica UK for
+        the purpose of running the event. Geeks of London Limited and\u00a0Telefonica
+        UK\u00a0may share this information with various 3rd parties to allow us to
+        organise the event. For example tell the caterers about any specific dietary
+        requirements.</P>\r\n<P STYLE=\"color: #000000;\"><BR><STRONG>Right to Refuse
+        Entry:</STRONG> We the organisers retain the right to refuse you entry for
+        any reason.</P>", "end_date": "2013-06-16 17:00:00", "tags": "barcamp", "timezone_offset":
+        "GMT+0100", "text_color": "005580", "title_text_color": "", "tickets": [{"ticket":
+        {"description": "", "end_date": "2013-06-08 10:00:00", "min": 1, "max": 1,
+        "price": "0.00", "quantity_sold": 75, "visible": "false", "start_date": "2013-04-08
+        10:00:00", "currency": "GBP", "quantity_available": 75, "type": 0, "id": 17995877,
+        "name": "Attendee"}}, {"ticket": {"description": "", "end_date": "2013-06-15
+        07:00:00", "min": 1, "max": 20, "price": "0.00", "quantity_sold": 15, "visible":
+        "false", "start_date": "2012-05-01 01:00:00", "currency": "GBP", "quantity_available":
+        30, "type": 0, "id": 17995883, "name": "Crew"}}, {"ticket": {"description":
+        "", "end_date": "2013-06-15 09:00:00", "min": 0, "max": 0, "price": "0.00",
+        "quantity_sold": 2, "visible": "false", "currency": "GBP", "quantity_available":
+        50, "type": 0, "id": 17996175, "name": "Sponsors"}}, {"ticket": {"description":
+        "", "end_date": "2013-06-15 07:00:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 73, "visible": "false", "start_date": "2013-04-16 12:00:00",
+        "currency": "GBP", "quantity_available": 75, "type": 0, "id": 18089185, "name":
+        "Attendee"}}, {"ticket": {"description": "", "end_date": "2013-06-15 07:00:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 3, "visible": "false",
+        "currency": "GBP", "quantity_available": 30, "type": 0, "id": 18089241, "name":
+        "Attendee"}}, {"ticket": {"description": "", "end_date": "2013-06-15 07:00:00",
+        "min": 1, "max": 1, "price": "0.00", "quantity_sold": 13, "visible": "false",
+        "currency": "GBP", "quantity_available": 50, "type": 0, "id": 18137461, "name":
+        "O2 Staff"}}, {"ticket": {"description": "", "end_date": "2013-06-15 07:00:00",
+        "min": 0, "max": 0, "price": "0.00", "quantity_sold": 83, "visible": "true",
+        "currency": "GBP", "quantity_available": 83, "type": 0, "id": 18561523, "name":
+        "The final batch"}}], "created": "2013-04-02 10:42:39", "url": "http://bcberkshire2.eventbrite.com",
+        "box_text_color": "000000", "privacy": "Public", "venue": {"city": "Slough",
+        "name": "O2 ", "country": "United Kingdom", "region": "Slough", "longitude":
+        -0.63183699999999998, "postal_code": "SL1 4DX", "address_2": "", "address":
+        "260 Bath Road", "latitude": 51.519179000000001, "country_code": "GB", "id":
+        2003829, "Lat-Long": "51.519179 / -0.631837"}, "modified": "2013-06-03 00:53:47",
+        "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/3584141263-1.jpg",
+        "repeats": "no"}}, {"event": {"box_header_text_color": "005580", "link_color":
+        "EE6600", "box_background_color": "FFFFFF", "timezone": "Europe/London", "box_border_color":
+        "D5D5D3", "logo": "http://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/6361349969-1.png",
+        "organizer": {"url": "http://www.eventbrite.com/org/3759313267", "description":
+        "", "long_description": "", "id": 3759313267, "name": "The Lab by O2 and Geeks
+        of London"}, "background_color": "FFFFFF", "id": 6361349969, "category": "other,conventions",
+        "box_header_background_color": "EFEFEF", "capacity": 750, "num_attendee_rows":
+        271.0, "title": "HACKED", "start_date": "2013-07-20 10:00:00", "status": "Live",
+        "description": "<H3><SPAN STYLE=\"font-size: 16px; line-height: 1.2em;\">About
+        HACKED</SPAN></H3>\r\n<P><SPAN STYLE=\"font-size: 12px;\">HACKED is a free-to-attend,
+        intense weekend of learning, sharing and building cool stuff. Whether you
+        are an expert or novice, developer or designer, join us for what we guarantee
+        will be a memorable experience.<BR>\u00a0</SPAN></P>\r\n<H3 STYLE=\"color:
+        #000000;\">I can''t come or I have a question!!</H3>\r\n<P STYLE=\"color:
+        #000000;\"><SPAN STYLE=\"font-size: 12px;\">Please email </SPAN><A STYLE=\"font-size:
+        12px;\" HREF=\"mailto:help@hacked.io\">help@hacked.io</A><SPAN STYLE=\"font-size:
+        12px;\">\u00a0and we will do our best to answer your questions!</SPAN></P>",
+        "end_date": "2013-07-21 17:00:00", "tags": "hackday", "timezone_offset": "GMT+0100",
+        "text_color": "005580", "title_text_color": "", "tickets": [{"ticket": {"description":
+        "", "end_date": "2013-07-20 09:00:00", "min": 1, "max": 1, "price": "0.00",
+        "quantity_sold": 181, "visible": "false", "start_date": "2013-04-26 12:00:00",
+        "currency": "GBP", "quantity_available": 200, "type": 0, "id": 18297883, "name":
+        "Attendee"}}, {"ticket": {"description": "", "end_date": "2013-07-20 07:00:00",
+        "min": 0, "max": 0, "price": "0.00", "quantity_sold": 6, "visible": "false",
+        "currency": "GBP", "quantity_available": 6, "type": 0, "id": 18396713, "name":
+        "Event Director"}}, {"ticket": {"description": "", "end_date": "2013-07-20
+        07:00:00", "min": 0, "max": 0, "price": "0.00", "quantity_sold": 35, "visible":
+        "false", "currency": "GBP", "quantity_available": 100, "type": 0, "id": 18404099,
+        "name": "Invitee"}}, {"ticket": {"description": "", "end_date": "2013-07-20
+        07:00:00", "min": 1, "max": 1, "price": "0.00", "quantity_sold": 47, "visible":
+        "true", "start_date": "2013-05-13 01:00:00", "currency": "GBP", "quantity_available":
+        45, "type": 0, "id": 18413849, "name": "Attendee - May Release"}}, {"ticket":
+        {"description": "", "end_date": "2013-07-20 07:00:00", "min": 1, "max": 1,
+        "price": "0.00", "quantity_sold": 2, "visible": "false", "start_date": "2013-05-18
+        12:00:00", "currency": "GBP", "quantity_available": 25, "type": 0, "id": 18692121,
+        "name": "Attendee - 2nd May Release (not 14th)"}}], "created": "2013-04-19
+        09:43:49", "url": "http://hacked.eventbrite.com", "box_text_color": "000000",
+        "privacy": "Public", "venue": {"city": "London", "name": "IndigO2", "country":
+        "United Kingdom", "region": "London", "longitude": 0.002931, "postal_code":
+        "SE10 0DX", "address_2": "Peninsula Square", "address": "The O2", "latitude":
+        51.501868000000002, "country_code": "GB", "id": 3384419, "Lat-Long": "51.501868
+        / 0.002931"}, "modified": "2013-05-18 08:02:06", "logo_ssl": "https://ebmedia.eventbrite.com/s3-s3/eventlogos/588571/6361349969-1.png",
+        "repeats": "no"}}]}'
+    http_version: '1.1'
+  recorded_at: Sat, 08 Jun 2013 15:27:58 GMT
+recorded_with: VCR 2.3.0
