@@ -9,14 +9,14 @@
 
   <!--Are you sure you want to cancel?-->  
   <section id="cancel">
-    <h2>John, you sure you want to cancel?</h2>
+    <h2><%= @attendee.first_name %>, you sure you want to cancel?</h2>
     <%= submit_tag "Yes cancel my ticket", class: "primary" %>
-    <input id="still_attending" type="button" class="secondary" value="No I am Still Coming">
+    <center><a id="still_attending" href="#">No I am still coming</a></center>
   </section>
   
   <!---Your Badge-->
   <section id="badge">
-    <h2>Check whats on you badge</h2>
+    <h2>Check whats on your badge</h2>
     <fieldset>
       <%= label_tag 'first_name' %>
       <%= text_field_tag 'first_name', @attendee.first_name %>
