@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406140433) do
+ActiveRecord::Schema.define(:version => 20130609195601) do
 
   create_table "attendees", :force => true do |t|
     t.string   "first_name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130406140433) do
     t.text     "notes"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "email"
   end
 
   add_index "attendees", ["name"], :name => "index_attendees_on_name"
@@ -74,9 +75,10 @@ ActiveRecord::Schema.define(:version => 20130406140433) do
   create_table "tickets", :force => true do |t|
     t.integer  "attendee_id"
     t.integer  "event_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "kind"
+    t.string   "eventbrite_xid"
   end
 
   add_index "tickets", ["attendee_id", "event_id"], :name => "index_tickets_on_attendee_id_and_event_id", :unique => true

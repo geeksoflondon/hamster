@@ -1,10 +1,11 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendee, :event, :kind
+  attr_accessible :attendee, :event, :kind, :eventbrite_xid
 
   belongs_to :attendee
   belongs_to :event
   has_many :interactions, as: :interactable
 
+  validates :eventbrite_xid, presence: true, uniqueness: true
   validates :attendee_id, presence: true
   validates :event_id, presence: true, uniqueness: { scope: :attendee_id }
   validates :kind, presence: true, inclusion: { in: Ticket::Kind::TYPES }
