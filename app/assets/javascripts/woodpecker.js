@@ -24,12 +24,14 @@ $(document).ready(function(){
   $("#not_attending").click(function() {
     $("#welcome").hide();
     $("#cancel").show();
+    $("#attending").val("false");
   });
   
   //Cancel Screen
   $("#still_attending").click(function() {
     $("#cancel").hide();
     $("#badge").show();
+    $("#attending").val("true");
   });
   
   //Badge Screen
