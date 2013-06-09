@@ -3,6 +3,13 @@ class ConfirmationsController < ApplicationController
 
   layout "confirmations"
 
+  def index
+  end
+
+  def show
+    redirect_to confirmations if params[:id].nil?
+  end
+
   def edit
   end
 
@@ -12,12 +19,6 @@ class ConfirmationsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def show
-  end
-
-  def index
   end
 
   private
