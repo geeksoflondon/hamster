@@ -12,7 +12,7 @@ namespace :campaign_monitor do
       params = [
         {:Key => 'status', :Value => ticket.is_confirmed?.to_s},
         {:Key => 'attending', :Value => ticket.is_attending?.to_s},
-        {:Key => 'token', :Value => ticket.is_attending?.to_s}
+        {:Key => 'token', :Value => ticket.get(Ticket::RETAIN_TOKEN)}
         ]
       
       CreateSend::Subscriber.add "eec576f40dcab219a336a98646e3faad", a.email, a.name, params, true
