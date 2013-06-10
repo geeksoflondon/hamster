@@ -77,4 +77,17 @@ describe "Event" do
     end
   end
 
+  describe "#english_date" do
+    it "should convert the date to a readable format" do
+      start_date = DateTime.new(2013, 8, 15, 8)
+      end_date1 = DateTime.new(2013, 8, 16, 17)
+      event1 = a_saved Event, start_date: start_date, end_date: end_date1
+      event1.english_date.should be == "from August 15th, 2013 to August 16th, 2013"
+
+      end_date2 = DateTime.new(2013, 8, 15, 17)
+      event2 = a_saved Event, start_date: start_date, end_date: end_date2
+      event2.english_date.should be == "on August 15th, 2013"
+    end
+  end
+
 end

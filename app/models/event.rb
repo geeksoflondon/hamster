@@ -21,11 +21,10 @@ class Event < ActiveRecord::Base
   belongs_to :venue
 
   def english_date
-    event_length = (self.end_date - self.start_date).to_i
-    unless event_length > 0
-      "on #{self.start_date.to_formatted_s(:long_ordinal)}"
+    if start_date.to_date === end_date.to_date
+      "on #{self.start_date.to_date.to_formatted_s(:long_ordinal)}"
     else
-      "from #{self.start_date.to_formatted_s(:long_ordinal)} to #{self.end_date.to_formatted_s(:long_ordinal)}"
+      "from #{self.start_date.to_date.to_formatted_s(:long_ordinal)} to #{self.end_date.to_date.to_formatted_s(:long_ordinal)}"
     end
   end
 
@@ -35,5 +34,5 @@ class Event < ActiveRecord::Base
     self.name = "#{name.to_s.strip}"
     true
   end
-  
+
 end
