@@ -21,7 +21,8 @@ def prepare_object_factory
     clean_up: true,
     generate: {
       event: -> { a_saved Event },
-      attendee: -> { a_saved Attendee }
+      attendee: -> { a_saved Attendee },
+      eventbrite_xid: -> { "#{8.random_numbers}" }
     }
 
   Object.factory.when_creating_a Event,
@@ -33,7 +34,8 @@ def prepare_object_factory
       end_date: "02/01/1900"
     },
     generate: {
-      venue: -> { a_saved Venue }
+      venue: -> { a_saved Venue },
+      eventbrite_xid: -> { "#{8.random_numbers}" }
     }
 
   Object.factory.when_creating_a Interaction,
