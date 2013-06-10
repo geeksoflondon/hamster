@@ -5,13 +5,10 @@ class Interaction < ActiveRecord::Base
 
   validates :interactable, presence: true
   validates :key, presence: true
-  validates :value, presence: true, allow_blank: true
 
   after_create :expire_previous_states
 
-  def value=(v)
-    write_attribute(:value, v.to_s)
-  end
+  serialize :value, JSON
 
   protected
 

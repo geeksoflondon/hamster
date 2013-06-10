@@ -1,0 +1,8 @@
+<section id="welcome">
+  <h2>Hey, <%= @attendee.first_name %> <%= @attendee.last_name %></h2>
+  <% if @confirmation.is_attending? %>
+    <p>Your all confirmed and we can't wait to see you!</p>
+  <% else %>
+    <p>Your all cancelled, if you think this is a mistake email us help@geeksoflondon.com</p>
+  <% end %>
+</section>

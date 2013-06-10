@@ -1,0 +1,149 @@
+@import url("boilerplate/normalize.css");
+@import url("boilerplate/main.css");
+
+/*Desktop*/
+
+body {
+  font-size: 1em;
+  padding: 2% 5%;
+}
+
+h1 {
+  font-size: 4em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+p {
+  margin: 1.2em 0em;
+  text-align: center;
+}
+
+header {
+  margin: 1.5em;
+}
+
+header img {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+section {
+  display: none;
+  width: 80%;
+  background-color: #FAFAFA;
+  border: 1px solid #DDD;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  padding: 2% 5%;
+}
+
+section:nth-of-type(1) {
+  display: block;
+}
+
+form {
+  padding: 0.5em;
+}
+
+fieldset {
+  margin: 2% 0 2% 0;
+}
+
+label {
+  min-width: 20%;
+  display: block;
+  float: left;
+  margin: 0 5% 5% 0%;
+  padding: 0.75em 0 0 0;
+  text-align: right;
+  font-weight: bold;
+}
+
+input[type=text], select {
+  min-width: 60%;
+  height: 2.5em;
+  display: block;
+  float: left;
+  padding: 0 0 0 0.5em;
+  font-size: 1em;
+  border: 1px solid #666;
+}
+
+input[type=submit], input[type=button] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 5em;
+}
+
+input[type=submit].primary, input[type=button].primary{
+  min-width: 70%;
+  background-color: #2ECC71;
+  border: #27AE60 1px solid;
+  font-weight: bold;
+}
+
+input[type=submit].secondary, input[type=button].secondary {
+  min-width: 50%;
+  background-color: #E74C3C;
+  border: #C0392B 1px solid;
+  font-weight: bold;
+  color: #fff;
+}
+
+/*Mobile*/
+
+@media only screen and (max-width: 640px) {
+  header {
+    visibility: hidden;
+    display: none;
+  }
+  
+  h2 {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 0.95em;
+  }
+  
+  section {
+    width: 90%;
+    padding-top: 0.5em;
+  }
+
+  label {
+    text-align: left;
+    min-width: 100%;
+    margin-bottom: 0.1em;
+  }
+  
+  input[type=text] {
+    display: relative;
+    margin-bottom: 0.5em;
+  }
+  
+  input[type=submit] {
+    min-width: 90%;
+    margin-top: 2em;
+  }
+  
+  input[type=submit].primary {
+    min-width: 90%;
+    margin-top: 1em;
+  }
+  
+  input[type=submit].secondary {
+    min-width: 90%;
+    margin-top: 1em;
+  }
+  
+}

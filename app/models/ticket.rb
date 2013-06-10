@@ -1,4 +1,6 @@
 class Ticket < ActiveRecord::Base
+  include Interactable
+
   attr_accessible :attendee, :event, :kind, :eventbrite_xid
 
   belongs_to :attendee
@@ -11,10 +13,19 @@ class Ticket < ActiveRecord::Base
   validates :kind, presence: true, inclusion: { in: Ticket::Kind::TYPES }
 
   before_validation :set_kind
+  after_create :generate_retain_token
+
+  RETAIN_TOKEN = "retain_token".freeze
 
   def set_kind
     self.kind ||= Ticket::Kind::REGULAR
     true
+  end
+
+  private
+
+  def generate_retain_token
+    has RETAIN_TOKEN, SecureRandom.urlsafe_base64
   end
 
 end

@@ -24,4 +24,6 @@ group :test do
   gem "object-factory",         github: "brightbox/object-factory"
   gem "rujitsu",                '0.3.3'
   gem "fivemat",                github: "caius/fivemat"
+  gem "cucumber-rails"
+  gem "capybara-webkit"
 end

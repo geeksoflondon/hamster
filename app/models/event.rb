@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  include Interactable
 
   @url_regex = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix
 
@@ -19,11 +20,20 @@ class Event < ActiveRecord::Base
   has_many :attendees, through: :tickets
   belongs_to :venue
 
+  def english_date
+    event_length = (self.end_date - self.start_date).to_i
+    unless event_length > 0
+      "on #{self.start_date.to_formatted_s(:long_ordinal)}"
+    else
+      "from #{self.start_date.to_formatted_s(:long_ordinal)} to #{self.end_date.to_formatted_s(:long_ordinal)}"
+    end
+  end
+
   protected
 
   def sanitize_name
     self.name = "#{name.to_s.strip}"
     true
   end
-
+  
 end
