@@ -13,6 +13,7 @@ class ConfirmationsController < ApplicationController
   end
 
   def update
+    @confirmation.save(params)
     redirect_to :confirmation, id: @confirmation.token
   end
 
