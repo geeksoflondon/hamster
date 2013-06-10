@@ -7,18 +7,13 @@ class ConfirmationsController < ApplicationController
   end
 
   def show
-    redirect_to confirmations if params[:id].nil?
   end
 
   def edit
   end
 
   def update
-    if @confirmation.save(params)
-      redirect_to :confirmation, id: @confirmation.token
-    else
-      render :edit
-    end
+    redirect_to :confirmation, id: @confirmation.token
   end
 
   private
