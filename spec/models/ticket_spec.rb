@@ -21,6 +21,7 @@ describe Ticket do
       ticket1.should be_valid
       ticket2 = a Ticket, eventbrite_xid: "123456"
       ticket2.should_not be_valid
+    end
 
     it "should have a retain token generated" do
       ticket = a_saved Ticket
