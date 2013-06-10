@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
 
   attr_accessible :name, :url, :venue, :start_date, :end_date, :eventbrite_xid
 
+  validates :eventbrite_xid, presence: true, uniqueness: true
   validates :name, presence: true
   validates :url, allow_nil: true, allow_blank: true, format: { with: @url_regex }
   validates :start_date, presence: true
