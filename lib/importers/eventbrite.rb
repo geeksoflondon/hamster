@@ -33,7 +33,7 @@ module Importers
     end
 
     def client
-      @client ||= EventbriteClient.new(app_key: config[:api_key], user_key: config[:user_key] )
+      @client ||= EventbriteClient.new(app_key: ENV['EB_API_KEY'], user_key: ENV['EB_USER_KEY'] )
     end
   end
 end
