@@ -1,10 +1,12 @@
 Hamster::Application.routes.draw do
-  
+
   namespace :zebra do
     root :to => 'sessions#index'
     resource :sessions
     resources :home
   end
+
+  resources :confirmations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
