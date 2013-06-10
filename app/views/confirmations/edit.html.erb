@@ -2,7 +2,7 @@
   <!--Welcome-->
   <section id="welcome">
     <h2>Hello, <%= @attendee.first_name %> <%= @attendee.last_name %></h2>
-    <p>Are you coming to <%= @event.name %> at <%= @event.venue.name %> <%= @event.english_date %>  ?</p>
+    <p>Are you coming to <%= @event.name %> at <%= @event.venue.name %> <%= @event.english_date %>?</p>
     <input id="is_attending" type="button" class="primary" value="I am attending!">
     <input id="not_attending" type="button" class="secondary"  value="Cancel my ticket!">
   </section>
