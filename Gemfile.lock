@@ -53,6 +53,7 @@ GEM
     capybara-webkit (1.0.0)
       capybara (~> 2.0, >= 2.0.2)
       json
+    chameleon (0.2.3)
     colorize (0.5.8)
     commonjs (0.2.6)
     createsend (2.5.0)
@@ -178,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (= 1.1.0)
   capybara-webkit
+  chameleon
   colorize
   createsend
   cucumber-rails
