@@ -1,13 +1,11 @@
 #OnSite Registration Tool
 class Zebra::SessionsController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :create]
   before_filter :logged_in?, :except => [:index, :create, :show]
 
   layout 'zebra'
 
   def index
-    redirect_to :zebra_home_index if check_cookie(cookies[:zebra_token])
     redirect_to :zebra_dashboard_index if check_cookie(cookies[:zebra_token])
   end
   
@@ -17,7 +15,6 @@ class Zebra::SessionsController < ApplicationController
   def create
     if check_cookie(params[:wristband]) === true
       login(params[:wristband])
-      redirect_to :zebra_home_index
       redirect_to :zebra_dashboard_index
     else
       redirect_to :zebra_root
