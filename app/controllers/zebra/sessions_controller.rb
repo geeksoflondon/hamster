@@ -46,11 +46,11 @@ class Zebra::SessionsController < ApplicationController
   end
   
   def attendee
-    get_wristband(cookies[:zebra_token]).attendee
+    @attendee ||= get_wristband(cookies[:zebra_token]).attendee
   end
 
   def event
-    get_wristband(cookies[:zebra_token]).event
+     @event ||= get_wristband(cookies[:zebra_token]).event
   end
 
   def get_wristband(wristband_id = nil)
