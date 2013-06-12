@@ -57,6 +57,12 @@ describe Zebra::SessionsController do
     it "if wristband_id is found and is a crew ticket type" do
       @controller.instance_eval{ check_cookie('123456') }.should eq(true)
     end
+    
+    it "if wristband_id is found and is a manager ticket type" do
+      manager_ticket = a_saved Ticket, kind: Ticket::Kind::MANAGER
+      manager_ticket.interactions.create(:key => 'wristband', :value => '345678')
+      @controller.instance_eval{ check_cookie('345678') }.should eq(true)
+    end
   end
 
 end

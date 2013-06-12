@@ -35,7 +35,7 @@ class Zebra::SessionsController < ApplicationController
     return false if wristband_id.nil?
     wristband = Wristband.find(wristband_id)
     return false unless wristband.present?
-    Wristband.find(wristband_id).kind == Ticket::Kind::CREW 
+    Wristband.find(wristband_id).kind >= Ticket::Kind::CREW 
   end
 
 end
