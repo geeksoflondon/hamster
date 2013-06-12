@@ -3,7 +3,7 @@ Hamster::Application.routes.draw do
   namespace :zebra do
     root :to => 'sessions#index'
     resource :sessions
-    resources :home
+    resources :dashboard
   end
 
   resources :confirmations
