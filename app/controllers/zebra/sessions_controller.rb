@@ -47,6 +47,14 @@ class Zebra::SessionsController < ApplicationController
     cookies.delete :zebra_token
     cookies.delete :zebra_event
   end
+  
+  def attendee
+    get_wristband(cookies[:zebra_token]).attendee
+  end
+
+  def event
+    get_wristband(cookies[:zebra_token]).event
+  end
 
   def get_wristband(wristband_id = nil)
     return false if wristband_id.nil?
