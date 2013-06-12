@@ -1,0 +1,12 @@
+<div class="container">
+  <%= bootstrap_flash %>
+  <%= form_tag(zebra_sessions_url, :method => "post", :class => "form-signin") do %>  
+    <h2>Geeks of London</h2>
+    <h3>Attendee Management</h3>
+    <h4>Please scan your wristband</h4>
+    <input type="password" name="wristband">
+    <br>
+    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+  <% end %>
+
+</div> <!-- /container -->
