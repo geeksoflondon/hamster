@@ -7,7 +7,6 @@ class Wristband
     raise 'Wristband can only be attached to a ticket.' unless ticket.is_a? Ticket
     raise 'Wristband exists already' if self.exists?(wristband_id)
 
-
     ticket.has "wristband", wristband_id
   end
 
