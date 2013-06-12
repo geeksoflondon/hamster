@@ -11,7 +11,7 @@ class Zebra::SessionsController < ApplicationController
 
   def create
     if check_cookie(params[:wristband]) === true
-      cookies[:zebra_token] = params[:wristband]
+      login(params[:wristband])
       redirect_to :zebra_home_index
     else
       redirect_to :zebra_root
@@ -19,7 +19,7 @@ class Zebra::SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete :zebra_token
+    logout
     redirect_to :zebra_root
   end
 
@@ -31,10 +31,27 @@ class Zebra::SessionsController < ApplicationController
     end
   end
 
-  def check_cookie(wristband_id = nil)
+  def login(wristband_id)
+    wristband = get_wristband(wristband_id)
+    cookies[:zebra_token] = params[:wristband]
+    cookies[:zebra_event] = wristband.event_id
+  end
+  
+  def logout
+    cookies.delete :zebra_token
+    cookies.delete :zebra_event
+  end
+
+  def get_wristband(wristband_id = nil)
     return false if wristband_id.nil?
     wristband = Wristband.find(wristband_id)
     return false unless wristband.present?
+    wristband
+  end
+
+  def check_cookie(wristband_id = nil)
+    wristband = get_wristband(wristband_id)
+    return false if wristband == false
     Wristband.find(wristband_id).kind >= Ticket::Kind::CREW 
   end
 
