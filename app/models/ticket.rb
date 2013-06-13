@@ -28,6 +28,7 @@ class Ticket < ActiveRecord::Base
     return "Cancelled" unless self.is_attending?
     "Unknown"
   end
+
   def badge
     case self.kind
     when 1..2
@@ -40,6 +41,17 @@ class Ticket < ActiveRecord::Base
       "Manager"
     end
   end
+
+  def kinds
+    {
+      '1' => 'Attendee',
+      '2' => 'Sponsor',
+      '3' => 'VIP',
+      '4' => 'Crew',
+      '5' => 'Manager'
+    }
+  end
+
   private
 
   def generate_retain_token
