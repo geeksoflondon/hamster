@@ -28,6 +28,18 @@ class Ticket < ActiveRecord::Base
     return "Cancelled" unless self.is_attending?
     "Unknown"
   end
+  def badge
+    case self.kind
+    when 1..2
+      "Attendee"
+    when 3
+      "VIP"
+    when 4
+      "Crew"
+    when 5
+      "Manager"
+    end
+  end
   private
 
   def generate_retain_token
