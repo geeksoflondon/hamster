@@ -6,7 +6,7 @@ class Zebra::TicketController < Zebra::SessionsController
     @ticket = Ticket.find(params[:id])
     @attendee = @ticket.attendee
   end
-  
+
   def update
     ticket = Ticket.find(params[:id])
     attendee = ticket.attendee
@@ -20,6 +20,14 @@ class Zebra::TicketController < Zebra::SessionsController
     ticket.save
     
     redirect_to :zebra_ticket
+  end
+  
+  def new
+    @attendee = Attendee.new
+    @ticket = Ticket.new
+  end
+  
+  def create
   end
   
   def checkin

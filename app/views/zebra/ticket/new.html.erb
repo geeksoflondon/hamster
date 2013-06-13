@@ -1,0 +1,79 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="/zebra/"><%= @event.name %></a>
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">Logged in as <%= @user.name %></p>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= bootstrap_flash %>
+    <div class="span8 offset2">
+      <h1>Adding Attendee</h1>
+      <hr>
+
+      <hr>
+
+      <!--Basic Details-->
+      <%= form_tag :zebra_ticket, method: :put, class: 'form-horizontal' do %>
+        <legend>Basic Details</legend>
+        <div class="control-group">
+          <%= label_tag 'first_name', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'first_name', @attendee.first_name %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'last_name', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'last_name', @attendee.last_name %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'email', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'email', @attendee.email %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'twitter', nil, class: 'control-label' %>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">@</span>
+              <%= text_field_tag 'twitter', @attendee.twitter %>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'notes', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_area_tag 'notes', @attendee.notes %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'kind', 'Ticket Type', class: 'control-label' %>
+          <div class="controls">
+            <%= select_tag 'kind', options_from_collection_for_select(@ticket.kinds, :first, :last, @ticket.kind) %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn">Create Attendee</button>
+          </div>
+        </div>
+      <% end %>
+
+      
+    </div><!--/span-->
+  </div><!--/row-->
+
+  <hr>
+
+  <footer>
+    <p>&copy; Geeks of London 2013</p>
+  </footer>
+
+</div><!--/.fluid-container-->
