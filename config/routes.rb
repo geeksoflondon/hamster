@@ -4,6 +4,13 @@ Hamster::Application.routes.draw do
     root :to => 'sessions#index'
     resource :sessions
     resources :dashboard
+    
+    resources :ticket do
+      get 'checkin'
+      get 'checkout'
+    end
+    
+    resources :wristband
   end
 
   resources :confirmations
