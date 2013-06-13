@@ -22,6 +22,12 @@ class Ticket < ActiveRecord::Base
     true
   end
 
+  def status
+    return "Arrived" if self.is_arrived?
+    return "Attending" if self.is_attending?
+    return "Cancelled" unless self.is_attending?
+    "Unknown"
+  end
   private
 
   def generate_retain_token
