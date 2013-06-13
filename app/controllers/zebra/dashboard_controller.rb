@@ -1,6 +1,6 @@
 class Zebra::DashboardController < Zebra::SessionsController
   
-  before_filter :logged_in?, :attendee, :event
+  before_filter :logged_in?, :user, :event
   
   def index
   end
