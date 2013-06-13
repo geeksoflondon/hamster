@@ -80,13 +80,18 @@
           </tr>
         </thead>
         <tbody>
+          <% 
+            @event.tickets.each do |ticket|
+            attendee = ticket.attendee
+          %>
           <tr>
-            <td>Erin</td>
-            <td>Bowen</td>
-            <td>VIP</td>
-            <td>Expected</td>
-            <td><a class="btn" href="detail.html">View</a></td>             
+            <td><%= attendee.first_name %></td>
+            <td><%= attendee.last_name %></td>
+            <td><%= ticket.badge %></td>
+            <td><%= ticket.status %></td>
+            <td><%= link_to "View", zebra_ticket_path(ticket), class: "btn" %></td>             
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div><!--/span-->
