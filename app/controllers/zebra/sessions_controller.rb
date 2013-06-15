@@ -17,6 +17,7 @@ class Zebra::SessionsController < ApplicationController
       login(params[:wristband])
       redirect_to zebra_dashboard_path
     else
+      flash[:error] = "Sorry your wristband is not allowed to login."
       redirect_to :zebra_root
     end
   end
