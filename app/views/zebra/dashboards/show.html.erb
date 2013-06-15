@@ -1,0 +1,151 @@
+<%= bootstrap_flash %>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="#"><%= @event.name %></a>
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">Logged in as <%= @user.name %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="<%= 'active' if !params[:nav] %>"><%= link_to "All - #{@all.count}", zebra_dashboard_path %></li>
+
+          <li class="nav-header">Attended</li>
+          <li class="<%= 'active' if params[:nav] == "arrived" %>"><%= link_to "Total Attended - #{@arrived.count}", zebra_dashboard_path(nav: "arrived") %></li>
+          <li class="<%= 'active' if params[:nav] == "saturday_arrived" %>"><%= link_to "Saturday Attended - #{@saturday_arrived.count}", zebra_dashboard_path(nav: "saturday_arrived") %></li>
+          <li class="<%= 'active' if params[:nav] == "sunday_arrived" %>"><%= link_to "Sunday Attended - #{@sunday_arrived.count}", zebra_dashboard_path(nav: "sunday_arrived") %></li>
+
+          <li class="nav-header">Still Expected</li>
+          <li class="<%= 'active' if params[:nav] == "still_expected" %>"><%= link_to "Total Still Expected - #{@still_expected.count}", zebra_dashboard_path(nav: "still_expected") %></li>
+          <li class="<%= 'active' if params[:nav] == "saturday_expected" %>"><%= link_to "Saturday Still Expected - #{@saturday_expected.count}", zebra_dashboard_path(nav: "saturday_expected") %></li>
+          <li class="<%= 'active' if params[:nav] == "sunday_expected" %>"><%= link_to "Sunday Still Expected - #{@sunday_expected.count}", zebra_dashboard_path(nav: "sunday_expected") %></li>
+
+
+          <li class="nav-header">Confirmation State</li>
+          <li class="<%= 'active' if params[:nav] == "attending" %>"><%= link_to "Attending - #{@attending.count}", zebra_dashboard_path(nav: "attending") %></li>
+          <li class="<%= 'active' if params[:nav] == "unconfirmed" %>"><%= link_to "Unconfirmed - #{@unconfirmed.count}", zebra_dashboard_path(nav: "unconfirmed") %></li>
+          <li class="<%= 'active' if params[:nav] == "cancelled" %>"><%= link_to "Cancelled - #{@cancelled.count}", zebra_dashboard_path(nav: "cancelled") %></li>
+          <li class="<%= 'active' if params[:nav] == "manually_added" %>"><%= link_to "Added today - #{@manually_added.count}", zebra_dashboard_path(nav: "manually_added") %></li>
+
+          <li class="nav-header">Checkin State</li>
+          <li class="<%= 'active' if params[:nav] == "onsite" %>"><%= link_to "Checked In - #{@onsite.count}", zebra_dashboard_path(nav: "onsite") %></li>
+          <li class="<%= 'active' if params[:nav] == "offsite" %>"><%= link_to "Checked Out - #{@offsite.count}", zebra_dashboard_path(nav: "offsite") %></li>
+
+          <!--
+          <li class="nav-header">Badge Type:</li>
+          <li><a href="#">Attendee - (100)</a></li>
+          <li><a href="#">Sponsor - (100)</a></li>
+          <li><a href="#">VIP - (100)</a></li>
+          <li><a href="#">Crew - (100)</a></li>
+          <li><a href="#">Manager - (100)</a></li>
+          -->
+        </ul>
+      </div>
+
+      <%= link_to "Add Attendee", new_zebra_ticket_path, class: "btn btn-primary btn-block" %>
+
+    </div><!--/span-->
+
+    <div class="span9">
+      <!-- <h4>Attendee Search</h4>
+      <hr>
+      <form id="search-form" class="input-append" action="dashboard.html" type="post">
+        <input id="search-box"
+               type="text"
+               data-provide="typeahead"
+               autocomplete="off"
+               class="input-xxlarge"
+               placeholder="Start typing the name you are looking for:"
+        >
+        <button class="btn" type="button">Search</button>
+      </form>
+
+
+      <hr> -->
+
+      <div>
+        <%= form_tag zebra_dashboard_path, :method => 'get', class: "form-search" do %>
+          <div class="controls">
+            <%= text_field_tag :search, params[:search], class: "input search-query" %>
+            <%= submit_tag "Search", :name => nil, class: "btn" %>
+          </div>
+        <% end %>
+        <%= link_to "All attendees", zebra_dashboard_path , class: "btn" %>
+      </div>
+
+      <table id="attendees" class="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name
+              <i class="icon-arrow-up"></i>
+              <i class="icon-arrow-down"></i>
+              <i class="icon-resize-vertical"></i>
+            </th>
+            <th>Last Name
+              <i class="icon-arrow-up"></i>
+              <i class="icon-arrow-down"></i>
+              <i class="icon-resize-vertical"></i>
+            </th>
+            <th>Type
+             <i class="icon-arrow-up"></i>
+             <i class="icon-arrow-down"></i>
+             <i class="icon-resize-vertical"></i>
+            </th>
+            <th>Status
+             <i class="icon-arrow-up"></i>
+             <i class="icon-arrow-down"></i>
+             <i class="icon-resize-vertical"></i>
+            </th>
+            <th>&nbsp;</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <%
+          if @tickets.present?
+            @tickets.each do |ticket|
+              attendee = ticket.attendee
+            %>
+            <tr>
+              <td><%= attendee.first_name %></td>
+              <td><%= attendee.last_name %></td>
+              <td><%= ticket.badge %></td>
+              <td>
+                <% if @arrived.include?(ticket.id) %>
+                  Arrived
+                <% elsif @attending.include?(ticket.id) %>
+                  Attending
+                <% elsif @cancelled.include?(ticket.id) %>
+                  Cancelled
+                <% elsif @manually_added.include?(ticket.id) %>
+                  Added Today
+                <% else%>
+                  Unconfirmed
+                <% end %>
+              </td>
+              <td><%= link_to "View", zebra_ticket_path(ticket), class: "btn" %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--/span-->
+  </div><!--/row-->
+
+  <hr>
+
+  <footer>
+    <p>&copy; Geeks of London 2013</p>
+  </footer>
+
+</div><!--/.fluid-container-->
+

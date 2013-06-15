@@ -1,0 +1,142 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="/zebra/"><%= @event.name %></a>
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">Logged in as <%= @user.name %></p>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= bootstrap_flash %>
+    <div class="span8 offset2">
+      <%= link_to "< Back to dashboard", zebra_dashboard_path %>
+      <h1><%= @attendee.name %></h1>
+      <hr>
+
+      <div>
+        <% unless @ticket.is_arrived? %>
+          <%= link_to "Register", :zebra_wristband, class: "btn btn-success" %>
+        <% else %>
+        <% if @ticket.is_onsite? %>
+            <%= link_to "Check Out", zebra_ticket_checkout_path(@ticket), class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Check In", zebra_ticket_checkin_path(@ticket), class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to "Swap Wristband", :edit_zebra_wristband, class: "btn btn-inverse" %>
+        <% end %>
+
+        <%= link_to "Print badge", "http://admin:chestnut@mushroom.herokuapp.com/", class: "btn btn-warning" %>
+      </div>
+
+      <hr>
+
+      <!--Basic Details-->
+      <%= form_tag :zebra_ticket, method: :put, class: 'form-horizontal' do %>
+        <legend>Basic Details</legend>
+        <div class="control-group">
+          <%= label_tag 'first_name', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'first_name', @attendee.first_name %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'last_name', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'last_name', @attendee.last_name %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'email', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag 'email', @attendee.email %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'twitter', nil, class: 'control-label' %>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">@</span>
+              <%= text_field_tag 'twitter', @attendee.twitter %>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'notes', nil, class: 'control-label' %>
+          <div class="controls">
+            <%= text_area_tag 'notes', @attendee.notes %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag 'kind', 'Ticket Type', class: 'control-label' %>
+          <div class="controls">
+            <%= select_tag 'kind', options_from_collection_for_select(@ticket.kinds, :first, :last, @ticket.kind) %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn">Update Attendee</button>
+          </div>
+        </div>
+      <% end %>
+
+      <!--Statuses-->
+
+      <div class="form-horizontal">
+        <legend>Tracking Data</legend>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Attending</th>
+              <th>Arrived</th>
+              <th>On Site</th>
+              <th>Cancelled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% if @ticket.is_attending? %>
+                  <i class="icon-ok"></i>
+                <% else %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+              <td>
+                <% if @ticket.is_arrived? %>
+                  <i class="icon-ok"></i>
+                <% else %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+              <td>
+                <% if @ticket.is_onsite? %>
+                  <i class="icon-ok"></i>
+                <% else %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+              <td>
+                <% if @ticket.is_confirmed? && !@ticket.is_attending? %>
+                  <i class="icon-ok"></i>
+                <% else %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!--/span-->
+  </div><!--/row-->
+
+  <hr>
+
+  <footer>
+    <p>&copy; Geeks of London 2013</p>
+  </footer>
+
+</div><!--/.fluid-container-->

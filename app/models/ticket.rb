@@ -22,6 +22,36 @@ class Ticket < ActiveRecord::Base
     true
   end
 
+  def status
+    return "Arrived" if self.is_arrived?
+    return "Attending" if self.is_attending?
+    return "Cancelled" if self.is_confirmed? && !self.is_attending?
+    "Unconfirmed"
+  end
+
+  def badge
+    case self.kind
+    when 1..2
+      "Attendee"
+    when 3
+      "VIP"
+    when 4
+      "Crew"
+    when 5
+      "Manager"
+    end
+  end
+
+  def kinds
+    {
+      '1' => 'Attendee',
+      '2' => 'Sponsor',
+      '3' => 'VIP',
+      '4' => 'Crew',
+      '5' => 'Manager'
+    }
+  end
+
   private
 
   def generate_retain_token
