@@ -2,14 +2,14 @@ Hamster::Application.routes.draw do
 
   namespace :zebra do
     root :to => 'sessions#index'
-    resource :sessions
-    resources :dashboard
-    
-    resources :ticket do
+    resource :sessions, only: [:index, :show, :create, :destroy]
+    resource :dashboard, only: [:show]
+
+    resources :ticket, only: [:new, :create, :show, :update] do
       get 'checkin'
       get 'checkout'
     end
-    
+
     resources :wristband
   end
 

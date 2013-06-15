@@ -25,8 +25,8 @@ class Ticket < ActiveRecord::Base
   def status
     return "Arrived" if self.is_arrived?
     return "Attending" if self.is_attending?
-    return "Cancelled" unless self.is_attending?
-    "Unknown"
+    return "Cancelled" if self.is_confirmed? && !self.is_attending?
+    "Unconfirmed"
   end
 
   def badge
@@ -52,7 +52,7 @@ class Ticket < ActiveRecord::Base
     }
   end
 
-  private
+  # private
 
   def generate_retain_token
     has RETAIN_TOKEN, SecureRandom.urlsafe_base64

@@ -5,14 +5,14 @@ $(document).ready(function() {
   $("input:password:visible:first").focus();
 
   /*Detect if the user is idle*/
-  var idleInterval = setInterval("timerIncrement()", 60000); // 1 minute
+  // var idleInterval = setInterval("timerIncrement()", 60000); // 1 minute
 
-  $(this).mousemove(function (e) {
-      idleTime = 0;
-  });
-  $(this).keypress(function (e) {
-      idleTime = 0;
-  });
+  // $(this).mousemove(function (e) {
+  //     idleTime = 0;
+  // });
+  // $(this).keypress(function (e) {
+  //     idleTime = 0;
+  // });
 
   /*Setup table sorting*/
   if ($("#attendees").length ) {
@@ -48,16 +48,16 @@ $(document).ready(function() {
 
 });
 
-function timerIncrement() {
-    idleTime = idleTime + 1;
-    console.log(idleTime);
-    if (idleTime > 3) { // 3 minutes
-        $.ajax({
-            url: '/zebra/sessions',
-            type: 'DELETE',
-            success: function(result) {
-              window.location.assign("/zebra/sessions");
-            }
-        });
-    }
-}
+// function timerIncrement() {
+//     idleTime = idleTime + 1;
+//     console.log(idleTime);
+//     if (idleTime > 5) { // 3 minutes
+//         $.ajax({
+//             url: '/zebra/sessions',
+//             type: 'DELETE',
+//             success: function(result) {
+//               window.location.assign("/zebra/sessions");
+//             }
+//         });
+//     }
+// }
