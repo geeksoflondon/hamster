@@ -1,0 +1,32 @@
+<%= form_tag :selfserve, method: :put do %>
+  <!--Welcome-->
+  <section id="welcome">
+    <%= bootstrap_flash %>
+    <h2>Hi there!</h2>
+    <p>What would you like to do?</p>
+    <input id="check_in" type="button" class="primary" value="Check In">
+    <input id="check_out" type="button" class="primary"  value="Check out">
+  </section>
+
+  <!--Welcome-->
+  <section id="fleeing">
+    <h2>So quick question:</h2>
+    <p>Are you coming back?</p>
+    <input id="fleeing_forever" type="button" class="primary" value="Yes">
+    <input id="coming_back" type="button" class="primary"  value="No">
+  </section>
+
+
+  <!---Your Badge-->
+  <section id="scanner">
+    <h2>Scan your wristband:</h2>
+    <fieldset>
+      <%= label_tag 'wristband' %>
+      <%= text_field_tag 'wristband' %>
+    </fieldset>
+   <input id="confirm_badge" type="submit" class="primary" value="Next...">
+  </section>
+
+  <%= hidden_field_tag :direction %>
+  <%= hidden_field_tag :returning %>
+<% end %>
