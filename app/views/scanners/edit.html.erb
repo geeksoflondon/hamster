@@ -1,0 +1,12 @@
+<body>
+  <div class="container">
+    <%=  %>
+    <%= form_tag(:scanner, :method => :put, :class => "form-signin") do %>  
+      <h2>Token Redeemer</h2>
+      <h4><%= @token_name %></h4>
+      <input type="password" name="wristband"></br>
+      <button type="submit" class="btn btn-large btn-success">Submit</button>
+      <%= hidden_field_tag :token,  params[:token] %>
+    <% end %>
+  </div>
+</body>
