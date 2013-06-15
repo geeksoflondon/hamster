@@ -52,7 +52,7 @@ class Ticket < ActiveRecord::Base
     }
   end
 
-  # private
+  private
 
   def generate_retain_token
     has RETAIN_TOKEN, SecureRandom.urlsafe_base64
