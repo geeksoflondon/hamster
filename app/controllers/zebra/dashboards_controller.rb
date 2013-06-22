@@ -3,10 +3,8 @@ class Zebra::DashboardsController < Zebra::SessionsController
   before_filter :logged_in?, :user, :event, :attendee_status
 
   def show
-  	if params[:search]
-  		@tickets = event.attendees.where('lower(first_name) LIKE ? or lower(last_name) like ?', "%#{params[:search]}%", "%#{params[:search]}%").map{|a|a.tickets.last}
-  	elsif !params[:nav]
-  		@tickets = @all
+    if !params[:nav]
+      @tickets = @all
     elsif params[:nav] == "still_expected"
       @tickets = Ticket.find(@still_expected)
     elsif params[:nav] == "saturday_expected"
@@ -36,7 +34,7 @@ class Zebra::DashboardsController < Zebra::SessionsController
       @tickets = Ticket.find(@offsite)
     else
       @tickets = []
-  	end
+    end
   end
 
   def attendee_json
