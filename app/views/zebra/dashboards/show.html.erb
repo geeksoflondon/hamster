@@ -54,9 +54,9 @@
     </div><!--/span-->
 
     <div class="span9">
-      <!-- <h4>Attendee Search</h4>
+      <h4>Attendee Search</h4>
       <hr>
-      <form id="search-form" class="input-append" action="dashboard.html" type="post">
+      <form id="search-form" class="input-append" action="#" type="post">
         <input id="search-box"
                type="text"
                data-provide="typeahead"
@@ -68,17 +68,7 @@
       </form>
 
 
-      <hr> -->
-
-      <div>
-        <%= form_tag zebra_dashboard_path, :method => 'get', class: "form-search" do %>
-          <div class="controls">
-            <%= text_field_tag :search, params[:search], class: "input search-query" %>
-            <%= submit_tag "Search", :name => nil, class: "btn" %>
-          </div>
-        <% end %>
-        <%= link_to "All attendees", zebra_dashboard_path , class: "btn" %>
-      </div>
+      <hr>
 
       <table id="attendees" class="table table-striped">
         <thead>

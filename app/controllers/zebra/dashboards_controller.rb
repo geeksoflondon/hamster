@@ -39,6 +39,19 @@ class Zebra::DashboardsController < Zebra::SessionsController
   	end
   end
 
+  def attendee_json
+    attendees = []
+    event.tickets.each do |ticket|
+      attendees << {
+        'ticket_id' => ticket.id,
+        'first_name' => ticket.attendee.first_name,
+        'last_name' => ticket.attendee.last_name
+      }
+    end
+    render :json => attendees
+    expires_in(1.minutes)
+  end
+
   private
 
   def attendee_status
@@ -65,8 +78,6 @@ class Zebra::DashboardsController < Zebra::SessionsController
     @still_expected = @attending - @arrived - @manually_added
     @saturday_expected = Interaction.where(key: "attending_saturday", value: true.to_json, current: true).pluck(:interactable_id) - @arrived - @cancelled
     @sunday_expected = Interaction.where(key: "attending_sunday", value: true.to_json, current: true).pluck(:interactable_id) - @arrived - @cancelled
-
-
   end
 
 end
