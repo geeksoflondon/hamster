@@ -37,17 +37,3 @@ $(document).ready(function() {
   });
 
 });
-
-// function timerIncrement() {
-//     idleTime = idleTime + 1;
-//     console.log(idleTime);
-//     if (idleTime > 5) { // 3 minutes
-//         $.ajax({
-//             url: '/zebra/sessions',
-//             type: 'DELETE',
-//             success: function(result) {
-//               window.location.assign("/zebra/sessions");
-//             }
-//         });
-//     }
-// }
