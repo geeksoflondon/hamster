@@ -103,6 +103,62 @@ describe Interactable do
         expect(@interactable.has_foo?).to be_true
       end
     end
+
+    describe "#interaction_relation_count" do
+      before :all do
+        @event1 = a_saved Event
+        5.times do |i|
+          ticket = a_saved Ticket, attendee: a_saved(Attendee), event: @event1
+          ticket.has :confirmed, true
+          ticket.has :attending, i%3 == 0 ? true : false
+          ticket.has :attending_saturday, i%3 == 0 ? true : false
+        end
+
+        4.times do
+          ticket = a_saved Ticket, attendee: a_saved(Attendee), event: @event1
+          ticket.has :confirmed, false
+        end
+
+        @event2 = a_saved Event
+        10.times do
+          ticket = a_saved Ticket, attendee: a_saved(Attendee), event: @event2
+          ticket.has :confirmed, [true, false].sample
+          ticket.has :attending, [true, false].sample
+        end
+      end
+
+      it "should return a simple count of the interaction for the relations" do
+        expect(@event1.confirmed_tickets_count).to be == 5
+      end
+
+      it "should return a combined count of the interaction for the relations" do
+        expect(@event1.confirmed_and_attending_tickets_count).to be == 2
+      end
+
+      it "should return a 'not' count of the interaction for the relations" do
+        expect(@event1.not_confirmed_tickets_count).to be == 4
+      end
+
+      it "should return a 'not' combined count of the interaction for the relations" do
+        expect(@event1.confirmed_and_not_attending_tickets_count).to be == 3
+      end
+
+      it "should return a simple count of the 2 word interaction for a relation" do
+        expect(@event1.attending_saturday_tickets_count).to be == 2
+      end
+
+      it "should return a combined count of the 2 word interaction for a relation" do
+        expect(@event1.confirmed_and_attending_saturday_tickets_count).to be == 2
+      end
+
+      it "should return a combined count of the 2 word interaction for a relation including a not" do
+        expect(@event1.confirmed_and_not_attending_saturday_tickets_count).to be == 3
+      end
+
+      it "should return the counts of all interactions for a relation" do
+        expect(@event1.all_tickets_counts).to be == {"confirmed"=>5, "attending_saturday"=>2, "attending"=>2}
+      end
+    end
   end
 
   context "for classes" do
