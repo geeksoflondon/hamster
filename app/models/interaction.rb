@@ -10,6 +10,8 @@ class Interaction < ActiveRecord::Base
 
   serialize :value, JSON
 
+  scope :search, ->(key, value, relation, ids){ where(key: key, value: value.to_json, current: true.to_json, interactable_type: relation.singularize.capitalize, interactable_id: ids) }
+
   protected
 
   def expire_previous_states
