@@ -158,6 +158,24 @@ describe Interactable do
       it "should return the counts of all interactions for a relation" do
         expect(@event1.all_tickets_counts).to be == {"confirmed"=>5, "attending_saturday"=>2, "attending"=>2}
       end
+
+      it "should return the ids of all interactions for a relation" do
+        ids = @event1.confirmed_tickets_ids
+        expect(ids).to be_a(Array)
+        expect(ids.length).to be == 5
+        ids.each do |id|
+          expect(id).to be_a(Fixnum)
+        end
+      end
+
+      it "should return al the instances of all interactions for a relation" do
+        tickets = @event1.confirmed_tickets
+        expect(tickets).to be_a(Array)
+        expect(tickets.length).to be == 5
+        tickets.each do |ticket|
+          expect(ticket).to be_a(Ticket)
+        end
+      end
     end
   end
 
