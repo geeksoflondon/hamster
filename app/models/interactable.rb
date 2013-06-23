@@ -33,7 +33,11 @@ module Interactable
     elsif meth.to_s =~ /^all_([a-z]+)_counts$/
       count_all_for $1
     elsif meth.to_s =~ /^([a-z_]+)_([a-z]+)_count$/
-      count_combined_interaction_relations $1.split("_and_"), $2
+      count_combined_interaction_relations $1, $2
+    elsif meth.to_s =~ /^([a-z_]+)_([a-z]+)_ids$/
+      combined_interaction_relation_ids $1, $2
+    elsif meth.to_s =~ /^([a-z_]+)_([a-z]+)$/
+      combined_interaction_relations $1, $2
     else
       super
     end
@@ -72,6 +76,17 @@ module Interactable
   end
 
   def count_combined_interaction_relations interactions, relation
+    combined_interaction_relation_ids(interactions, relation).count
+  end
+
+  def combined_interaction_relations interactions, relation
+    ids = combined_interaction_relation_ids interactions, relation
+    klass = relation.singularize.capitalize.constantize
+    klass.find(ids)
+  end
+
+  def combined_interaction_relation_ids interactions, relation
+    interactions = interactions.split("_and_")
     relation_ids = send(relation).pluck(:id)
     interactions.each do |interaction|
       value = true
@@ -81,6 +96,6 @@ module Interactable
       end
       relation_ids &= Interaction.search(interaction, value, relation, relation_ids).pluck(:interactable_id).uniq
     end
-    relation_ids.count
+    relation_ids
   end
 end
