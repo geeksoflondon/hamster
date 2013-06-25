@@ -6,7 +6,7 @@
       <%= link_to "< Back to dashboard", zebra_dashboard_path %>
       <h1><%= @attendee.name %></h1>
       <hr>
-
+      <%= bootstrap_flash %>
       <div>
         <% unless @ticket.is_arrived? %>
           <%= link_to "Register", :zebra_wristband, class: "btn btn-success" %>
