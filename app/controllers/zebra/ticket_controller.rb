@@ -24,7 +24,7 @@ class Zebra::TicketController < Zebra::SessionsController
 
     ticket.kind = params[:kind]
     ticket.save
-
+    flash[:notice] = "#{attendee.name} is now updated"
     redirect_to :zebra_ticket
   end
 
@@ -40,9 +40,9 @@ class Zebra::TicketController < Zebra::SessionsController
         attendee: @attendee,
         event: @event,
         kind: 1,
-        eventbrite_xid: "lastminute #{params[:first_name]} #{params[:last_name]} #{@attendee.id}"
+        eventbrite_xid: "lastminute_#{params[:first_name]}_#{params[:last_name]}_#{@attendee.id}"
       })
-      @ticket.has "manually_added", true
+      @ticket.is_manually_added!
 
     if @ticket.valid? && @attendee.valid?
       redirect_to zebra_ticket_path(@ticket)
