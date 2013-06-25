@@ -24,101 +24,146 @@
 
       <hr>
 
-      <!--Basic Details-->
-      <%= form_tag :zebra_ticket, method: :put, class: 'form-horizontal' do %>
-        <legend>Basic Details</legend>
-        <div class="control-group">
-          <%= label_tag 'first_name', nil, class: 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag 'first_name', @attendee.first_name %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= label_tag 'last_name', nil, class: 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag 'last_name', @attendee.last_name %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= label_tag 'email', nil, class: 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag 'email', @attendee.email %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= label_tag 'twitter', nil, class: 'control-label' %>
-          <div class="controls">
-            <div class="input-prepend">
-              <span class="add-on">@</span>
-              <%= text_field_tag 'twitter', @attendee.twitter %>
+      <ul class="nav nav-tabs" id="ticketTab">
+        <li class="active"><a href="#ticket">Ticket</a></li>
+        <li><a href="#tracking">Tracking</a></li>
+        <li><a href="#interactions">Interactions</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="ticket">
+          <!--Basic Details-->
+          <%= form_tag :zebra_ticket, method: :put, class: 'form-horizontal' do %>
+            <div class="control-group">
+              <%= label_tag 'first_name', nil, class: 'control-label' %>
+              <div class="controls">
+                <%= text_field_tag 'first_name', @attendee.first_name %>
+              </div>
             </div>
-          </div>
+            <div class="control-group">
+              <%= label_tag 'last_name', nil, class: 'control-label' %>
+              <div class="controls">
+                <%= text_field_tag 'last_name', @attendee.last_name %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag 'email', nil, class: 'control-label' %>
+              <div class="controls">
+                <%= text_field_tag 'email', @attendee.email %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag 'twitter', nil, class: 'control-label' %>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">@</span>
+                  <%= text_field_tag 'twitter', @attendee.twitter %>
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag 'notes', nil, class: 'control-label' %>
+              <div class="controls">
+                <%= text_area_tag 'notes', @attendee.notes %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag 'kind', 'Ticket Type', class: 'control-label' %>
+              <div class="controls">
+                <%= select_tag 'kind', options_from_collection_for_select(@ticket.kinds, :first, :last, @ticket.kind) %>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn">Update Attendee</button>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div class="control-group">
-          <%= label_tag 'notes', nil, class: 'control-label' %>
-          <div class="controls">
-            <%= text_area_tag 'notes', @attendee.notes %>
-          </div>
+        <div class="tab-pane" id="tracking">
+          <!--Statuses-->
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Attending</th>
+                <th>Arrived</th>
+                <th>On Site</th>
+                <th>Cancelled</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <% if @ticket.is_attending? %>
+                    <i class="icon-ok"></i>
+                  <% else %>
+                    <i class="icon-remove"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <% if @ticket.is_arrived? %>
+                    <i class="icon-ok"></i>
+                  <% else %>
+                    <i class="icon-remove"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <% if @ticket.is_onsite? %>
+                    <i class="icon-ok"></i>
+                  <% else %>
+                    <i class="icon-remove"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <% if @ticket.is_confirmed? && !@ticket.is_attending? %>
+                    <i class="icon-ok"></i>
+                  <% else %>
+                    <i class="icon-remove"></i>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-condensed">
+            <legend>Scan Events</legend>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @checkins.each do |checkin| %>
+              <tr>
+                <td><%= checkin[:key] %></td>
+                <td><%= checkin[:value] %></td>
+                <td><%= checkin[:created_at] %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-        <div class="control-group">
-          <%= label_tag 'kind', 'Ticket Type', class: 'control-label' %>
-          <div class="controls">
-            <%= select_tag 'kind', options_from_collection_for_select(@ticket.kinds, :first, :last, @ticket.kind) %>
-          </div>
+        <div class="tab-pane" id="interactions">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                  <th>Created At</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @interactions.each do |interaction| %>
+                <tr>
+                  <td><%= interaction[:key] %></td>
+                  <td><%= interaction[:value] %></td>
+                  <td><%= interaction[:created_at] %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
         </div>
-        <div class="control-group">
-          <div class="controls">
-            <button type="submit" class="btn">Update Attendee</button>
-          </div>
-        </div>
-      <% end %>
-
-      <!--Statuses-->
-
-      <div class="form-horizontal">
-        <legend>Tracking Data</legend>
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th>Attending</th>
-              <th>Arrived</th>
-              <th>On Site</th>
-              <th>Cancelled</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <% if @ticket.is_attending? %>
-                  <i class="icon-ok"></i>
-                <% else %>
-                  <i class="icon-remove"></i>
-                <% end %>
-              </td>
-              <td>
-                <% if @ticket.is_arrived? %>
-                  <i class="icon-ok"></i>
-                <% else %>
-                  <i class="icon-remove"></i>
-                <% end %>
-              </td>
-              <td>
-                <% if @ticket.is_onsite? %>
-                  <i class="icon-ok"></i>
-                <% else %>
-                  <i class="icon-remove"></i>
-                <% end %>
-              </td>
-              <td>
-                <% if @ticket.is_confirmed? && !@ticket.is_attending? %>
-                  <i class="icon-ok"></i>
-                <% else %>
-                  <i class="icon-remove"></i>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
     </div><!--/span-->

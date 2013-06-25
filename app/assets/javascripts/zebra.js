@@ -35,5 +35,10 @@ $(document).ready(function() {
         return item;
       }
   });
+  
+  $('#ticketTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
 
 });

@@ -5,6 +5,8 @@ class Zebra::TicketController < Zebra::SessionsController
   def show
     @ticket = Ticket.find(params[:id])
     @attendee = @ticket.attendee
+    @interactions = @ticket.interactions.order('created_at DESC')
+    @checkins = Interaction.unscoped.where({key: 'onsite', interactable_type: 'Ticket', interactable_id: @ticket.id}).order('created_at DESC')
   end
 
   def new
