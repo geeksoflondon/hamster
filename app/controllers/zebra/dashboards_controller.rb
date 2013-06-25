@@ -53,29 +53,30 @@ class Zebra::DashboardsController < Zebra::SessionsController
   private
 
   def attendee_status
-    @all = @event.tickets
+    @all = event.tickets
 
     # Attended
-    arrived_interactions = Interaction.where(key: "arrived", value: true.to_json, current: true)
-    @arrived = arrived_interactions.pluck(:interactable_id)
-    @saturday_arrived = arrived_interactions.inject([]){|v,k| k.created_at.saturday? ? v << k.interactable_id : v}
-    @sunday_arrived = arrived_interactions.inject([]){|v,k| k.created_at.sunday? ? v << k.interactable_id : v}
+    arrived_interactions = event.arrived_tickets
+    @arrived = event.arrived_tickets_ids
+    @saturday_arrived = event.arrived_saturday_tickets_ids
+    @sunday_arrived = event.arrived_sunday_tickets_ids
 
-    @manually_added = Interaction.where(key: "manually_added", value: true.to_json, current: true).pluck(:interactable_id)
+
+    @manually_added = event.manually_added_tickets_ids
 
     # Confirmation state
-    @attending = Interaction.where(key: "attending", value: true.to_json, current: true).pluck(:interactable_id)
-    @cancelled = Interaction.where(key: "attending", value: false.to_json, current: true).pluck(:interactable_id)
+    @attending = event.attending_tickets_ids
+    @cancelled = event.not_attending_tickets_ids
     @unconfirmed = @all.pluck(:id) - @attending - @cancelled - @manually_added
 
     # Checkin state
-    @onsite = Interaction.where(key: "onsite", value: true.to_json, current: true).pluck(:interactable_id)
-    @offsite = Interaction.where(key: "onsite", value: false.to_json, current: true).pluck(:interactable_id)
+    @onsite = event.onsite_tickets_ids
+    @offsite = event.not_onsite_tickets_ids
 
     # Expected
     @still_expected = @attending - @arrived - @manually_added
-    @saturday_expected = Interaction.where(key: "attending_saturday", value: true.to_json, current: true).pluck(:interactable_id) - @arrived - @cancelled
-    @sunday_expected = Interaction.where(key: "attending_sunday", value: true.to_json, current: true).pluck(:interactable_id) - @arrived - @cancelled
+    @saturday_expected = event.attending_saturday_tickets_ids
+    @sunday_expected = event.attending_sunday_tickets_ids - @arrived - @cancelled
   end
 
 end
