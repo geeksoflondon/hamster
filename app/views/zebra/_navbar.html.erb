@@ -2,11 +2,13 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <a class="brand" href="/zebra"><%= @event.name %></a>
+      <ul class="nav">
+        <li class="active"><a href="/zebra">Home</a></li>
+        <li><a href="#">Scanner</a></li>
+        <li><%= link_to "Logout", {:controller => :sessions, :action => 'destroy' }, :method => :delete %></li>
+      </ul>
       <div class="nav-collapse collapse">
         <p class="navbar-text pull-right">Logged in as <%= @user.name %></p>
-      </div><!--/.nav-collapse -->
-      <div class="nav-collapse collapse">
-        <%= button_to "Logout", {:controller => :sessions, :action => 'destroy' }, :method => :delete %>
       </div><!--/.nav-collapse -->
     </div>
   </div>
