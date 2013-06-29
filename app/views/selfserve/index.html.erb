@@ -1,0 +1,14 @@
+<div class="container selfserve">
+  <%= form_tag '/selfserve', method: :get do %>
+    <section id="scanner" class="jumbotron">
+      <%= bootstrap_flash %>
+      <h1>Hi!</h1>
+      <h3>Please scan your wristband:</h3>
+       <fieldset>
+         <%= password_field_tag 'wristband' %>
+       </fieldset>
+       <button type="submit" class="btn btn-large btn-primary">Submit</button>     
+    </section>
+  <% end %>
+  
+</div>

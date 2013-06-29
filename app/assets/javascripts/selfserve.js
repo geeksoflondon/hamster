@@ -13,33 +13,5 @@
 //= require jquery
 
 $(document).ready(function(){
-  
-  //Welcome Screen
-  $("#check_in").click(function() {
-    $("#welcome").hide();
-    $("#scanner").show();
-    $("#direction").val("onsite");
-    $("#wristband").focus();
-  });
-  
-  $("#check_out").click(function() {
-    $("#welcome").hide();
-    $("#fleeing").show();
-    $("#direction").val("offsite");
-  });
-  
-  $("#fleeing_forever").click(function() {
-    $("#fleeing").hide();
-    $("#scanner").show();
-    $("#returning").val("true");
-    $("#wristband").focus();
-  });
-  
-  $("#coming_back").click(function() {
-    $("#fleeing").hide();
-    $("#scanner").show();
-    $("#returning").val("false");
-    $("#wristband").focus();
-  });  
-  
+    $("input:password:visible:first").focus();
 });
