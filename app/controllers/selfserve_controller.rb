@@ -3,8 +3,14 @@ class SelfserveController < ApplicationController
   layout "selfserve"
   
   def index
+  end
+
+  def create
     ticket = get_wristband(params[:wristband])
     redirect_to "/selfserve/#{ticket.id}" if ticket
+    
+    flash[:error] = "Wristbound not found"  if !ticket.present?
+    redirect_to "/selfserve" if !ticket.present?
   end
 
   def show
