@@ -14,7 +14,7 @@ class Zebra::TicketController < Zebra::SessionsController
   end
 
   def update
-    attendee = ticket.attendee
+    attendee = @ticket.attendee
     attendee.first_name = params[:first_name]
     attendee.last_name = params[:last_name]
     attendee.twitter = params[:twitter]
