@@ -15,6 +15,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :produciton do
+  gem 'unicorn'
+end
+
 group :assets do
   gem 'less-rails'
   gem 'therubyracer',           :platforms => :ruby
