@@ -25,6 +25,7 @@ class Zebra::WristbandController < Zebra::SessionsController
 
     begin
       Wristband.create(@ticket, params[:wristband])
+      flash[:notice] = "Wristband update!"
       redirect_to :zebra_ticket
     rescue Exception => e 
       flash[:error] = e.message
