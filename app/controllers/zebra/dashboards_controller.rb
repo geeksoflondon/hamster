@@ -39,7 +39,7 @@ class Zebra::DashboardsController < Zebra::SessionsController
 
   def attendee_json
     attendees = []
-    event.tickets.each do |ticket|
+    event.tickets.includes(:attendee).each do |ticket|
       attendees << {
         'ticket_id' => ticket.id,
         'first_name' => ticket.attendee.first_name,
@@ -53,7 +53,7 @@ class Zebra::DashboardsController < Zebra::SessionsController
   private
 
   def attendee_status
-    @all = event.tickets
+    @all = event.tickets.includes(:attendee)
 
     # Attended
     arrived_interactions = event.arrived_tickets
