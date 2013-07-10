@@ -8,9 +8,9 @@ widget :attendees_rag do
   unconfirmed = total - confirmed - cancelled
   data do
     {
-      :red => {:label => cancelled, :value => 'Cancelled'},
-      :amber => {:label => unconfirmed, :value => 'Unconfirmed'},
-      :green => {:label => confirmed, :value => 'Confirmed'}
+      :red => {:value => cancelled, :label => 'Cancelled'},
+      :amber => {:value => unconfirmed, :label => 'Unconfirmed'},
+      :green => {:value => confirmed, :label => 'Confirmed'}
     }
   end
 end
