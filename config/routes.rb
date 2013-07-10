@@ -10,6 +10,7 @@ Hamster::Application.routes.draw do
     resources :ticket, only: [:new, :create, :show, :update] do
       get 'checkin'
       get 'checkout'
+      get 'cancel'
     end
 
     resources :wristband

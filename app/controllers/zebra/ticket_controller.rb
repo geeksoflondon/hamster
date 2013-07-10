@@ -64,6 +64,13 @@ class Zebra::TicketController < Zebra::SessionsController
     redirect_to "/zebra/ticket/#{@ticket.id}"
   end
   
+  def cancel
+    @ticket.is_confirmed!
+    @ticket.isnt_attending!
+    flash[:notice] = "#{@ticket.attendee.name} is now cancelled"
+    redirect_to "/zebra"
+  end
+  
   private
   
   def ticket

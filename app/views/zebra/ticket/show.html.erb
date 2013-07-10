@@ -20,6 +20,10 @@
         <% end %>
 
         <%= link_to "Print badge", "http://admin:chestnut@mushroom.herokuapp.com/", class: "btn btn-warning" %>
+        
+        <% unless @ticket.is_confirmed?  %>
+          <%= link_to "Cancel Ticket", zebra_ticket_cancel_path(@ticket), class: "btn btn-danger" %>
+        <% end %>
       </div>
 
       <hr>
