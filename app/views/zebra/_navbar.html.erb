@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <a class="brand" href="/zebra"><%= @event.name %></a>
       <ul class="nav">
-        <li class="active"><a href="/zebra">Home</a></li>
-        <li><a href="#">Scanner</a></li>
+        <li><a href="/zebra">Home</a></li>
+        <li><a href="/zebra/scanner">Scanner</a></li>
         <li><%= link_to "Logout", {:controller => :sessions, :action => 'destroy' }, :method => :delete %></li>
       </ul>
       <div class="nav-collapse collapse">
