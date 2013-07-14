@@ -1,0 +1,14 @@
+<%= render "zebra/navbar" %>
+
+<div class="container">
+  <%= bootstrap_flash %>
+  <%= form_tag(zebra_scanner_url, :method => "post", :class => "form-signin") do %>  
+    <h3>Wristband Scanner</h3>
+    <h4>Please scan your wristband</h4>
+    <%= select_tag 'token', options_from_collection_for_select(@tokens, :first, :last, @selected) %><br/>
+    <input type="password" name="wristband" maxlength="10">
+    <br>
+    <button class="btn btn-large btn-primary" type="submit">Submit</button>
+  <% end %>
+
+</div> <!-- /container -->
