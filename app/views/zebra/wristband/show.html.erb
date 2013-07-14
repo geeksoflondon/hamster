@@ -5,7 +5,7 @@
     <%= bootstrap_flash %>
     <h2>Registering <%= @attendee.name %></h2>
     <h4>Please scan the wristband</h4>
-    <input type="password" name="wristband">
+    <input type="password" name="wristband" maxlength="10">
     <br>
     <button class="btn btn-large btn-primary" type="submit">Register</button>
   <% end %>
