@@ -4,6 +4,7 @@ Hamster::Application.routes.draw do
     root :to => 'sessions#index'
     resource :sessions, only: [:index, :show, :create, :destroy]
     resource :dashboard, only: [:show]
+    resource :scanner, only: [:show, :create]
     
     get 'attendees.json' => 'dashboards#attendee_json'
 
