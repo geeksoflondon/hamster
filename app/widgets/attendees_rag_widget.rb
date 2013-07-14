@@ -3,14 +3,14 @@ widget :attendees_rag do
   type "rag"
   event = Event.find(2)
   total = event.tickets.count
-  confirmed = event.confirmed_tickets_ids.count
+  attending = event.attending_tickets_ids
   cancelled = event.not_attending_tickets_ids.count
-  unconfirmed = total - confirmed - cancelled
+  unconfirmed = total - attending - cancelled
   data do
     {
       :red => {:value => cancelled, :label => 'Cancelled'},
       :amber => {:value => unconfirmed, :label => 'Unconfirmed'},
-      :green => {:value => confirmed, :label => 'Confirmed'}
+      :green => {:value => attending, :label => 'Attending'}
     }
   end
 end
