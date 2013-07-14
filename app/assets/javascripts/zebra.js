@@ -36,6 +36,9 @@ $(document).ready(function() {
       }
   });
   
+  /*Auto Focus on search box*/
+  $("#search-box").focus();
+  
   $('#ticketTab a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
