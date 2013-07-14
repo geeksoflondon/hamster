@@ -67,3 +67,10 @@ body {
 }
 
 @import url("bootstrap/bootstrap-responsive.css");
+
+
+@media only screen and (max-width: 640px) {
+  body {
+    padding-top: 0px;
+  }
+}
