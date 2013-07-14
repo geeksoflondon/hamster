@@ -3,7 +3,7 @@ widget :attendees_rag do
   type "rag"
   event = Event.find(2)
   total = event.tickets.count
-  attending = event.attending_tickets_ids
+  attending = event.attending_tickets_ids.count
   cancelled = event.not_attending_tickets_ids.count
   unconfirmed = total - attending - cancelled
   data do
