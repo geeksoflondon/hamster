@@ -1,4 +1,11 @@
-<table>
+<table border='1' cellpadding="10" >
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Green</td>
+    <td>Type</td>
+    <td>Notes</td>
+  <tr>
 <%
 if @tickets.present?
   @tickets.each do |ticket|
@@ -8,6 +15,8 @@ if @tickets.present?
     <td><%= attendee.first_name %></td>
     <td><%= attendee.last_name %>
     <td><%= "Yes" unless attendee.diet == 1 %></td>
+    <td><%= ticket.badge %>
+    <td><%= attendee.notes %>
   </tr>
   <% end %>
 <% end %>
