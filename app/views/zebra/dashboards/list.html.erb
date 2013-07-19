@@ -1,0 +1,14 @@
+<table>
+<%
+if @tickets.present?
+  @tickets.each do |ticket|
+    attendee = ticket.attendee
+  %>
+  <tr>
+    <td><%= attendee.first_name %></td>
+    <td><%= attendee.last_name %>
+    <td><%= "Yes" unless attendee.diet == 1 %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
