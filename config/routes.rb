@@ -3,7 +3,9 @@ Hamster::Application.routes.draw do
   namespace :zebra do
     root :to => 'sessions#index'
     resource :sessions, only: [:index, :show, :create, :destroy]
-    resource :dashboard, only: [:show]
+    resource :dashboard, only: [:show] do
+      get 'list'
+    end
     resource :scanner, only: [:show, :create]
     
     get 'attendees.json' => 'dashboards#attendee_json'
