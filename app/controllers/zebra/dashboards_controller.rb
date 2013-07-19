@@ -50,6 +50,10 @@ class Zebra::DashboardsController < Zebra::SessionsController
     expires_in(1.minutes)
   end
 
+  def list
+    @tickets = @all
+  end
+
   private
 
   def attendee_status
