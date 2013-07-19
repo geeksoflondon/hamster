@@ -16,3 +16,4 @@ rerun.txt
 pickle-email-*.html
 config/*.yml
 .DS_Store
+*.dump
