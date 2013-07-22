@@ -13,6 +13,7 @@ namespace :campaign_monitor do
         {:Key => 'has_ticket', :Value => 'true'},
         {:Key => 'status', :Value => ticket.is_confirmed?.to_s},
         {:Key => 'attending', :Value => ticket.is_attending?.to_s},
+        {:Key => 'arrived', :Value => ticket.is_arrived?.to_s},
         {:Key => 'token', :Value => ticket.get(Ticket::RETAIN_TOKEN)}
         ]
       
