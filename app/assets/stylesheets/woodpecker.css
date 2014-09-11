@@ -26,7 +26,6 @@ p {
 
 header {
   margin: 1.5em;
-  background-color: #161744;
   text-align: center;
   padding: 2% 5%;
   width: 79%;
@@ -110,16 +109,16 @@ input[type=submit].secondary, input[type=button].secondary {
     visibility: hidden;
     display: none;
   }
-  
+
   h2 {
     font-size: 1em;
     font-weight: bold;
   }
-  
+
   p {
     font-size: 0.95em;
   }
-  
+
   section {
     width: 90%;
     padding-top: 0.5em;
@@ -130,25 +129,25 @@ input[type=submit].secondary, input[type=button].secondary {
     min-width: 100%;
     margin-bottom: 0.1em;
   }
-  
+
   input[type=text] {
     display: relative;
     margin-bottom: 0.5em;
   }
-  
+
   input[type=submit] {
     min-width: 90%;
     margin-top: 2em;
   }
-  
+
   input[type=submit].primary {
     min-width: 90%;
     margin-top: 1em;
   }
-  
+
   input[type=submit].secondary {
     min-width: 90%;
     margin-top: 1em;
   }
-  
+
 }
