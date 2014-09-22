@@ -2,7 +2,7 @@ class Zebra::TicketController < Zebra::SessionsController
 
   before_filter :logged_in?, :user, :event
   before_filter :ticket, :except => [:new, :create]
-  
+
   def show
     @attendee = @ticket.attendee
     @interactions = @ticket.interactions.order('created_at DESC')
@@ -54,6 +54,7 @@ class Zebra::TicketController < Zebra::SessionsController
 
   def checkin
     @ticket.is 'onsite'
+    @ticket.is_arrived!
     flash[:notice] = "#{@ticket.attendee.name} is now checked in"
     redirect_to "/zebra/ticket/#{@ticket.id}"
   end
@@ -63,16 +64,16 @@ class Zebra::TicketController < Zebra::SessionsController
     flash[:notice] = "#{@ticket.attendee.name} is now checked out"
     redirect_to "/zebra/ticket/#{@ticket.id}"
   end
-  
+
   def cancel
     @ticket.is_confirmed!
     @ticket.isnt_attending!
     flash[:notice] = "#{@ticket.attendee.name} is now cancelled"
     redirect_to "/zebra"
   end
-  
+
   private
-  
+
   def ticket
     params[:id] = params[:ticket_id] if params[:id].nil?
     @ticket = Ticket.find(params[:id])

@@ -9,7 +9,7 @@
       <%= bootstrap_flash %>
       <div>
         <% unless @ticket.is_arrived? %>
-          <%= link_to "Register", :zebra_wristband, class: "btn btn-success" %>
+          <%= link_to "Register", zebra_ticket_checkin_path(@ticket), class: "btn btn-success" %>
         <% else %>
         <% if @ticket.is_onsite? %>
             <%= link_to "Check Out", zebra_ticket_checkout_path(@ticket), class: "btn btn-danger" %>
@@ -20,7 +20,7 @@
         <% end %>
 
         <%= link_to "Print badge", "http://admin:chestnut@mushroom.herokuapp.com/", class: "btn btn-warning" %>
-        
+
         <% unless @ticket.is_confirmed?  %>
           <%= link_to "Cancel Ticket", zebra_ticket_cancel_path(@ticket), class: "btn btn-danger" %>
         <% end %>
